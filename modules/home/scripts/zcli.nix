@@ -11,7 +11,7 @@ in
     set -euo pipefail
 
     # --- Configuration ---
-    PROJECT="zaneyos"   #ddubos or zaneyos
+    PROJECT="ikta-nix"   #ddubos or ikta-nix
     PROFILE="${profile}"
     BACKUP_FILES_STR="${backupFilesString}"
     VERSION="1.0.1"

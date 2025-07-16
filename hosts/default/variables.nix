@@ -60,7 +60,7 @@
   # Set Stylix Image
   # This will set your color palette
   # Default background
-  # Add new images to ~/zaneyos/wallpapers
+  # Add new images to ~/ikta-nix/wallpapers
   stylixImage = ../../wallpapers/mountainscapedark.jpg;
   #stylixImage = ../../wallpapers/AnimeGirlNightSky.jpg;
   #stylixImage = ../../wallpapers/Anime-Purple-eyes.png;

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 ######################################
-# Install script for zaneyos  
-# Author:  Don Williams 
-# Date: June 27, 2005 
+# Install script for ikta-nix  
+# Author:  Imam Rafii
+# Date: July 16, 20w5 
 #######################################
 
 # Define colors
@@ -32,8 +32,8 @@ print_error() {
 
 # Function to print a success banner
 print_success_banner() {
-  echo -e "${GREEN}╔═════��═════════════════════════════════════════════════════════════════╗${NC}"
-  echo -e "${GREEN}║                 ZaneyOS Installation Successful!                      ║${NC}"
+  echo -e "${GREEN}╔═════��════════════════════════════════════════════════════════════════╗${NC}"
+  echo -e "${GREEN}║                 ikta-nix Installation Successful!                     ║${NC}"
   echo -e "${GREEN}║                                                                       ║${NC}"
   echo -e "${GREEN}║   Please reboot your system for changes to take full effect.          ║${NC}"
   echo -e "${GREEN}║                                                                       ║${NC}"
@@ -43,10 +43,10 @@ print_success_banner() {
 # Function to print a failure banner
 print_failure_banner() {
   echo -e "${RED}╔═══════════════════════════════════════════════════════════════════════╗${NC}"
-  echo -e "${RED}║                 ZaneyOS Installation Failed!                          ║${NC}"
+  echo -e "${RED}║                 ikta-nix Installation Failed!                         ║${NC}"
   echo -e "${RED}║                                                                       ║${NC}"
   echo -e "${RED}║   Please review the log file for details:                             ║${NC}"
-  echo -e "${RED}║   ${LOG_FILE}                                                        ║${NC}"
+  echo -e "${RED}║   ${LOG_FILE}                                                         ║${NC}"
   echo -e "${RED}║                                                                       ║${NC}"
   echo -e "${RED}╚═══════════════════════════════════════════════════════════════════════╝${NC}"
 }
@@ -152,29 +152,29 @@ if [ -z "$profile" ]; then
 fi
 
 
-print_header "Backup Existing ZaneyOS (if any)"
+print_header "Backup Existing ikta-nix (if any)"
 
 backupname=$(date +"%Y-%m-%d-%H-%M-%S")
-if [ -d "zaneyos" ]; then
-  echo -e "${GREEN}zaneyos exists, backing up to .config/zaneyos-backups folder.${NC}"
-  if [ -d ".config/zaneyos-backups" ]; then
-    echo -e "${GREEN}Moving current version of ZaneyOS to backups folder.${NC}"
-    mv "$HOME"/zaneyos .config/zaneyos-backups/"$backupname"
+if [ -d "ikta-nix" ]; then
+  echo -e "${GREEN}ikta-nix exists, backing up to .config/ikta-nix-backups folder.${NC}"
+  if [ -d ".config/ikta-nix-backups" ]; then
+    echo -e "${GREEN}Moving current version of ikta-nix to backups folder.${NC}"
+    mv "$HOME"/ikta-nix .config/ikta-nix-backups/"$backupname"
     sleep 1
   else
-    echo -e "${GREEN}Creating the backups folder & moving ZaneyOS to it.${NC}"
-    mkdir -p .config/zaneyos-backups
-    mv "$HOME"/zaneyos .config/zaneyos-backups/"$backupname"
+    echo -e "${GREEN}Creating the backups folder & moving ikta-nix to it.${NC}"
+    mkdir -p .config/ikta-nix-backups
+    mv "$HOME"/ikta-nix .config/ikta-nix-backups/"$backupname"
     sleep 1
   fi
 else
-  echo -e "${GREEN}Thank you for choosing ZaneyOS.${NC}"
+  echo -e "${GREEN}Thank you for choosing ikta-nix.${NC}"
   echo -e "${GREEN}I hope you find your time here enjoyable!${NC}"
 fi
 
-print_header "Cloning ZaneyOS Repository"
-git clone https://gitlab.com/zaney/zaneyos.git --depth=1 -b stable-2.3  ~/zaneyos
-cd ~/zaneyos || exit 1
+print_header "Cloning ikta-nix Repository"
+git clone https://gitlab.com/IktaS/ikta-nix.git  ~/ikta-nix
+cd ~/ikta-nix || exit 1
 
 print_header "Configuring Host and Profile"
 mkdir -p hosts/"$hostName"
@@ -238,7 +238,7 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     exit 1
 fi
 
-sudo nixos-rebuild boot --flake ~/zaneyos/#${profile}
+sudo nixos-rebuild boot --flake ~/ikta-nix/#${profile}
 
 # Check the exit status of the last command (nixos-rebuild)
 if [ $? -eq 0 ]; then

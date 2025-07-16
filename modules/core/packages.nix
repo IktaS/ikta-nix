@@ -69,5 +69,6 @@
     v4l-utils # Used For Things Like OBS Virtual Camera
     wget # Tool For Fetching Files With Links
     ytmdl # Tool For Downloading Audio From YouTube
+    youtube-music # Youtube Music Desktop App
   ];
 }

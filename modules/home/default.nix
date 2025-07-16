@@ -35,6 +35,7 @@ in {
       ./obs-studio.nix
       ./rofi
       ./qt.nix
+      ./zen-browser.nix
       ./scripts
       ./scripts/gemini-cli.nix
       #./starship.nix

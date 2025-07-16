@@ -8,7 +8,6 @@
   programs.zen-browser = {
     enable = true;
     policies = {
-        {
             ExtensionSettings = {
                 "wappalyzer@crunchlabz.com" = {
                     install_url = "https://addons.mozilla.org/firefox/downloads/file/4482384/wappalyzer-6.10.82.xpi";
@@ -23,7 +22,6 @@
                     installation_mode = "force_installed";
                 };
             };
-        }
-    }
+    };
   };
 }

@@ -25,9 +25,9 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-  host = "ikta-nix-oem";
-  profile = "vm";
-    username = "IktaS";
+  host = "ikta";
+  profile = "nvidia";
+    username = "ikta-nix";
   in {
     nixosConfigurations = {
       amd = nixpkgs.lib.nixosSystem {

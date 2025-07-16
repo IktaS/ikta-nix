@@ -65,15 +65,6 @@ in {
       theme = "sddm-astronaut-theme";
     };
   };
-  services.xserver = {
-    xrandrHeads=[
-      {
-        output="${primaryMonitor}";
-        primary=true;
-      }
-    ];
-    exportConfiguration=true;
-  };
 
   environment.systemPackages = [sddm-astronaut];
 

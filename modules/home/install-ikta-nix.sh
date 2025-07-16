@@ -179,11 +179,9 @@ mkdir -p hosts/"$hostName"
 cp hosts/default/*.nix hosts/"$hostName"
 
 installusername=$(echo $USER)
-git config --global user.name "$installusername"
-git config --global user.email "$installusername@gmail.com"
+git config --global user.name "IktaS"
+git config --global user.email "imamrafiia@gmail.com"
 git add .
-git config --global --unset-all user.name
-git config --global --unset-all user.email
 
 sed -i "/^[[:space:]]*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./flake.nix
 sed -i "/^[[:space:]]*profile[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$profile\"/" ./flake.nix

@@ -27,7 +27,7 @@
     system = "x86_64-linux";
     host = "ikta";
     profile = "nvidia";
-    username = "ikta-nix";
+    username = "ikta";
   in {
     nixosConfigurations = {
       amd = nixpkgs.lib.nixosSystem {

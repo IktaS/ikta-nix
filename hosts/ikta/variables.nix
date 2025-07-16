@@ -22,12 +22,16 @@
   # ex: monitorSettings = "monitor = HDMI-A-1,1920x1080@60,auto,1";
   # You can configure multiple monitors. Create a new line for each one.
   monitorSettings = [
-      ",preferred,auto,auto"
+      "DP-2,1920x1080@143.98,0x360,1.0"
+      "HDMI-A-1,1920x1080@74.97,1920x0,1.0"
+      "HDMI-A-1,transform,1"
       "Virtual-1,1920x1080@60,auto,1"
   ];
 
   workspaceSettings = [
-  ]
+    "1,monitor:DP-2,default:true"
+    "2,monitor:HDMI-A-1,default:true"
+  ];
 
   # Waybar Settings
   clock24h = true;

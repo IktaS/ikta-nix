@@ -6,7 +6,8 @@
 }: let
   inherit
     (import ../../../hosts/${host}/variables.nix)
-    extraMonitorSettings
+    monitorSettings
+    workspaceSettings
     keyboardLayout
     stylixImage
     ;
@@ -164,14 +165,10 @@ in {
         new_on_top = 1;
         mfact = 0.5;
       };
-    };
 
-    extraConfig = "
-      monitor=Virtual-1,1920x1080@60,auto,1
-      ${extraMonitorSettings}
-      # To enable blur on waybar uncomment the line below
-      # Thanks to SchotjeChrisman
-      #layerrule = blur,waybar
-    ";
+      monitor = monitorSettings;
+
+      workspace = workspaceSettings;
+    };
   };
 }

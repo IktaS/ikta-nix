@@ -25,8 +25,8 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-  host = "ikta";
-  profile = "nvidia";
+    host = "ikta";
+    profile = "nvidia";
     username = "ikta-nix";
   in {
     nixosConfigurations = {

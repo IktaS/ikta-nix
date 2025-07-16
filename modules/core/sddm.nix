@@ -3,8 +3,12 @@
   pkgs,
   config,
   lib,
+  host,
   ...
 }: let
+  inherit
+    (import ../../hosts/${host}/variables.nix)
+    primaryMonitor;
   foreground = config.stylix.base16Scheme.base00;
   textColor = config.stylix.base16Scheme.base05;
   sddm-astronaut = pkgs.sddm-astronaut.override {
@@ -60,6 +64,15 @@ in {
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
     };
+  };
+  services.xserver = {
+    xrandrHeads=[
+      {
+        output="${primaryMonitor}";
+        primary=true;
+      }
+    ];
+    exportConfiguration=true;
   };
 
   environment.systemPackages = [sddm-astronaut];

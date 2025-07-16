@@ -17,14 +17,16 @@
   vscodeEnable = true;
   helixEnable = false;
 
+  primaryMonitor = "DP-3";
+
   # Hyprland Settings
   # ex: extraMonitorSettings = "monitor = Virtual-1,1920x1080@60,auto,1";
   # ex: extraMonitorSettings = "monitor = HDMI-A-1,1920x1080@60,auto,1";
   # You can configure multiple monitors. Create a new line for each one.
   extraMonitorSettings = "
-	monitor=DP-3,1920x1080@60.0,0x430,1.0
-	monitor=HDMI-A-1,1920x1080@60.0,1920x0,1.0
-	monitor=HDMI-A-1,transform,1
+      monitor=DP-3,1920x1080@60.0,0x430,1.0
+      monitor=HDMI-A-1,1920x1080@60.0,1920x0,1.0
+      monitor=HDMI-A-1,transform,1
     ";
 
   # Waybar Settings
@@ -49,11 +51,11 @@
   enableNFS = true;
 
   # Enable Printing Support
-  printEnable = false;
+  printEnable = true;
 
   # Enable Thunar GUI File Manager
   # Yazi is default File Manager
-  thunarEnable = false;
+  thunarEnable = true;
 
   # Themes, waybar and animation.
   #  Only uncomment your selection

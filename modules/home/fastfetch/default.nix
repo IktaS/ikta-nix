@@ -26,7 +26,7 @@
         "break"
         {
           type = "os";
-          key = "OS - ZaneyOS v2.3.3";
+          key = "OS - ikta-nix v1.0.0";
           keyColor = "31";
         }
         {

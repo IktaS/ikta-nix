@@ -98,11 +98,11 @@
       ##### Display Menu #####
 
       bind d display-menu -T "#[align=centre]Dotfiles" -x C -y C \
-        "ZaneyOS flake.nix"        f  "display-popup -E 'nvim ~/zaneyos/flake.nix'" \
-        "ZaneyOS packages"         p  "display-popup -E 'nvim ~/zaneyos/modules/core/packages.nix'" \
-        "ZaneyOS keybinds"         k  "display-popup -E 'nvim ~/zaneyos/modules/home/hyprland/binds.nix'" \
-        "ZaneyOS env variables"    e  "display-popup -E 'nvim ~/zaneyos/modules/home/hyprland/env.nix'" \
-        "ZaneyOS windowrules"      w  "display-popup -E 'nvim ~/zaneyos/modules/home/hyprland/windowrules.nix'" \
+        "ikta-nix flake.nix"        f  "display-popup -E 'nvim ~/ikta-nix/flake.nix'" \
+        "ikta-nix packages"         p  "display-popup -E 'nvim ~/ikta-nix/modules/core/packages.nix'" \
+        "ikta-nix keybinds"         k  "display-popup -E 'nvim ~/ikta-nix/modules/home/hyprland/binds.nix'" \
+        "ikta-nix env variables"    e  "display-popup -E 'nvim ~/ikta-nix/modules/home/hyprland/env.nix'" \
+        "ikta-nix windowrules"      w  "display-popup -E 'nvim ~/ikta-nix/modules/home/hyprland/windowrules.nix'" \
         "Exit"              q  ""
 
 

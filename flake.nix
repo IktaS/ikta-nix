@@ -1,5 +1,5 @@
 {
-  description = "ZaneyOS";
+  description = "ikta-nix";
 
   inputs = {
     home-manager = {
@@ -10,6 +10,12 @@
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix/release-25.05";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
+      # to have it up-to-date or simply don't specify the nixpkgs input
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -19,9 +25,9 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-  host = "zaneyos-oem";
+  host = "ikta-nix-oem";
   profile = "vm";
-    username = "dwilliams";
+    username = "IktaS";
   in {
     nixosConfigurations = {
       amd = nixpkgs.lib.nixosSystem {

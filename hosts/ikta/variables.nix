@@ -22,9 +22,9 @@
   # ex: extraMonitorSettings = "monitor = HDMI-A-1,1920x1080@60,auto,1";
   # You can configure multiple monitors. Create a new line for each one.
   extraMonitorSettings = "
-      monitor=DP-1,1920x1080@144.0,1920x1080,1.0
-      monitor=HDMI-A-1,1920x1080@120.0,1920x1080,1.0
+      monitor=HDMI-A-1,1920x1080@74.97,1920x0,1.0
       monitor=HDMI-A-1,transform,1
+      monitor=DP-3,1920x1080@143.98,0x300,1.0
     ";
 
   # Waybar Settings

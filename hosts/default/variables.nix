@@ -1,7 +1,7 @@
 {
   # Git Configuration ( For Pulling Software Repos )
-  gitUsername = "Tyler Kelley";
-  gitEmail = "tylerzanekelley@gmail.com";
+  gitUsername = "IktaS";
+  gitEmail = "imamrafiia@gmail.com";
 
   # Set Displau Manager
   # `tui` for Text login
@@ -14,7 +14,7 @@
   alacrittyEnable = false;
   weztermEnable = false;
   ghosttyEnable = false;
-  vscodeEnable = false;
+  vscodeEnable = true;
   helixEnable = false;
 
   # Hyprland Settings
@@ -22,15 +22,17 @@
   # ex: extraMonitorSettings = "monitor = HDMI-A-1,1920x1080@60,auto,1";
   # You can configure multiple monitors. Create a new line for each one.
   extraMonitorSettings = "
-
+      monitor=DP-3,1920x1080@143.98,0x300,1.0
+      monitor=HDMI-A-1,1920x1080@74.97,1920x0,1.0
+      monitor=HDMI-A-1,transform,1
     ";
 
   # Waybar Settings
-  clock24h = false;
+  clock24h = true;
 
   # Program Options
   # Set Default Browser (google-chrome-stable for google-chrome)
-  browser = "brave";
+  browser = "zen-browser";
 
   # Available Options:
   # Kitty, ghostty, wezterm
@@ -47,11 +49,11 @@
   enableNFS = true;
 
   # Enable Printing Support
-  printEnable = false;
+  printEnable = true;
 
   # Enable Thunar GUI File Manager
   # Yazi is default File Manager
-  thunarEnable = false;
+  thunarEnable = true;
 
   # Themes, waybar and animation.
   #  Only uncomment your selection

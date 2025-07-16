@@ -69,6 +69,5 @@
     v4l-utils # Used For Things Like OBS Virtual Camera
     wget # Tool For Fetching Files With Links
     ytmdl # Tool For Downloading Audio From YouTube
-    nwg-displays # Tool for editing displays config
   ];
 }

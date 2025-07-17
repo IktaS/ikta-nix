@@ -73,5 +73,6 @@
     protonup-qt # Compatibility checker tool for Steam
     qpwgraph # GUI Graph Manager for PipeWire
     fragments # torrent client
+    godot # Game Engine
   ];
 }

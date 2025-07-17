@@ -31,6 +31,14 @@
   workspaceSettings = [
     "1,monitor:DP-2,default:true"
     "2,monitor:HDMI-A-1,default:true"
+    "3,monitor:DP-2"
+  ];
+
+  additionalExecOnceSettings = [
+    "[workspace 2 silent] zen-browser"
+    "[workspace 2 silent] discord"
+    "[workspace 1 silent] vscode"
+    "[workspace 3 silent] steam"
   ];
 
   # Waybar Settings

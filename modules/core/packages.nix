@@ -72,5 +72,6 @@
     youtube-music # Youtube Music Desktop App
     protonup-qt # Compatibility checker tool for Steam
     qpwgraph # GUI Graph Manager for PipeWire
+    fragments # torrent client
   ];
 }

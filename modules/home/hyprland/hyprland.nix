@@ -8,6 +8,7 @@
     (import ../../../hosts/${host}/variables.nix)
     monitorSettings
     workspaceSettings
+    additionalExecOnceSettings
     keyboardLayout
     stylixImage
     ;
@@ -58,7 +59,7 @@ in {
         "nm-applet --indicator"
         "pypr &"
         "sleep 1.5 && swww img ${stylixImage}"
-      ];
+      ] ++ additionalExecOnceSettings;
 
       input = {
         kb_layout = "${keyboardLayout}";

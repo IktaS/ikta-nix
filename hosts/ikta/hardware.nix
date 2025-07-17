@@ -28,6 +28,11 @@
     [ { device = "/dev/disk/by-uuid/4308eb21-42d5-4059-8573-c0c1f010e518"; }
     ];
 
+  fileSystems."/run/media/ikta/FastDrive" =
+    { device = "/dev/disk/by-uuid/A47493D67493A996";
+      fsType = "ntfs3";
+    };
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction

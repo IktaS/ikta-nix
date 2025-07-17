@@ -27,7 +27,10 @@
   ];
 
   workspaceSettings = [
-  ]
+  ];
+
+  additionalExecOnceSettings = [
+  ];
 
   # Waybar Settings
   clock24h = true;

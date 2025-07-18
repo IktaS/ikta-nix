@@ -59,6 +59,7 @@ in {
         "nm-applet --indicator"
         "pypr &"
         "sleep 1.5 && swww img ${stylixImage}"
+        "fcitx5"
       ] ++ additionalExecOnceSettings;
 
       input = {

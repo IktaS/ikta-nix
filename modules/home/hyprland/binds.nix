@@ -83,6 +83,7 @@ in {
       "$modifier,mouse_up,workspace, e-1"
       "ALT,Tab,cyclenext"
       "ALT,Tab,bringactivetotop"
+      "$modifier,Tab,exec,fcitx5-remote -t"
       ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
       ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       " ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"

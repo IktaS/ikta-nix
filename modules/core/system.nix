@@ -1,4 +1,4 @@
-{host, ...}: let
+{host, pkgs, ...}: let
   inherit (import ../../hosts/${host}/variables.nix) consoleKeyMap;
 in {
   nix = {
@@ -26,6 +26,17 @@ in {
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [ 
+        # fcitx5-mozc
+        fcitx5-mozc-ut
+        fcitx5-gtk
+    ];
+  };
+  i18n.inputMethod.fcitx5.waylandFrontend = true;
+
   environment.variables = {
     IKTANIX_VERSION = "2.3";
     IKTANIX = "true";

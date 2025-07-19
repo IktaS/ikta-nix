@@ -5,5 +5,7 @@
     nodejs
     obs-studio
     zoom-us
+    anki
+    anki-bin
   ];
 }

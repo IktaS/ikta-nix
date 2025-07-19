@@ -75,5 +75,11 @@
     qbittorrent # torrent client
     godot # Game Engine
     obsidian # notes app
+    # programming shit
+    bun # js shit
+    go
+    zig
+    rustc
+    ocaml
   ];
 }

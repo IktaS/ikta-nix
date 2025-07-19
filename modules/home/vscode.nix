@@ -13,6 +13,11 @@
           tamasfe.even-better-toml
           zainchen.json
           shd101wyy.markdown-preview-enhanced
+          ziglang.vscode-zig
+          ms-vscode.live-server
+          golang.go
+          ocamllabs.ocaml-platform
+          rust-lang.rust-analyzer
         ];
       };
     };

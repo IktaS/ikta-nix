@@ -2,7 +2,7 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    inputs.zen-browser.homeModules.stable
+    inputs.zen-browser.homeModules.twilight
   ];
 
   programs.zen-browser = {

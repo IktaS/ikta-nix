@@ -8,9 +8,9 @@
         hide_cursor = true;
         no_fade_in = false;
       };
-      background = [
+      lib.mkDefault.background = [
         {
-          path = "/home/${username}/Pictures/Wallpapers/2.jpg";
+          path = "/home/${username}/Pictures/Wallpapers/4.jpg";
           blur_passes = 3;
           blur_size = 8;
         }
@@ -27,7 +27,7 @@
           valign = "center";
         }
       ];
-      input-field = [
+      lib.mkDefault.input-field = [
         {
           size = "200, 50";
           position = "0, -80";

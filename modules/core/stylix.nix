@@ -32,12 +32,12 @@ in {
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
-      size = 24;
+      size = 12;
     };
     fonts = {
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrains Mono";
+        package = pkgs.fira-code;
+        name = "Fira Code";
       };
       sansSerif = {
         package = pkgs.montserrat;

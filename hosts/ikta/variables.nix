@@ -77,7 +77,7 @@
   # This will set your color palette
   # Default background
   # Add new images to ~/ikta-nix/wallpapers
-  stylixImage = ../../wallpapers/2.jpg;
+  stylixImage = ../../wallpapers/4.jpg;
 
   # Set Waybar
   #  Available Options:

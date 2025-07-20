@@ -14,18 +14,18 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/0138f954-8441-46dc-9553-fad026c1e800";
+    { device = "/dev/disk/by-uuid/096f65a9-1e16-491b-877c-099a15ad5835";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/0CAF-0843";
+    { device = "/dev/disk/by-uuid/EC66-E484";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/4308eb21-42d5-4059-8573-c0c1f010e518"; }
+    [ { device = "/dev/disk/by-uuid/e8da478a-5a7b-4aa9-9139-d650dbe3b12c"; }
     ];
 
   fileSystems."/run/media/ikta/FastDrive" =

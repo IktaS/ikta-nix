@@ -75,6 +75,7 @@
     qbittorrent # torrent client
     godot # Game Engine
     obsidian # notes app
+    ntfs3g # ntfs driver tools things
     # programming shit
     bun # js shit
     go

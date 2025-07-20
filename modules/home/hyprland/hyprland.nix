@@ -126,7 +126,7 @@ in {
         force_split = 2;
       };
 
-      lib.mkDefault.decoration = {
+      decoration = {
         rounding = 10;
         blur = {
           enabled = true;
@@ -139,7 +139,7 @@ in {
           enabled = true;
           range = 4;
           render_power = 3;
-          color = "rgba(1a1a1aee)";
+          lib.mkDefault.color = "rgba(1a1a1aee)";
         };
       };
 

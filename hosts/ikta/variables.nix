@@ -31,7 +31,7 @@
   workspaceSettings = [
     "1,monitor:DP-2,default:true"
     "2,monitor:HDMI-A-1,default:true"
-    "3,monitor:DP-2"
+    "3,monitor:DP-2,default:true"
   ];
 
   additionalExecOnceSettings = [

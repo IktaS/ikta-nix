@@ -173,7 +173,7 @@ else
 fi
 
 print_header "Cloning ikta-nix Repository"
-git clone https://gitlab.com/IktaS/ikta-nix.git  ~/ikta-nix
+git clone https://github.com/IktaS/ikta-nix.git  ~/ikta-nix
 cd ~/ikta-nix || exit 1
 
 print_header "Configuring Host and Profile"

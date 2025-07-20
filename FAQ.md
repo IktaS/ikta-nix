@@ -333,7 +333,7 @@ Edit the `extraMonitorSettings` line. **Examples:**
   tool, `arandr` It will then create a Hyprland compatible configuration file at
   `~/.config/hypr/monitors.conf`
 
-<img align="center" width="90%" src="https://gitlab.com/Zaney/zaneyos/-/raw/main/img/nwg-displays.png" />
+<img align="center" width="90%" src="https://github.com/Zaney/zaneyos/-/raw/main/img/nwg-displays.png" />
 
 After you finish configring the monitors as you wish, hit `Apply` to save the
 changes to `~/.config/hypr/monitors.conf`\
@@ -1525,7 +1525,7 @@ Edit the `extraMonitorSettings` line. **Examples:**
   tool, `arandr` It will then create a Hyprland compatible configuration file at
   `~/.config/hypr/monitors.conf`
 
-<img align="center" width="90%" src="https://gitlab.com/Zaney/zaneyos/-/raw/main/img/nwg-displays.png" />
+<img align="center" width="90%" src="https://github.com/Zaney/zaneyos/-/raw/main/img/nwg-displays.png" />
 
 After you finish configring the monitors as you wish, hit `Apply` to save the
 changes to `~/.config/hypr/monitors.conf`\

@@ -7,16 +7,16 @@
 ZaneyOS is a simple way of reproducing my configuration on any NixOS system.
 This includes the wallpaper, scripts, applications, config files, and more.
 
-<img align="center" width="80%" src="https://gitlab.com/Zaney/zaneyos/-/raw/main/img/demo.png" />
+<img align="center" width="80%" src="https://github.com/Zaney/zaneyos/-/raw/main/img/demo.png" />
 
 **Inspiration for the Waybar config
 [here](https://github.com/justinlime/dotfiles).**
 
-<img align="center" width="80%" src="https://gitlab.com/Zaney/zaneyos/-/raw/main/img/demo-img2.png" />
+<img align="center" width="80%" src="https://github.com/Zaney/zaneyos/-/raw/main/img/demo-img2.png" />
 
 **Third waybar option**
 
-<img align="center" width="80%" src="https://gitlab.com/Zaney/zaneyos/-/raw/main/img/demo-img3.png" />
+<img align="center" width="80%" src="https://github.com/Zaney/zaneyos/-/raw/main/img/demo-img3.png" />
 
 </div>
 
@@ -178,7 +178,7 @@ Then:
 ![ZaneyOS Install Script Command](img/install-script.jpg)
 
 ```
-sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/stable-2.3/install-zaneyos.sh)
+sh <(curl -L https://github.com/Zaney/zaneyos/-/raw/stable-2.3/install-zaneyos.sh)
 ```
 
 #### The install process will look something like this:
@@ -209,7 +209,7 @@ nix-shell -p git vim
 2. Clone this repo & enter it:
 
 ```
-cd && git clone https://gitlab.com/zaney/zaneyos.git -b stable-23 ~/zaneyos 
+cd && git clone https://github.com/zaney/zaneyos.git -b stable-23 ~/zaneyos 
 cd zaneyos
 
 You can still run the `install.sh` script if you want to.

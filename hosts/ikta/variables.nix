@@ -35,7 +35,7 @@
   ];
 
   additionalExecOnceSettings = [
-    "[workspace 2 silent] zen-browser"
+    "[workspace 2 silent] zen"
     "[workspace 2 silent] discord"
     "[workspace 1 silent] vscode"
     "[workspace 3 silent] steam"

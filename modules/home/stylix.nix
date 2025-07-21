@@ -1,12 +1,10 @@
 _: {
-  stylix.autoEnable = true;
   stylix.targets = {
-    waybar.enable = true;
+    waybar.enable = false;
     rofi.enable = false;
-    hyprland.enable = true;
-    hyprlock.enable = true;
+    hyprland.enable = false;
+    hyprlock.enable = false;
     ghostty.enable = false;
-    vscode.enable = true;
     qt = {
       enable = true;
       platform = "qtct";

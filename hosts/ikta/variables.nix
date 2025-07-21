@@ -37,7 +37,7 @@
   additionalExecOnceSettings = [
     "[workspace 2 silent] zen"
     "[workspace 2 silent] discord"
-    "[workspace 1 silent] vscode"
+    "[workspace 1 silent] code"
     "[workspace 3 silent] steam"
   ];
 
@@ -46,7 +46,7 @@
 
   # Program Options
   # Set Default Browser (google-chrome-stable for google-chrome)
-  browser = "zen-browser";
+  browser = "zen";
 
   # Available Options:
   # Kitty, ghostty, wezterm

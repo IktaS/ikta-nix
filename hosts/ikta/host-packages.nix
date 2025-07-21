@@ -5,5 +5,6 @@
     nodejs
     obs-studio
     zoom-us
+    code-cursor
   ];
 }

@@ -14,7 +14,7 @@
  
     #alias c="clear"
    
-
+    eval $(opam env)
   '';
 }
 

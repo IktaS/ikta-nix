@@ -81,6 +81,9 @@
     go
     zig
     rustc
-    ocaml
+    opam
+    gcc
+    bubblewrap
+    gnumake
   ];
 }

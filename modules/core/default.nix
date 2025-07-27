@@ -32,6 +32,7 @@ in {
     ./user.nix
     ./virtualisation.nix
     ./xserver.nix
+    ./vlc.nix
     inputs.stylix.nixosModules.stylix
   ];
 }

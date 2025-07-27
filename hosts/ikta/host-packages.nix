@@ -6,5 +6,6 @@
     obs-studio
     zoom-us
     code-cursor
+    makemkv
   ];
 }

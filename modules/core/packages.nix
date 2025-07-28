@@ -85,5 +85,6 @@
     gcc
     bubblewrap
     gnumake
+    lsscsi
   ];
 }

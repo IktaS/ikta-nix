@@ -284,6 +284,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-makemkv": {
+      "locked": {
+        "lastModified": 1714424669,
+        "narHash": "sha256-qT9sc6eKKZ1fKEV+ycG9a1Bb2Nrba1uBW8v0IG/UW7E=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "cd5f33f23db0a57624a891ca74ea02e87ada2564",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "cd5f33f23db0a57624a891ca74ea02e87ada2564",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1750215678,
@@ -370,6 +386,7 @@
         "home-manager": "home-manager",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-makemkv": "nixpkgs-makemkv",
         "nvf": "nvf",
         "stylix": "stylix",
         "zen-browser": "zen-browser"

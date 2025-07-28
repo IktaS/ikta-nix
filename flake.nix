@@ -16,6 +16,7 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    automatic-ripping-machine.url = "github:xieve/automatic-ripping-machine/main?dir=nixos";
   };
 
   outputs = {
@@ -41,6 +42,7 @@
         modules = [
           ./profiles/amd
           nix-flatpak.nixosModules.nix-flatpak
+          inputs.automatic-ripping-machine.nixosModules.default
         ];
       };
       nvidia = nixpkgs.lib.nixosSystem {
@@ -54,6 +56,7 @@
         modules = [
           ./profiles/nvidia
           nix-flatpak.nixosModules.nix-flatpak
+          inputs.automatic-ripping-machine.nixosModules.default
         ];
       };
       nvidia-laptop = nixpkgs.lib.nixosSystem {
@@ -67,6 +70,7 @@
         modules = [
           ./profiles/nvidia-laptop
           nix-flatpak.nixosModules.nix-flatpak
+          inputs.automatic-ripping-machine.nixosModules.default
         ];
       };
       intel = nixpkgs.lib.nixosSystem {
@@ -80,6 +84,7 @@
         modules = [
           ./profiles/intel
           nix-flatpak.nixosModules.nix-flatpak
+          inputs.automatic-ripping-machine.nixosModules.default
         ];
       };
       vm = nixpkgs.lib.nixosSystem {
@@ -93,6 +98,7 @@
         modules = [
           ./profiles/vm
           nix-flatpak.nixosModules.nix-flatpak
+          inputs.automatic-ripping-machine.nixosModules.default
         ];
       };
     };

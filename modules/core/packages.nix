@@ -21,6 +21,18 @@
     };
   };
 
+  services.automatic-ripping-machine = {
+    enable = true;
+    settings = {
+      DISABLE_LOGIN = true;
+      DATE_FORMAT = "%Y-%m-%d %H:%M:%S";
+      RAW_PATH = "/var/tank/raw/";
+      TRANSCODE_PATH = "/var/tank/transcoded/";
+      COMPLETED_PATH = "/var/tank/completed/";
+      LOGLEVEL = "DEBUG";
+    };
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [

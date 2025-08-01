@@ -31,14 +31,12 @@
   workspaceSettings = [
     "1,monitor:DP-2,default:true"
     "2,monitor:HDMI-A-1,default:true"
-    "3,monitor:DP-2,default:true"
   ];
 
   additionalExecOnceSettings = [
     "[workspace 2 silent] zen"
     "[workspace 2 silent] discord"
-    "[workspace 1 silent] code"
-    "[workspace 3 silent] steam"
+    "[workspace 1 silent] steam"
   ];
 
   # Waybar Settings

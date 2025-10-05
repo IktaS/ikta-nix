@@ -20,6 +20,7 @@ in
     swappy
     ydotool
     hyprpolkitagent
+    hyprshot
     hyprland-qtutils # needed for banners and ANR messages
   ];
   systemd.user.targets.hyprland-session.Unit.Wants = [

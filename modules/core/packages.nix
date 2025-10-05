@@ -56,6 +56,7 @@
     greetd.tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
     htop # Simple Terminal Based System Monitor
     hyprpicker # Color Picker
+    hyprshot # Screen capture
     eog # For Image Viewing
     inxi # CLI System Information Tool
     killall # For Killing All Instances Of Programs

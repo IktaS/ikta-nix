@@ -36,10 +36,6 @@
     { device = "/dev/disk/by-uuid/a6e9dd8b-6767-44f4-84fa-30d02d90d087"; }
   ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.ens18.useDHCP = lib.mkDefault true;
   security.sudo.wheelNeedsPassword = false;

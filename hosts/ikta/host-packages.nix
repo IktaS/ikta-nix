@@ -6,5 +6,8 @@
     obs-studio
     zoom-us
     code-cursor
+    freecad
+    ardour
+    bruno
   ];
 }

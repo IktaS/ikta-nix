@@ -25,6 +25,10 @@
                   install_url = "https://addons.mozilla.org/firefox/downloads/file/4510271/yomitan-25.6.3.0.xpi";
                   installation_mode = "force_installed";
                 };
+                "moz-addon-prod@7tv.app" = {
+                  install_url = "https://extension.7tv.gg/v3.0.9/ext.xpi";
+                  installation_mode = "force_installed";
+                };
             };
     };
   };

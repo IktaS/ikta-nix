@@ -15,6 +15,7 @@
     #alias c="clear"
    
     eval $(opam env)
+    export PATH="$PATH:$(go env GOPATH)/bin"
   '';
 }
 

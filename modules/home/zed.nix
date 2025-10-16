@@ -6,7 +6,6 @@
     extensions = [
         "nix"
         "toml"
-        "markdown-oxide"
         "zig"
         "ocaml"
         "dockerfile"

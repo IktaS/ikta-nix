@@ -10,5 +10,6 @@
     ardour
     bruno
     gamemode
+    nixd
   ];
 }

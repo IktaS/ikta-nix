@@ -23,6 +23,7 @@
       roboto
       roboto-mono
       terminus_font
+      nerd-fonts.meslo-lg
     ];
   };
 }

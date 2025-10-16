@@ -12,7 +12,7 @@
   # Emable/disable bundled applications
   tmuxEnable = false;
   alacrittyEnable = false;
-  weztermEnable = false;
+  weztermEnable = true;
   ghosttyEnable = false;
   vscodeEnable = false;
   helixEnable = false;
@@ -48,7 +48,7 @@
 
   # Available Options:
   # Kitty, ghostty, wezterm
-  terminal = "kitty"; # Set Default System Terminal
+  terminal = "wezterm"; # Set Default System Terminal
 
   keyboardLayout = "us";
   consoleKeyMap = "us";

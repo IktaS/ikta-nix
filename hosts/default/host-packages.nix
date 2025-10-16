@@ -7,5 +7,6 @@
     zoom-us
     anki
     anki-bin
+    nixd
   ];
 }

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     audacity
     discord
@@ -10,6 +11,5 @@
     ardour
     bruno
     gamemode
-    nixd
   ];
 }

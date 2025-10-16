@@ -51,6 +51,7 @@ in {
       ./yazi
       ./zoxide.nix
       ./zsh
+      ./zed.nix
     ]
     ++ (
       if helixEnable

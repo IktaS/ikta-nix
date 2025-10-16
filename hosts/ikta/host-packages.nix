@@ -9,5 +9,6 @@
     freecad
     ardour
     bruno
+    gamemode
   ];
 }

@@ -14,7 +14,7 @@
   alacrittyEnable = false;
   weztermEnable = false;
   ghosttyEnable = false;
-  vscodeEnable = true;
+  vscodeEnable = false;
   helixEnable = false;
 
   # Hyprland Settings

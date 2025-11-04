@@ -11,5 +11,7 @@
     ardour
     bruno
     gamemode
+    ungoogled-chromium
+    osu-lazer
   ];
 }

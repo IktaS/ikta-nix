@@ -16,6 +16,9 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    affinity-nix = {
+      url = "github:mrshmllow/affinity-nix";
+    };
     automatic-ripping-machine.url = "github:xieve/automatic-ripping-machine/main?dir=nixos";
   };
 

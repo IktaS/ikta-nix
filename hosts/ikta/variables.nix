@@ -16,6 +16,7 @@
   ghosttyEnable = false;
   vscodeEnable = false;
   helixEnable = false;
+  affinityEnable = false;
 
   # Hyprland Settings
   # ex: monitorSettings = "monitor = Virtual-1,1920x1080@60,auto,1";

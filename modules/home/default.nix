@@ -8,6 +8,7 @@
     weztermEnable
     vscodeEnable
     helixEnable
+    affinityEnable
     ;
 in {
   imports =
@@ -53,6 +54,11 @@ in {
       ./zsh
       ./zed.nix
     ]
+    ++ (
+      if affinityEnable
+      then [./affinity.nix]
+      else []
+    )
     ++ (
       if helixEnable
       then [./evil-helix.nix]

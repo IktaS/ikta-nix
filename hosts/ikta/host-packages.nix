@@ -13,5 +13,6 @@
     gamemode
     ungoogled-chromium
     osu-lazer
+    krita
   ];
 }

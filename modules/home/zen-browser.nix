@@ -17,8 +17,8 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/file/4156831/github_file_icons-1.5.1.xpi";
             installation_mode = "force_installed";
           };
-          "uBlock0@raymondhill.net" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/file/4531307/ublock_origin-1.65.0.xpi";
+          "adnauseam@rednoise.org" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4613584/adnauseam-3.26.2.xpi";
             installation_mode = "force_installed";
           };
           "{6b733b82-9261-47ee-a595-2dda294a4d08}" = {

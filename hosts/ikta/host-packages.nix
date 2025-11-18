@@ -14,5 +14,6 @@
     ungoogled-chromium
     osu-lazer
     krita
+    libreoffice
   ];
 }

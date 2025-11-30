@@ -9,6 +9,11 @@
 ZaneyOS is a simple way of reproducing my configuration on any NixOS system.
 This includes the wallpaper, scripts, applications, config files, and more.
 
+## Important Note on Noctalia
+
+> The first time you login, screen will be blank SUPER + SHIFT + C to exit.
+> Login in, noctalia will start from then on
+
 <img align="center" width="80%" src="img/ZaneyOS-Floating.png" />
 
 </div>
@@ -125,7 +130,9 @@ Please do yourself a favor and
 
 # Hyprland Keybindings
 
-Below are the keybindings for Hyprland, formatted for easy reference. The right column shows keybindings that are specific to **Noctalia Shell** (only available when `barChoice = "noctalia"`).
+Below are the keybindings for Hyprland, formatted for easy reference. The right
+column shows keybindings that are specific to **Noctalia Shell** (only available
+when `barChoice = "noctalia"`).
 
 <table>
 <tr>
@@ -189,7 +196,7 @@ Below are the keybindings for Hyprland, formatted for easy reference. The right 
 
 ## 🎨 Noctalia Shell Keybindings
 
-*Available when `barChoice = "noctalia"` in `variables.nix`*
+_Available when `barChoice = "noctalia"` in `variables.nix`_
 
 - `$modifier + D` → Launcher Toggle
 - `$modifier + Shift + Return` → Launcher Toggle
@@ -205,7 +212,7 @@ Below are the keybindings for Hyprland, formatted for easy reference. The right 
 
 ### Rofi Launcher (Waybar Mode)
 
-*Available when `barChoice = "waybar"` in `variables.nix`*
+_Available when `barChoice = "waybar"` in `variables.nix`_
 
 - `$modifier + D` → Launch Rofi Launcher
 - `$modifier + Shift + Return` → Launch Rofi Launcher

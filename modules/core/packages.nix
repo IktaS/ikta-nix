@@ -62,6 +62,7 @@ in
       gemini-cli # CLI AI client ONLY (optional)
       gimp # Great Photo Editor
       gpu-screen-recorder # needed for nnoctalia-shell 
+      power-profiles-daemon # needed for noctalia-shell power cycle
       mesa-demos # needed for inxi diag util
       tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
       htop # Simple Terminal Based System Monitor

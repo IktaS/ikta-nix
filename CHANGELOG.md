@@ -7,8 +7,11 @@
 
 # 🚀 **Current Release - ZaneyOS v2.5.2**
 
-#### 📅 **Updated: November 30th, 2025**
+#### 📅 **Updated: December 1st, 2025**
 
+- Fixed: Added power profiles daemon for noctalia
+- Fixed: `gpu-screen-recorder` not installed 
+   - Thanks to `@mugdad11` for finding them 
 - Fixed: Both rofi and noctalia clipboard
   - Both were active on `SUPER + V`
   - Now checks for waybar or noctalia shell
@@ -73,6 +76,9 @@
     - git
     - gh
     - lazygit
+
+    Contributors: 
+   `@mugdad11`
 
 #### 📅 **Updated: September 18th, 2025**
 

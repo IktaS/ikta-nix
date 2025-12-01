@@ -5,9 +5,18 @@
 
 ---
 
-# 🚀 **Current Release - ZaneyOS v2.5.1**
+# 🚀 **Current Release - ZaneyOS v2.5.2**
 
 #### 📅 **Updated: November 30th, 2025**
+
+- Fixed: Both rofi and noctalia clipboard
+  - Both were active on `SUPER + V`
+  - Now checks for waybar or noctalia shell
+  - Thanks to `@mugdad11` for finding it
+- Fixed: Laptop battery not showing in noctalia shell
+  - Thanks again `@mugdad11` for finding issue
+  - And doing the Merge Request to fix it
+  - `upower` package not installed and `upower` service not enabled
 
 - NEW: Added `quickshell-overview` integration
   - Workspace overview with live window previews

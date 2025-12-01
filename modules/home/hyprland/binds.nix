@@ -31,11 +31,19 @@
       "$modifier SHIFT,Return, Rofi Launcher, exec, rofi-launcher"
     ]
     else [];
+  # Rofi clipboard binding (only included when barChoice != "noctalia")
+  rofiClipboardBind =
+    if barChoice != "noctalia"
+    then [
+      "$modifier,V, Clipboard History, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+    ]
+    else [];
 in {
   wayland.windowManager.hyprland.settings = {
     bindd =
       noctaliaBind
       ++ rofiBind
+      ++ rofiClipboardBind
       ++ [
         # ============= TERMINALS =============
         "$modifier,Return, Terminal, exec, ${terminal}"
@@ -62,7 +70,6 @@ in {
         # ============= WINDOW MANAGEMENT =============
         "$modifier,Q, Kill Active Window, killactive,"
         "$modifier,P, Pseudo Tile, pseudo,"
-        "$modifier,V, Clipboard History, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$modifier SHIFT,I, Toggle Split, togglesplit,"
         "$modifier,F, Maximize, fullscreen,"
         "$modifier SHIFT,F, Toggle Floating, togglefloating,"

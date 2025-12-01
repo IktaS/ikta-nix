@@ -1,4 +1,4 @@
-{ ... }:
+{ lib,... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -15,6 +15,15 @@
       "csv"
       "rainbow-csv"
       "make"
+      "gleam"
     ];
+    userSettings = {
+      theme = lib.mkForce {
+        mode = "dark";
+        dark = "One Dark";
+        light = "One Light";
+      };
+      hour_format = "hour24";
+    };
   };
 }

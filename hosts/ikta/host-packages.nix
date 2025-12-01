@@ -15,5 +15,6 @@
     osu-lazer
     krita
     libreoffice
+    inkscape
   ];
 }

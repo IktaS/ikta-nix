@@ -51,8 +51,8 @@
     gedit # Simple Graphical Text Editor
     gemini-cli # CLI AI client
     gimp # Great Photo Editor
-    glxinfo # needed for inxi diag util
-    greetd.tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
+    mesa-demos # needed for inxi diag util
+    tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
     htop # Simple Terminal Based System Monitor
     hyprpicker # Color Picker
     eog # For Image Viewing
@@ -95,11 +95,13 @@
     zig
     rustc
     opam
+    gleam
     gcc
     bubblewrap
     gnumake
     lsscsi
     nil
     nixd
+    erlang
   ];
 }

@@ -23,8 +23,8 @@
   # ex: monitorSettings = "monitor = HDMI-A-1,1920x1080@60,auto,1";
   # You can configure multiple monitors. Create a new line for each one.
   monitorSettings = [
-      ",preferred,auto,auto"
-      "Virtual-1,1920x1080@60,auto,1"
+    ",preferred,auto,auto"
+    "Virtual-1,1920x1080@60,auto,1"
   ];
 
   workspaceSettings = [
@@ -90,4 +90,7 @@
   #animChoice = ../../modules/home/hyprland/animations-end4.nix;
   #animChoice = ../../modules/home/hyprland/animations-dynamic.nix;
   #animChoice = ../../modules/home/hyprland/animations-moving.nix;
+
+  # RQuickShare settings
+  rQuickSharePort = 12588;
 }

@@ -72,6 +72,7 @@
     picard # For Changing Music Metadata & Getting Cover Art
     pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
     playerctl # Allows Changing Media Volume Through Scripts
+    waypaper
     rhythmbox
     ripgrep # Improved Grep
     socat # Needed For Screenshots
@@ -89,6 +90,7 @@
     godot # Game Engine
     obsidian # notes app
     ntfs3g # ntfs driver tools things
+    rquickshare # QuickShare client
     # programming shit
     bun # js shit
     go

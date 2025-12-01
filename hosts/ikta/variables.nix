@@ -23,10 +23,10 @@
   # ex: monitorSettings = "monitor = HDMI-A-1,1920x1080@60,auto,1";
   # You can configure multiple monitors. Create a new line for each one.
   monitorSettings = [
-      "DP-2,1920x1080@143.98,0x360,1.0"
-      "HDMI-A-1,1920x1080@74.97,1920x0,1.0"
-      "HDMI-A-1,transform,1"
-      "Virtual-1,1920x1080@60,auto,1"
+    "DP-2,1920x1080@143.98,0x360,1.0"
+    "HDMI-A-1,1920x1080@74.97,1920x0,1.0"
+    "HDMI-A-1,transform,1"
+    "Virtual-1,1920x1080@60,auto,1"
   ];
 
   workspaceSettings = [
@@ -76,7 +76,7 @@
   # This will set your color palette
   # Default background
   # Add new images to ~/ikta-nix/wallpapers
-  stylixImage = ../../wallpapers/4.jpg;
+  stylixImage = ../../wallpapers/FetUEveUoAA9qnk.jpg;
 
   # Set Waybar
   #  Available Options:
@@ -92,4 +92,8 @@
   #animChoice = ../../modules/home/hyprland/animations-end4.nix;
   #animChoice = ../../modules/home/hyprland/animations-dynamic.nix;
   #animChoice = ../../modules/home/hyprland/animations-moving.nix;
+  #
+
+  # RQuickShare settings
+  rQuickSharePort = 12588;
 }

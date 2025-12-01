@@ -4,16 +4,17 @@
   pkgs,
   lib,
   ...
-}: let
-  inherit
-    (import ../../../hosts/${host}/variables.nix)
+}:
+let
+  inherit (import ../../../hosts/${host}/variables.nix)
     monitorSettings
     workspaceSettings
     additionalExecOnceSettings
     keyboardLayout
     stylixImage
     ;
-in {
+in
+{
   home.packages = with pkgs; [
     swww
     grim
@@ -42,7 +43,7 @@ in {
     systemd = {
       enable = true;
       enableXdgAutostart = true;
-      variables = ["--all"];
+      variables = [ "--all" ];
     };
     xwayland = {
       enable = true;
@@ -59,9 +60,12 @@ in {
         "killall -q swaync;sleep .5 && swaync"
         "nm-applet --indicator"
         "pypr &"
-        "sleep 1.5 && swww img ${stylixImage}"
+        # "sleep 1.5 && swww img ${stylixImage}"
+        # "sleep 1 && wallsetter"
+        "waypaper --restore"
         "fcitx5"
-      ] ++ additionalExecOnceSettings;
+      ]
+      ++ additionalExecOnceSettings;
 
       input = {
         kb_layout = "${keyboardLayout}";
@@ -82,14 +86,13 @@ in {
       };
 
       gestures = {
-        workspace_swipe = 1;
-        workspace_swipe_fingers = 3;
+        gesture = [ "3, horizontal, workspace" ];
         workspace_swipe_distance = 500;
-        workspace_swipe_invert = 1;
+        workspace_swipe_invert = true;
         workspace_swipe_min_speed_to_force = 30;
         workspace_swipe_cancel_ratio = 0.5;
-        workspace_swipe_create_new = 1;
-        workspace_swipe_forever = 1;
+        workspace_swipe_create_new = true;
+        workspace_swipe_forever = true;
       };
 
       general = {
@@ -99,7 +102,8 @@ in {
         gaps_out = 8;
         border_size = 2;
         resize_on_border = true;
-        "col.active_border" = lib.mkDefault "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
+        "col.active_border" =
+          lib.mkDefault "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
         "col.inactive_border" = lib.mkDefault "rgb(${config.lib.stylix.colors.base01})";
       };
 
@@ -112,7 +116,7 @@ in {
         disable_splash_rendering = true;
         enable_swallow = false;
         vfr = true; # Variable Frame Rate
-        vrr = 2; #Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
+        vrr = 2; # Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
         # Screen flashing to black momentarily or going black when app is fullscreen
         # Try setting vrr to 0
 
@@ -158,8 +162,9 @@ in {
       };
 
       render = {
-        explicit_sync = 1; # Change to 1 to disable
-        explicit_sync_kms = 1;
+        # Disabling as no longer supported
+        # explicit_sync = 1; # Change to 1 to disable
+        # explicit_sync_kms = 1;
         direct_scanout = 0;
       };
 

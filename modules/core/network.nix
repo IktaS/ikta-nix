@@ -3,11 +3,15 @@
   host,
   options,
   ...
-}: {
+}:
+let
+  inherit (import ../../hosts/${host}/variables.nix) rQuickSharePort;
+in
+{
   networking = {
     hostName = "${host}";
     networkmanager.enable = true;
-    timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
+    timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
     firewall = {
       enable = true;
       allowedTCPPorts = [
@@ -17,6 +21,7 @@
         59010
         59011
         8080
+        rQuickSharePort # rquickshare
       ];
       allowedUDPPorts = [
         59010
@@ -25,5 +30,5 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [networkmanagerapplet];
+  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
 }

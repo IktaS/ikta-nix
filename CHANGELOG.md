@@ -21,6 +21,9 @@
   - Keyboards, like `dvorak`, `coleman,` or `euro`
   - Configures, console, SDDM and Hyprland
 - Fixed: TUI greetd service name changed to `services.greetd`
+- Updated:
+  - `cachix settings updated for better speed
+  - Moved to its own `cacheix.nix` file
 
 #### 📅 **Updated: December 1st, 2025**
 

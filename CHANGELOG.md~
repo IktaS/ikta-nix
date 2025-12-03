@@ -5,18 +5,10 @@
 
 ---
 
-# 🚀 **Current Release - ZaneyOS v2.5.4**
+# 🚀 **Current Release - ZaneyOS v2.5.3**
 
 #### 📅 **Updated: December 3rd, 2025**
 
-- Added: 
-   - Cheatsheets from ddubsOS 
-     - Covers, terminal, emacs, etc 
-     - In English and Spanish 
-   - Zen browser 
-     -  Via Flake, for current builds 
-   - Nano customized config 
-   
 - Added: Support for `kb_variants` at install time.
   - Keyboards, like `dvorak`, `coleman,` or `euro`
   - Configures, console, SDDM and Hyprland

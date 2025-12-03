@@ -9,9 +9,14 @@
 
 #### 📅 **Updated: December 1st, 2025**
 
+- Added: System keybinds search tool from ddubsOS
+  - Shows bindings for:
+  - Hyprland, kitty, wezterm, ghostty, emacs and yazi
+  - SUPER + K to invoke
+  - SUPER + SHIFT + K for legacy keybind rofi menu
 - Fixed: Added power profiles daemon for noctalia
-- Fixed: `gpu-screen-recorder` not installed 
-   - Thanks to `@mugdad11` for finding them 
+- Fixed: `gpu-screen-recorder` not installed
+  - Thanks to `@mugdad11` for finding them
 - Fixed: Both rofi and noctalia clipboard
   - Both were active on `SUPER + V`
   - Now checks for waybar or noctalia shell
@@ -77,8 +82,7 @@
     - gh
     - lazygit
 
-    Contributors: 
-   `@mugdad11`
+    Contributors: `@mugdad11`
 
 #### 📅 **Updated: September 18th, 2025**
 

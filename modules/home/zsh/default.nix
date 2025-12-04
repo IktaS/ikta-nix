@@ -1,7 +1,5 @@
 {
   profile,
-  pkgs,
-  lib,
   ...
 }:
 {

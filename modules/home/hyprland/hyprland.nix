@@ -11,7 +11,6 @@ let
     workspaceSettings
     additionalExecOnceSettings
     keyboardLayout
-    stylixImage
     ;
 in
 {

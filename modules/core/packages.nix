@@ -37,7 +37,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    amfora # Fancy Terminal Browser For Gemini Protocol
     appimage-run # Needed For AppImage Support
     brightnessctl # For Screen Brightness Control
     cliphist # Clipboard manager using rofi menu
@@ -49,7 +48,6 @@
     ffmpeg # Terminal Video / Audio Editing
     file-roller # Archive Manager
     gedit # Simple Graphical Text Editor
-    gemini-cli # CLI AI client
     gimp # Great Photo Editor
     mesa-demos # needed for inxi diag util
     tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
@@ -87,7 +85,6 @@
     protonup-qt # Compatibility checker tool for Steam
     qpwgraph # GUI Graph Manager for PipeWire
     qbittorrent # torrent client
-    godot # Game Engine
     obsidian # notes app
     ntfs3g # ntfs driver tools things
     rquickshare # QuickShare client
@@ -105,5 +102,7 @@
     nil
     nixd
     erlang
+    typst
+    tinymist
   ];
 }

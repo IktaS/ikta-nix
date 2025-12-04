@@ -1,21 +1,22 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [zsh];
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [ zsh ];
 
   home.file."./.zshrc-personal".text = ''
 
-  # This file allows you to define your own aliases, functions, etc
-  # below are just some examples of what you can use this file for
+    # This file allows you to define your own aliases, functions, etc
+    # below are just some examples of what you can use this file for
 
-    #!/usr/bin/env zsh
-    # Set defaults
-    #
-    #export EDITOR="nvim"
-    #export VISUAL="nvim"
+      #!/usr/bin/env zsh
+      # Set defaults
+      #
+      #export EDITOR="nvim"
+      #export VISUAL="nvim"
 
-    #alias c="clear"
+      #alias c="clear"
 
-    eval $(opam env)
-    export PATH="$PATH:$(go env GOPATH)/bin"
-    alias zed="zeditor"
+      eval $(opam env)
+      export PATH="$PATH:$(go env GOPATH)/bin"
+      alias zed="zeditor"
   '';
 }

@@ -16,6 +16,7 @@
       "rainbow-csv"
       "make"
       "gleam"
+      "typst"
     ];
     userSettings = {
       theme = lib.mkForce {

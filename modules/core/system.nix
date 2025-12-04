@@ -1,6 +1,8 @@
-{host, pkgs, ...}: let
+{ host, pkgs, ... }:
+let
   inherit (import ../../hosts/${host}/variables.nix) consoleKeyMap;
-in {
+in
+{
   nix = {
     settings = {
       download-buffer-size = 250000000;
@@ -9,8 +11,8 @@ in {
         "nix-command"
         "flakes"
       ];
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
   };
   time.timeZone = "Asia/Jakarta";
@@ -29,10 +31,10 @@ in {
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
-    fcitx5.addons = with pkgs; [ 
-        # fcitx5-mozc
-        fcitx5-mozc-ut
-        fcitx5-gtk
+    fcitx5.addons = with pkgs; [
+      # fcitx5-mozc
+      fcitx5-mozc-ut
+      fcitx5-gtk
     ];
   };
   i18n.inputMethod.fcitx5.waylandFrontend = true;

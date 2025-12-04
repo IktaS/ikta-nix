@@ -19,12 +19,16 @@
       "typst"
     ];
     userSettings = {
+      font_family = "Fira Code Symbol";
       theme = lib.mkForce {
         mode = "dark";
         dark = "One Dark";
         light = "One Light";
       };
       hour_format = "hour24";
+      terminal = {
+        font_family = "Fira Code Symbol";
+      };
     };
   };
 }

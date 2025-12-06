@@ -22,12 +22,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # QuickShell (optional add quickshell to outputs to enable)
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Google Antigravity (IDE)
     antigravity-nix = {
       url = "github:jacopone/antigravity-nix";

@@ -7,6 +7,13 @@
 
 # 🚀 **Current Release - ZaneyOS v2.5.4**
 
+#### 📅 **Updated: December 6th, 2025**
+
+- Changed:
+  - Quickshell now comes fromm NixPkgs.
+  - No more compiling on rebuilds
+  - Remove Flake input and input in `quickshell.nix`
+
 #### 📅 **Updated: December 3rd, 2025**
 
 - Added:

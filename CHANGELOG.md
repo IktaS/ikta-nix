@@ -7,6 +7,12 @@
 
 # 🚀 **Current Release - ZaneyOS v2.5.4**
 
+#### 📅 **Updated: December 7th, 2025**
+
+- Hybrid GPU detection fails in `install-zaneyos.sh` 
+  - Should be `nvidia-laptop` not `hybrid`
+    - Thanks to sasek @sasek333 for spotting this 
+
 #### 📅 **Updated: December 6th, 2025**
 
 - Changed:

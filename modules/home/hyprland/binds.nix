@@ -18,7 +18,7 @@
       "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
       "$modifier ALT,L, Noctalia Lock Screen, exec, noctalia-shell ipc call sessionMenu lockAndSuspend"
       "$modifier SHIFT,Y, Noctalia Wallpaper, exec, noctalia-shell ipc call wallpaper toggle"
-      "$modifier,X, Noctalia Power Menu, exec, dms noctalia-shell ipc call sessionMenu toggle"
+      "$modifier,X, Noctalia Power Menu, exec, noctalia-shell ipc call sessionMenu toggle"
       "$modifier,C, Noctalia Control Center, exec, noctalia-shell ipc call controlCenter toggle"
       "$modifier CTRL,R, Noctalia Screen Recorder, exec, noctalia-shell ipc call screenRecorder toggle"
     ]

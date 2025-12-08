@@ -4,7 +4,7 @@
 
 ## ZaneyOS 🟰 Mejores Configs ❄️ NixOS
 
-\*\* Actualizado: 3 de junio de 2025
+\*\* Actualizado: 8 de deciembre de 2025
 
 ZaneyOS es una forma sencilla de reproducir mi configuración en cualquier sistema NixOS.
 Incluye el fondo de pantalla, scripts, aplicaciones, archivos de configuración y más.

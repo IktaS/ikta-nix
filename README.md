@@ -4,7 +4,7 @@
 
 ## ZaneyOS 🟰 Best ❄️ NixOS Configs
 
-\*\* Updated: November 28th,2025
+\*\* Updated: December 8th,2025
 
 ZaneyOS is a simple way of reproducing my configuration on any NixOS system.
 This includes the wallpaper, scripts, applications, config files, and more.

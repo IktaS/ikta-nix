@@ -9,9 +9,12 @@
 
 #### 📅 **Updated: December 7th, 2025**
 
-- Hybrid GPU detection fails in `install-zaneyos.sh` 
+- Added `alejandra` formatter to `flake.nix`
+  - ran `nix fmt ./` and updated all files to current format spec
+- Added `alejandra` as default formatter in `nixvim.nix`
+- Hybrid GPU detection fails in `install-zaneyos.sh`
   - Should be `nvidia-laptop` not `hybrid`
-    - Thanks to sasek @sasek333 for spotting this 
+    - Thanks to sasek @sasek333 for spotting this
 
 #### 📅 **Updated: December 6th, 2025**
 

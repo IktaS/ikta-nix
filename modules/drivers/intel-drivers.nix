@@ -19,6 +19,7 @@ in {
         intel-vaapi-driver
         libva-vdpau-driver
         libvdpau-va-gl
+        vpl-gpu-rt
       ];
     };
   };

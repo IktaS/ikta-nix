@@ -32,46 +32,51 @@
       url = "github:0xc000022070/zen-browser-flake/beta";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    { nixpkgs
-    , home-manager
-    , nixvim
-    , nix-flatpak
-    , ...
-    } @ inputs:
-    let
-      system = "x86_64-linux";
-      host = "zaneyos-24-vm";
-      profile = "vm";
-      username = "dwilliams";
+  outputs = {
+    nixpkgs,
+    home-manager,
+    nixvim,
+    nix-flatpak,
+    alejandra,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    host = "zaneyos-24-vm";
+    profile = "vm";
+    username = "dwilliams";
 
-      # Deduplicate nixosConfigurations while preserving the top-level 'profile'
-      mkNixosConfig = gpuProfile:
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs;
-            inherit username;
-            inherit host;
-            inherit profile; # keep using the let-bound profile for modules/scripts
-          };
-          modules = [
-            ./modules/core/overlays.nix
-            ./profiles/${gpuProfile}
-            nix-flatpak.nixosModules.nix-flatpak
-          ];
+    # Deduplicate nixosConfigurations while preserving the top-level 'profile'
+    mkNixosConfig = gpuProfile:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          inherit username;
+          inherit host;
+          inherit profile; # keep using the let-bound profile for modules/scripts
         };
-    in
-    {
-      nixosConfigurations = {
-        amd = mkNixosConfig "amd";
-        nvidia = mkNixosConfig "nvidia";
-        nvidia-laptop = mkNixosConfig "nvidia-laptop";
-        amd-hybrid = mkNixosConfig "amd-hybrid";
-        intel = mkNixosConfig "intel";
-        vm = mkNixosConfig "vm";
+        modules = [
+          ./modules/core/overlays.nix
+          ./profiles/${gpuProfile}
+          nix-flatpak.nixosModules.nix-flatpak
+        ];
       };
+  in {
+    nixosConfigurations = {
+      amd = mkNixosConfig "amd";
+      nvidia = mkNixosConfig "nvidia";
+      nvidia-laptop = mkNixosConfig "nvidia-laptop";
+      amd-hybrid = mkNixosConfig "amd-hybrid";
+      intel = mkNixosConfig "intel";
+      vm = mkNixosConfig "vm";
     };
+
+    formatter.x86_64-linux = inputs.alejandra.packages.x86_64-linux.default;
+  };
 }

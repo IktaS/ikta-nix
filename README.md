@@ -337,58 +337,6 @@ called `fr` that will rebuild the flake and you do not have to be in the
 > **🚀 IMPORTANT:** If you already have ZaneyOS 2.3 installed, use the automated
 > upgrade system instead of reinstalling!
 
-### ✅ Automated Upgrade Process:
-
-ZaneyOS includes a comprehensive upgrade system that safely migrates your
-configuration:
-
-```bash
-cd ~/zaneyos
-./upgrade-2.3-to-2.4.sh
-```
-
-### 🔍 What the Upgrade System Does:
-
-1. **Pre-Upgrade Analysis** - Comprehensive scan of your customizations
-2. **Complete Backup** - Full backup of your current configuration
-3. **Automatic Migration** - Preserves all your settings and customizations
-4. **Safe Upgrade** - Uses `boot` option to prevent display manager conflicts
-5. **Easy Revert** - One-command rollback if needed
-
-### 📋 What Gets Automatically Migrated:
-
-- ✅ All host configurations and variables
-- ✅ Hardware configurations
-- ✅ Custom packages (both global and per-host)
-- ✅ Themes, wallpapers, and monitor settings
-- ✅ Git configuration and personal settings
-- ✅ Terminal preferences with automatic enabling
-
-### ⚠️ What Requires Manual Attention:
-
-- Custom flake.nix inputs
-- Personal shell configuration files (zshrc-personal.nix, etc.)
-- Custom module modifications
-
-### 📚 Complete Documentation:
-
-For detailed upgrade instructions, troubleshooting, and safety information:
-
-- **Read**: `UPGRADE-2.3-to-2.4.md` in your zaneyos directory
-- **Analysis Report**: Saved automatically as
-  `~/zaneyos-upgrade-analysis-TIMESTAMP.txt`
-
-### 🔄 Easy Revert:
-
-If anything goes wrong, easily revert to 2.3:
-
-```bash
-cd ~/zaneyos
-./upgrade-2.3-to-2.4.sh --revert
-```
-
----
-
 ### Special Recognitions:
 
 Thank you for all your assistance

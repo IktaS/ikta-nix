@@ -84,7 +84,7 @@ This includes the wallpaper, scripts, applications, config files, and more.
 #### 🏇 Optimized Workflow & Simple Yet Elegant Neovim
 
 - Using Hyprland for increased elegance, functionality, and efficiency.
-- No massive NeoVIM project here. This is my simple, easy to understand, yet
+- No massive NeoVIM project here, using `nixvim` for an
   incredible NeoVIM setup. With language support already added in.
 
 #### 🖥️ Multi Host & User Configuration
@@ -331,11 +331,6 @@ called `fr` that will rebuild the flake and you do not have to be in the
 `zaneyos` folder for it to work.
 
 </details>
-
-## Upgrading from ZaneyOS 2.3 to 2.4 -- At this time do NOT user the upgrade script
-
-> **🚀 IMPORTANT:** If you already have ZaneyOS 2.3 installed, use the automated
-> upgrade system instead of reinstalling!
 
 ### Special Recognitions:
 

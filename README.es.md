@@ -4,7 +4,7 @@
 
 ## ZaneyOS 🟰 Mejores Configs ❄️ NixOS
 
-** Actualizado: 3 de junio de 2025
+\*\* Actualizado: 3 de junio de 2025
 
 ZaneyOS es una forma sencilla de reproducir mi configuración en cualquier sistema NixOS.
 Incluye el fondo de pantalla, scripts, aplicaciones, archivos de configuración y más.
@@ -180,7 +180,7 @@ A continuación los atajos de Hyprland, en formato de referencia rápida. La col
 
 ## 🎨 Atajos de Noctalia Shell
 
-*Disponibles cuando `barChoice = "noctalia"` en `variables.nix`*
+_Disponibles cuando `barChoice = "noctalia"` en `variables.nix`_
 
 - `$modifier + D` → Alternar iniciador
 - `$modifier + Shift + Return` → Alternar iniciador
@@ -196,7 +196,7 @@ A continuación los atajos de Hyprland, en formato de referencia rápida. La col
 
 ### Iniciador Rofi (Modo Waybar)
 
-*Disponible cuando `barChoice = "waybar"` en `variables.nix`*
+_Disponible cuando `barChoice = "waybar"` en `variables.nix`_
 
 - `$modifier + D` → Lanzar Rofi
 - `$modifier + Shift + Return` → Lanzar Rofi
@@ -271,7 +271,7 @@ nix-shell -p git vim
 2. Clona este repo y entra:
 
 ```
-cd && git clone https://gitlab.com/zaney/zaneyos.git -b stable-2.4 --depth=1 ~/zaneyos 
+cd && git clone https://gitlab.com/zaney/zaneyos.git -b stable-2.4 --depth=1 ~/zaneyos
 cd zaneyos
 
 También puedes ejecutar el script `install.sh` si quieres.
@@ -299,67 +299,13 @@ nixos-generate-config --show-hardware-config > hosts/<nombre-del-host>/hardware.
 7. Ejecuta esto para habilitar flakes e instalar, reemplazando hostname por el perfil (p. ej. `intel`, `nvidia`, `nvidia-laptop`, `amd-hybrid` o `vm`):
 
 ```
-NIX_CONFIG="experimental-features = nix-command flakes" 
+NIX_CONFIG="experimental-features = nix-command flakes"
 sudo nixos-rebuild switch --flake .#profile
 ```
 
 Ahora, cuando quieras reconstruir, tienes el alias `fr` que reconstruye el flake y no necesitas estar en la carpeta `zaneyos` para que funcione.
 
 </details>
-
-## Actualizar de ZaneyOS 2.3 a 2.4
-
-> **🚀 IMPORTANTE:** Si ya tienes ZaneyOS 2.3, usa el sistema de actualización automatizado en lugar de reinstalar.
-
-### ✅ Proceso de actualización automatizado:
-
-ZaneyOS incluye un sistema de actualización completo que migra tu configuración de forma segura:
-
-```bash
-cd ~/zaneyos
-./upgrade-2.3-to-2.4.sh
-```
-
-### 🔍 ¿Qué hace el sistema de actualización?
-
-1. **Análisis previo**: Escaneo integral de tus personalizaciones
-2. **Respaldo completo**: Copia total de tu configuración actual
-3. **Migración automática**: Conserva todos tus ajustes y personalizaciones
-4. **Actualización segura**: Usa la opción `boot` para evitar conflictos del gestor de acceso
-5. **Reversión fácil**: Un solo comando si algo sale mal
-
-### 📋 ¿Qué se migra automáticamente?
-
-- ✅ Todas las configuraciones y variables de hosts
-- ✅ Configuraciones de hardware  
-- ✅ Paquetes personalizados (globales y por host)
-- ✅ Temas, fondos y ajustes de monitores
-- ✅ Configuración de Git y preferencias personales
-- ✅ Preferencias de terminal con habilitación automática
-
-### ⚠️ Qué requiere atención manual
-
-- Entradas personalizadas en flake.nix
-- Archivos de configuración personal del shell (zshrc-personal.nix, etc.)
-- Modificaciones de módulos personalizados
-
-### 📚 Documentación completa
-
-Para instrucciones detalladas, solución de problemas y seguridad:
-
-- **Lee**: `UPGRADE-2.3-to-2.4.md` en tu directorio zaneyos
-- **Informe de análisis**: Guardado automáticamente como `~/zaneyos-upgrade-analysis-TIMESTAMP.txt`
-
-### 🔄 Reversión sencilla
-
-Si algo falla, vuelve a 2.3 fácilmente:
-
-```bash
-cd ~/zaneyos
-./upgrade-2.3-to-2.4.sh --revert
-```
-
----
 
 ### Reconocimientos especiales:
 

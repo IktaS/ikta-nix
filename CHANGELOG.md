@@ -7,6 +7,11 @@
 
 # 🚀 **Current Release - ZaneyOS v2.5.4**
 
+#### 📅 **Updated: December 9th, 2025**
+
+- Notifcation history binding had wrong keyword
+  - Thanks to Kexuan Yang for fixing it
+
 #### 📅 **Updated: December 7th, 2025**
 
 - Added `alejandra` formatter to `flake.nix`

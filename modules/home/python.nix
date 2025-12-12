@@ -20,11 +20,11 @@
     PIP_USER = "1";
   };
 
-  # Create a wrapper script for Weather.py to ensure it uses Home Manager's Python
+  # Create a wrapper script for Weather.py to ensure it uses Python with required packages
   home.file.".local/bin/weather" = {
     text = ''
       #!/bin/sh
-      exec ${pkgs.python3}/bin/python3 $HOME/.config/waybar/scripts/Weather.py "$@"
+      exec ${pkgs.nix-shell}/bin/nix-shell -p python3 python3Packages.requests --run "python3 $HOME/.config/waybar/scripts/Weather.py \$@"
     '';
     executable = true;
   };

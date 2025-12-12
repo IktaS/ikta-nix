@@ -5,7 +5,20 @@
 
 ---
 
-# 🚀 **Current Release - ZaneyOS v2.5.4**
+# 🚀 **Current Release - ZaneyOS v2.5.6**
+
+#### 📅 **Updated: December 12th, 2025**
+
+- Ported from ddubsos:
+  - custom startmenu
+  - custom logout menu
+  - quickshell wallpaper apps
+  - one for images, one for video wallpapers
+  - `ly` login manager
+  - `Weather.py` script
+  - `nwg-dock-hyprland.nix`
+    - `SUPERCTRL+D` to toggle
+  - Needed to support the ported waybars
 
 #### 📅 **Updated: December 9th, 2025**
 

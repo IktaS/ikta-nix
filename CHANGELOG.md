@@ -19,6 +19,8 @@
   - `nwg-dock-hyprland.nix`
     - `SUPERCTRL+D` to toggle
   - Needed to support the ported waybars
+- Added more wallpapers
+- Added video wallpapers
 
 #### 📅 **Updated: December 9th, 2025**
 

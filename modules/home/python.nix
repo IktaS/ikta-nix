@@ -24,7 +24,8 @@
   home.file.".local/bin/weather" = {
     text = ''
       #!/bin/sh
-      exec ${pkgs.nix-shell}/bin/nix-shell -p python3 python3Packages.requests --run "python3 $HOME/.config/waybar/scripts/Weather.py \$@"
+      # Use python3 with the correct package path
+      exec ${pkgs.python3.withPackages(p: [p.requests])}/bin/python3 $HOME/.config/waybar/scripts/Weather.py "$@"
     '';
     executable = true;
   };

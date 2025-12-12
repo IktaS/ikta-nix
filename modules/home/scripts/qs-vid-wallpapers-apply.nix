@@ -74,9 +74,10 @@ pkgs.writeShellScriptBin "qs-vid-wallpapers-apply" ''
       log "Sleeping briefly before starting mpvpaper"
       ${pkgs.coreutils}/bin/sleep 0.2
       # Build mpv options string based on audio toggle
-      opts="--loop-file=inf --image-display-duration=inf --no-osc --no-osd-bar --keep-open=yes"
-      if [ """$audio""" != "ON" ]; then
-        opts="--no-audio $opts"
+      # Use --loop=inf for videos, more reliable than --loop-file=inf 
+      opts="--loop=inf --no-audio --no-osc --no-osd-bar --keep-open=yes"
+      if [ "$audio" = "ON" ]; then
+        opts="${opts/--no-audio/}"
       fi
       if [ -n "$DEBUG" ]; then
         ${pkgs.mpvpaper}/bin/mpvpaper \

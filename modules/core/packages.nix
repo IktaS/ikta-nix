@@ -79,6 +79,7 @@ in {
       nixfmt-rfc-style # Nix Formatter
       nwg-displays # configure monitor configs via GUI
       nwg-drawer # Application launcher for wayland
+      nwg-dock-hyprland # Dock for hyprland
       nwg-menu # App menu for waybar
       onefetch # provides zsaneyos build info on current system
       pandoc # format MD to HTML for cheatsheet parser

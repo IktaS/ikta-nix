@@ -46,6 +46,7 @@ in {
       ++ rofiClipboardBind
       ++ [
         # ============= WORKSPACE OVERVIEW =============
+        "$modifier CTRL,D, Toggle Dock, exec, dock"
         "$modifier, TAB, QS Overview, exec, qs ipc -c overview call overview toggle"
         # ============= TERMINALS =============
         "$modifier,Return, Terminal, exec, ${terminal}"

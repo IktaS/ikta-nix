@@ -19,4 +19,16 @@
   home.sessionVariables = {
     PIP_USER = "1";
   };
+
+  # Create a wrapper script for Weather.py to ensure it uses Home Manager's Python
+  home.file.".local/bin/weather" = {
+    text = ''
+      #!/bin/sh
+      exec ${pkgs.python3}/bin/python3 $HOME/.config/waybar/scripts/Weather.py "$@"
+    '';
+    executable = true;
+  };
+
+  # Set Python path in environment
+  home.sessionPath = ["${pkgs.python3}/bin"];
 }

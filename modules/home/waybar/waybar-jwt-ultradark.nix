@@ -96,7 +96,7 @@ in {
         "margin-right" = 8;
 
         modules-left = [
-          "custom/menu"
+          "custom/startmenu"
           "hyprland/workspaces"
           "custom/cava_mviz"
           "battery"

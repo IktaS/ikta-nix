@@ -80,18 +80,27 @@ pkgs.writeShellScriptBin "qs-vid-wallpapers-apply" ''
       else
         opts="--loop-file=inf --loop=inf --no-audio --no-osc --no-osd-bar --keep-open=yes"
       fi
-      if [ -n "$DEBUG" ]; then
-        ${pkgs.mpvpaper}/bin/mpvpaper \
-          -o "$opts" \
-          '*' "$sel" &
-      else
-        ${pkgs.mpvpaper}/bin/mpvpaper \
-          -o "$opts" \
-          '*' "$sel" >/dev/null 2>&1 &
-      fi
+      # Start mpvpaper with monitoring
+      ${pkgs.mpvpaper}/bin/mpvpaper \
+        -o "$opts" \
+        '*' "$sel" >/dev/null 2>&1 &
+      MPVPID=$!
       disown
-      log "mpvpaper launched"
-      exit 0
+      log "mpvpaper launched with PID: $MPVPID"
+      
+      # Monitor process and restart if it exits
+      sleep 2
+      while true; do
+        if ! ${pkgs.procps}/bin/pgrep -f "mpvpaper.*$sel" > /dev/null; then
+          log "mpvpaper stopped, restarting..."
+          ${pkgs.mpvpaper}/bin/mpvpaper \
+            -o "$opts" \
+            '*' "$sel" >/dev/null 2>&1 &
+          MPVPID=$!
+          disown
+        fi
+        sleep 5
+      done &
       ;;
 
     *)

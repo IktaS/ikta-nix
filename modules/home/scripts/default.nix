@@ -28,6 +28,7 @@
     # QuickShell scripts
     (import ./qs-vid-wallpapers.nix {inherit pkgs;})
     (import ./qs-vid-wallpapers-apply.nix {inherit pkgs;})
+    (import ./qs-vid-wallpapers-watchdog.nix {inherit pkgs;})
     (import ./qs-wallpapers.nix {inherit pkgs;})
     (import ./qs-wallpapers-apply.nix {inherit pkgs;})
     (import ./qs-wallpapers-restore.nix {inherit pkgs;})

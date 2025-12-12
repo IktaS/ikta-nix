@@ -75,33 +75,32 @@ pkgs.writeShellScriptBin "qs-vid-wallpapers-apply" ''
       ${pkgs.coreutils}/bin/sleep 0.2
       # Build mpv options string based on audio toggle
       # Use multiple loop options for maximum compatibility
+      # Build mpv options string based on audio toggle
+      # Use a more robust set of options for video looping
       if [ "$audio" = "ON" ]; then
-        opts="--loop-file=inf --loop=inf --no-osc --no-osd-bar --keep-open=yes"
+        opts="--loop=inf --no-audio-disable --no-osc --no-osd-bar --keep-open=yes --keepaspect=yes --hwdec=auto"
       else
-        opts="--loop-file=inf --loop=inf --no-audio --no-osc --no-osd-bar --keep-open=yes"
+        opts="--loop=inf --no-audio --no-osc --no-osd-bar --keep-open=yes --keepaspect=yes --hwdec=auto"
       fi
-      # Start mpvpaper with monitoring
-      ${pkgs.mpvpaper}/bin/mpvpaper \
-        -o "$opts" \
-        '*' "$sel" >/dev/null 2>&1 &
-      MPVPID=$!
+      if [ -n "$DEBUG" ]; then
+        ${pkgs.mpvpaper}/bin/mpvpaper \
+          -o "$opts" \
+          '*' "$sel" &
+      else
+        ${pkgs.mpvpaper}/bin/mpvpaper \
+          -o "$opts" \
+          '*' "$sel" >/dev/null 2>&1 &
+      fi
       disown
-      log "mpvpaper launched with PID: $MPVPID"
+      log "mpvpaper launched"
       
-      # Monitor process and restart if it exits
-      sleep 2
-      while true; do
-        if ! ${pkgs.procps}/bin/pgrep -f "mpvpaper.*$sel" > /dev/null; then
-          log "mpvpaper stopped, restarting..."
-          ${pkgs.mpvpaper}/bin/mpvpaper \
-            -o "$opts" \
-            '*' "$sel" >/dev/null 2>&1 &
-          MPVPID=$!
-          disown
-        fi
-        sleep 5
-      done &
-      ;;
+      # Start watchdog if requested
+      if [ "${QS_VID_WALLPAPER_WATCHDOG:-}" = "1" ]; then
+        log "Starting video wallpaper watchdog"
+        qs-vid-wallpapers-watchdog &
+      fi
+      
+      exit 0
 
     *)
       echo "Unknown BACKEND: $BACKEND" >&2

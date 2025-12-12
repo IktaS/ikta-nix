@@ -3,14 +3,14 @@ pkgs.writeShellScriptBin "qs-vid-wallpapers-watchdog" ''
   #!/usr/bin/env bash
   set -euo pipefail
   
-  [ -n "${QS_DEBUG:-}" ] && set -x
-  DEBUG="${QS_DEBUG:-}"
+  [ -n "''${QS_DEBUG:-}" ] && set -x
+  DEBUG="''${QS_DEBUG:-}"
   log() { if [ -n "$DEBUG" ]; then echo "[qs-vid-watchdog] $*" >&2; fi }
   
   log "Starting video wallpaper watchdog"
   
   # Get the current video wallpaper if any
-  STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/qs-wallpapers"
+  STATE_DIR="''${XDG_STATE_HOME:-$HOME/.local/state}/qs-wallpapers"
   STATE_FILE_JSON="$STATE_DIR/current.json"
   
   if [ -f "$STATE_FILE_JSON" ]; then

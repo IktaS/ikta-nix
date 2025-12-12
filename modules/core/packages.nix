@@ -78,6 +78,7 @@ in {
       ncdu # Disk Usage Analyzer With Ncurses Interface
       nixfmt-rfc-style # Nix Formatter
       nwg-displays # configure monitor configs via GUI
+      nwg-drawer # Application launcher for wayland
       onefetch # provides zsaneyos build info on current system
       pandoc # format MD to HTML for cheatsheet parser
       pavucontrol # For Editing Audio Levels & Devices

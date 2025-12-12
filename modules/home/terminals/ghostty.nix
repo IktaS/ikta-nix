@@ -100,6 +100,20 @@
     };
   };
 
+  # Desktop entry for ghostty-bg
+  home.file."${config.xdg.dataHome}/applications/ghostty-bg.desktop".text = ''
+    [Desktop Entry]
+    Version=1.0
+    Type=Application
+    Name=Ghostty with Background
+    Comment=Terminal emulator with random background image
+    Exec=ghostty-bg --foreground
+    Icon=utilities-terminal
+    Terminal=false
+    Categories=System;TerminalEmulator;Utility;
+    Keywords=terminal;shell;prompt;
+  '';
+
   # Wrapper script to launch Ghostty with background image from a randomized symlink
   home.packages = [
     (pkgs.writeShellScriptBin "ghostty-bg" ''

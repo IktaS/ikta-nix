@@ -21,8 +21,7 @@
   #To install: Enable here, zcli rebuild, then run zcli doom install
   doomEmacsEnable = false;
   
-  # Python development tools
-  pythonEnable = false;
+  # Python development tools are included by default
 
   # Hyprland Settings
   # Examples:

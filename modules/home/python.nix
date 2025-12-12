@@ -6,6 +6,7 @@
     python3Packages.black # Code formatter
     python3Packages.flake8 # Linting tool
     python3Packages.mypy # Type checking
+    python3Packages.requests # HTTP library for the Weather.py script
   ];
 
   # Add pip configuration

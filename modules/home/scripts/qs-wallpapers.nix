@@ -52,10 +52,10 @@ pkgs.writeShellScriptBin "qs-wallpapers" ''
     if [ ! -d "$CACHE" ]; then
       mkdir -p "$CACHE"
     fi
-    { ${pkgs.findutils}/bin/find -L "$DIR" \
+    ${pkgs.findutils}/bin/find -L "$DIR" \
       \( -type f -o -xtype f \) \
       \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.avif' -o -iname '*.bmp' -o -iname '*.tiff' \) \
-      -print0 2>/dev/null || true; } | while IFS= read -r -d '' img; do
+      -print0 2>/dev/null | while IFS= read -r -d '' img; do
       if [ ! -f "$img" ]; then continue; fi
       hash=$(${pkgs.coreutils}/bin/printf "%s" "$img" | ${pkgs.openssl}/bin/openssl dgst -sha256 -r | ${pkgs.gawk}/bin/awk '{print $1}')
       out="$CACHE/$hash.png"

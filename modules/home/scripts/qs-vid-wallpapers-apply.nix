@@ -74,13 +74,10 @@ pkgs.writeShellScriptBin "qs-vid-wallpapers-apply" ''
       log "Sleeping briefly before starting mpvpaper"
       ${pkgs.coreutils}/bin/sleep 0.2
       # Build mpv options string based on audio toggle
-      # Use multiple loop options for maximum compatibility
-      # Build mpv options string based on audio toggle
-      # Use a more robust set of options for video looping
-      if [ "$audio" = "ON" ]; then
-        opts="--loop=inf --no-audio-disable --no-osc --no-osd-bar --keep-open=yes --keepaspect=yes --hwdec=auto"
-      else
-        opts="--loop=inf --no-audio --no-osc --no-osd-bar --keep-open=yes --keepaspect=yes --hwdec=auto"
+      # Use both --loop-file and --loop for maximum compatibility
+      opts="--loop-file=inf --loop=inf --image-display-duration=inf --no-osc --no-osd-bar --keep-open=yes"
+      if [ """$audio""" != "ON" ]; then
+        opts="--no-audio $opts"
       fi
       if [ -n "$DEBUG" ]; then
         ${pkgs.mpvpaper}/bin/mpvpaper \
@@ -93,14 +90,8 @@ pkgs.writeShellScriptBin "qs-vid-wallpapers-apply" ''
       fi
       disown
       log "mpvpaper launched"
-      
-      # Start watchdog if requested
-      if [ "''${QS_VID_WALLPAPER_WATCHDOG:-}" = "1" ]; then
-        log "Starting video wallpaper watchdog"
-        qs-vid-wallpapers-watchdog &
-      fi
-      
       exit 0
+      ;;
 
     *)
       echo "Unknown BACKEND: $BACKEND" >&2

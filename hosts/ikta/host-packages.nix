@@ -15,5 +15,6 @@
     krita
     libreoffice
     inkscape
+    openscad
   ];
 }

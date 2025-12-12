@@ -54,6 +54,7 @@ in
     ./zsh
     ./zed.nix
     ./rquickshare.nix
+    ./orca-slicer.nix
   ]
   ++ (if affinityEnable then [ ./affinity.nix ] else [ ])
   ++ (if helixEnable then [ ./evil-helix.nix ] else [ ])

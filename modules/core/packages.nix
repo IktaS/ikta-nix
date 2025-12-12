@@ -88,6 +88,7 @@
     obsidian # notes app
     ntfs3g # ntfs driver tools things
     rquickshare # QuickShare client
+    orca-slicer
     # programming shit
     bun # js shit
     go
@@ -104,5 +105,6 @@
     erlang
     typst
     tinymist
+    python3
   ];
 }

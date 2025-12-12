@@ -24,6 +24,13 @@
     # Cheatsheets viewer + parser
     (import ./cheatsheets-parser.nix {inherit pkgs;})
     (import ./qs-cheatsheets.nix {inherit pkgs;})
+    # QuickShell scripts
+    (import ./qs-vid-wallpapers.nix {inherit pkgs;})
+    (import ./qs-vid-wallpapers-apply.nix {inherit pkgs;})
+    (import ./qs-wallpapers.nix {inherit pkgs;})
+    (import ./qs-wallpapers-apply.nix {inherit pkgs;})
+    (import ./qs-wallpapers-restore.nix {inherit pkgs;})
+    (import ./qs-wlogout.nix {inherit pkgs;})
     (import ./zcli.nix {
       inherit pkgs profile;
       backupFiles = [

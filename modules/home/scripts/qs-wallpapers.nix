@@ -48,9 +48,22 @@ pkgs.writeShellScriptBin "qs-wallpapers" ''
     mkdir -p "$CACHE"
 
     # Prebuild thumbs quickly (quiet)
-    ${pkgs.coreutils}/bin/env \
-      WALL_DIR="$DIR" WALL_CACHE_DIR="$CACHE" WALL_THUMB_SIZE="$SIZE" \
-      ${pkgs.callPackage ./wallpaper-thumbs-build.nix {}}/bin/wallpaper-thumbs-build -q >/dev/null 2>&1 || true
+    # Inline thumbnail building to avoid dependency on separate script
+    if [ ! -d "$CACHE" ]; then
+      mkdir -p "$CACHE"
+    fi
+    { ${pkgs.findutils}/bin/find -L "$DIR" \
+      \( -type f -o -xtype f \) \
+      \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.avif' -o -iname '*.bmp' -o -iname '*.tiff' \) \
+      -print0 2>/dev/null || true; } | while IFS= read -r -d '' img; do
+      if [ ! -f "$img" ]; then continue; fi
+      hash=$(${pkgs.coreutils}/bin/printf "%s" "$img" | ${pkgs.openssl}/bin/openssl dgst -sha256 -r | ${pkgs.gawk}/bin/awk '{print $1}')
+      out="$CACHE/$hash.png"
+      if [ ! -f "$out" ]; then
+        ${pkgs.imagemagick}/bin/convert "$img" -auto-orient -thumbnail "${SIZE}x${SIZE}>" \
+          -background none -gravity center -extent "${SIZE}x${SIZE}" "$out" 2>/dev/null || true
+      fi
+    done
 
     # Perf timing helpers
     now_ms() { ${pkgs.coreutils}/bin/date +%s%3N; }

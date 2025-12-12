@@ -31,6 +31,8 @@
     (import ./qs-wallpapers-apply.nix {inherit pkgs;})
     (import ./qs-wallpapers-restore.nix {inherit pkgs;})
     (import ./qs-wlogout.nix {inherit pkgs;})
+    (import ./qs-docs.nix {inherit pkgs;})
+    (import ./qs-panels.nix {inherit pkgs;})
     (import ./zcli.nix {
       inherit pkgs profile;
       backupFiles = [

@@ -19,6 +19,9 @@
   helixEnable = false;
   #To install rebuild, then run zcli doom install
   doomEmacsEnable = false;
+  
+  # Python development tools
+  pythonEnable = false;
 
   # P10K or starship prompt
   userPrompt = "starship";

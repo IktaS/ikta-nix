@@ -12,6 +12,7 @@
     helixEnable
     doomEmacsEnable
     antigravityEnable
+    pythonEnable
     ;
   # Select bar module based on barChoice
   barModule =
@@ -102,6 +103,11 @@ in {
     ++ (
       if alacrittyEnable
       then [./terminals/alacritty.nix]
+      else []
+    )
+    ++ (
+      if pythonEnable
+      then [./python.nix]
       else []
     );
 }

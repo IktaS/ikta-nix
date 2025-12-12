@@ -9,18 +9,23 @@
 
 #### 📅 **Updated: December 12th, 2025**
 
-- Ported from ddubsos:
-  - custom startmenu
-  - custom logout menu
-  - quickshell wallpaper apps
-  - one for images, one for video wallpapers
-  - `ly` login manager
+- Fixed:
   - `Weather.py` script
+  - Start menu in waybars
+- Ported from ddubsos:
+  - `kitty-bg` and `ghostty-bg`
+    - Adds random backgrounds to terminals
+  - Custom Quickshell logout menu
+  - Custom startmenu
+  - Custom logout menu
+  - Quickshell wallpaper apps
+  - One for images, one for video wallpapers
+  - `ly` login manager
   - `nwg-dock-hyprland.nix`
     - `SUPERCTRL+D` to toggle
-  - Needed to support the ported waybars
-- Added more wallpapers
-- Added video wallpapers
+- Added:
+  - More wallpapers
+  - Video wallpapers
 
 #### 📅 **Updated: December 9th, 2025**
 

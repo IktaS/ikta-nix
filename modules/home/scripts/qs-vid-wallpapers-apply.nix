@@ -95,7 +95,7 @@ pkgs.writeShellScriptBin "qs-vid-wallpapers-apply" ''
       log "mpvpaper launched"
       
       # Start watchdog if requested
-      if [ "${QS_VID_WALLPAPER_WATCHDOG:-}" = "1" ]; then
+      if [ "''${QS_VID_WALLPAPER_WATCHDOG:-}" = "1" ]; then
         log "Starting video wallpaper watchdog"
         qs-vid-wallpapers-watchdog &
       fi

@@ -7,6 +7,13 @@
 
 # 🚀 **Current Release - ZaneyOS v2.5.6**
 
+#### 📅 **Updated: December 14th, 2025**
+
+- Fixed:
+- hyprlock background image
+- `--diff-always` to `nh` rebuilds
+- Thanks to Steven Scott for the fixes
+
 #### 📅 **Updated: December 12th, 2025**
 
 - Fixed:

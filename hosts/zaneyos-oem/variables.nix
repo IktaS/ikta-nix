@@ -19,7 +19,7 @@
   helixEnable = true;
   #To install rebuild, then run zcli doom install
   doomEmacsEnable = false;
-  
+
   # Python development tools
   pythonEnable = false;
 

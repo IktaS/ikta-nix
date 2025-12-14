@@ -14,7 +14,7 @@
     [global]
     user = true
   '';
-  
+
   # Set environment variables for Python development
   home.sessionVariables = {
     PIP_USER = "1";
@@ -25,7 +25,7 @@
     text = ''
       #!/bin/sh
       # Use python3 with the correct package path
-      exec ${pkgs.python3.withPackages(p: [p.requests])}/bin/python3 $HOME/.config/waybar/scripts/Weather.py "$@"
+      exec ${pkgs.python3.withPackages (p: [p.requests])}/bin/python3 $HOME/.config/waybar/scripts/Weather.py "$@"
     '';
     executable = true;
   };

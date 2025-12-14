@@ -395,7 +395,7 @@ in
         extra_args=$(parse_nh_args "$@")
 
         echo "Starting NixOS rebuild for host: $(${pkgs.nettools}/bin/hostname)"
-        if eval "${pkgs.nh}/bin/nh os switch --hostname '$PROFILE' $extra_args"; then
+        if eval "${pkgs.nh}/bin/nh os switch --diff always --hostname '$PROFILE' $extra_args"; then
           echo "Rebuild finished successfully"
         else
           echo "Rebuild Failed" >&2
@@ -411,7 +411,7 @@ in
 
         echo "Starting NixOS rebuild (boot) for host: $(${pkgs.nettools}/bin/hostname)"
         echo "Note: Configuration will be activated on next reboot"
-        if eval "${pkgs.nh}/bin/nh os boot --hostname '$PROFILE' $extra_args"; then
+        if eval "${pkgs.nh}/bin/nh os boot --diff always --hostname '$PROFILE' $extra_args"; then
           echo "Rebuild-boot finished successfully"
           echo "New configuration set as boot default - restart to activate"
         else
@@ -439,7 +439,7 @@ in
         extra_args=$(parse_nh_args "$@")
 
         echo "Updating flake and rebuilding system for host: $(${pkgs.nettools}/bin/hostname)"
-        if eval "${pkgs.nh}/bin/nh os switch --hostname '$PROFILE' --update $extra_args"; then
+        if eval "${pkgs.nh}/bin/nh os switch --diff always --hostname '$PROFILE' --update $extra_args"; then
           echo "Update and rebuild finished successfully"
         else
           echo "Update and rebuild Failed" >&2
@@ -621,7 +621,7 @@ in
                 echo "Enabling Doom Emacs in $host_vars_file..."
                 ensure_doom_enabled
                 echo "Rebuilding system so user modules are applied..."
-                if ${pkgs.nh}/bin/nh os switch --hostname "$PROFILE"; then
+                if ${pkgs.nh}/bin/nh os switch --diff always --hostname "$PROFILE"; then
                   echo "Rebuild complete. Proceeding with Doom installation."
                 else
                   echo "Error: Rebuild failed. Please fix the build and re-run 'zcli doom install'." >&2

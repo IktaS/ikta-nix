@@ -14,7 +14,7 @@ in {
     "${ghostHome}/ghostty-bg.conf".text = ''
       # Overlay for background image; the wrapper passes these via CLI as well
       # Keep the main config untouched; this file documents the desired values.
-      background-image=${config.home.homeDirectory}/Pictures/current_image
+      background-image=${config.home.homeDirectory}/Pictures/current_image_ghosttty
       background-image-opacity=0.9
       background-image-position=center
       background-image-fit=cover
@@ -139,7 +139,7 @@ in {
 
             # Defaults
             SOURCE_DIR="$HOME/Pictures/Wallpapers"
-            LINK_PATH="$HOME/Pictures/current_image"
+            LINK_PATH="$HOME/Pictures/current_image_ghostty"
             LAUNCH=1
             FOREGROUND=0
 
@@ -160,11 +160,11 @@ in {
                   cat <<'EOF'
       Usage: ghostty-bg [options] [--] [ghostty_args...]
 
-      Defaults: Launches ghostty in the background with background-image linked at ~/Pictures/current_image
+      Defaults: Launches ghostty in the background with background-image linked at ~/Pictures/current_image_ghostty
 
       Options:
         -s, --source DIR   Source directory of images (default: ~/Pictures/Wallpapers)
-        -l, --link PATH    Symlink path (default: ~/Pictures/current_image)
+        -l, --link PATH    Symlink path (default: ~/Pictures/current_image_ghostty)
             --no-launch    Only update symlink; do not launch ghostty
             --foreground   Run ghostty in the foreground (default is background)
         -h, --help         Show this help

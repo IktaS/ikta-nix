@@ -181,7 +181,7 @@
   home.file."${config.xdg.configHome}/kitty/kitty-bg.conf".text = lib.mkForce ''
     include ./kitty.conf
     # Background image managed by wrapper via symlink
-    background_image  ${config.home.homeDirectory}/Pictures/current_image
+    background_image  ${config.home.homeDirectory}/Pictures/current_image_kitty
     background_image_layout scaled
     background_tint 0.95
     background_opacity 1.0
@@ -236,7 +236,7 @@
 
       Options:
         -s, --source DIR   Source directory of images (default: ~/Pictures/Wallpapers)
-        -l, --link PATH    Symlink path (default: ~/Pictures/current_image)
+        -l, --link PATH    Symlink path (default: ~/Pictures/current_image_kitty)
             --no-launch    Only update symlink; do not launch kitty
             --foreground   Run kitty in the foreground (default is background)
         -h, --help         Show this help

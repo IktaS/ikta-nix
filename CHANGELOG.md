@@ -12,6 +12,7 @@
 - Fixed:
 - hyprlock background image
 - `--diff-always` to `nh` rebuilds
+- Removed extra `Ghz` in `fastfetch` output
 - Thanks to Steven Scott for the fixes
 
 #### 📅 **Updated: December 12th, 2025**

@@ -1,4 +1,4 @@
-{username, ...}: {
+{config, username, ...}: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -10,7 +10,7 @@
       };
       background = [
         {
-          path = "/home/${username}/Pictures/Wallpapers/beautifulmountainscape.jpg";
+          path = config.stylix.image;
           blur_passes = 3;
           blur_size = 8;
         }

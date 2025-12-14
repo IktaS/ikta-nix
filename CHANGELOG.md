@@ -13,7 +13,8 @@
 - hyprlock background image
 - `--diff-always` to `nh` rebuilds
 - Removed extra `Ghz` in `fastfetch` output
-- Thanks to Steven Scott for the fixes
+- Fixed hard coded directory for cheatsheets path
+  - Thanks to Steven Scott for the fixes
 
 #### 📅 **Updated: December 12th, 2025**
 

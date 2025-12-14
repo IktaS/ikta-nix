@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   username,
   profile,
@@ -23,7 +24,7 @@
     (import ./web-search.nix {inherit pkgs;})
     # Cheatsheets viewer + parser
     (import ./cheatsheets-parser.nix {inherit pkgs;})
-    (import ./qs-cheatsheets.nix {inherit pkgs;})
+    (import ./qs-cheatsheets.nix {inherit config pkgs;})
     (import ./docs-parser.nix {inherit pkgs;})
     # QuickShell scripts
     (import ./qs-vid-wallpapers.nix {inherit pkgs;})

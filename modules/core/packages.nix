@@ -94,6 +94,8 @@
     go
     zig
     rustc
+    rustup
+    rustfmt
     opam
     gleam
     gcc

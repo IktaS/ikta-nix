@@ -38,6 +38,7 @@
     "[workspace 2 silent] zen"
     "[workspace 2 silent] discord"
     "[workspace 1 silent] steam"
+    "[workspace 1 silent] qpwgraph"
   ];
 
   # Waybar Settings

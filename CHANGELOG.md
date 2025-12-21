@@ -7,6 +7,12 @@
 
 # 🚀 **Current Release - ZaneyOS v2.5.6**
 
+#### 📅 **Updated: December 21th, 2025**
+
+- Fixed:
+  - Output of `zcli list-gens` corrected
+    - Thanks `@codingismy11to71`
+
 #### 📅 **Updated: December 14th, 2025**
 
 - Fixed:

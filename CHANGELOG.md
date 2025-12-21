@@ -7,7 +7,13 @@
 
 # 🚀 **Current Release - ZaneyOS v2.5.6**
 
-#### 📅 **Updated: December 21th, 2025**
+#### 📅 **Updated: December 21st, 2025**
+
+- Updated:
+  - `nixvim.nix` now uses `blink-cmp` for completion/suggestions
+  - This replaces `nvim-cmp`
+  - `blink-cmp` is better, integrated in nixvim
+  - Removed LUA code related to `nvim-cmp`
 
 - Fixed:
   - Output of `zcli list-gens` corrected

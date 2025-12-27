@@ -5,9 +5,9 @@
 
 ---
 
-# 🚀 **Current Release - ZaneyOS v2.5.6**
+# 🚀 **Current Release - ZaneyOS v2.5.8**
 
-#### 📅 **Updated: December 21st, 2025**
+#### 📅 **Updated: December 26st, 2025**
 
 - Added user systemd service for `noctalia-shell`
 - Updated Hyprland bindings to accomodate change

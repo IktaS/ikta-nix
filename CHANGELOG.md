@@ -7,8 +7,9 @@
 
 # 🚀 **Current Release - ZaneyOS v2.5.6**
 
-#### 📅 **Updated: December 26th, 2025**
+#### 📅 **Updated: December 29th, 2025**
 
+- Removed extra `noctalia-shell` startup
 - Added initial support for AMD, NVIDIA Hybrid laptops
 
 #### 📅 **Updated: December 21st, 2025**

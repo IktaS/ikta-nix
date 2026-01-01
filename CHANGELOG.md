@@ -11,6 +11,7 @@
 
 - Removed extra `noctalia-shell` startup
 - Added initial support for AMD, NVIDIA Hybrid laptops
+- Keypress to recover from DPMS now enabled by default
 
 #### 📅 **Updated: December 21st, 2025**
 

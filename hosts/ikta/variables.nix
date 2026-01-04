@@ -7,7 +7,7 @@
   # `tui` for Text login
   # `sddm` for graphical GUI
   # SDDM background is set with stylixImage
-  displayManager = "sddm";
+  displayManager = "tui";
 
   # Emable/disable bundled applications
   tmuxEnable = false;
@@ -15,8 +15,13 @@
   weztermEnable = true;
   ghosttyEnable = false;
   vscodeEnable = false;
+  antigravityEnable = false; # Google port of vscodium
+  zedEnable = true; # Google port of vscodium
+  # Note: This is evil-helix with VIM keybindings by default
   helixEnable = false;
   affinityEnable = false;
+  #To install: Enable here, zcli rebuild, then run zcli doom install
+  doomEmacsEnable = false;
 
   # Hyprland Settings
   # ex: monitorSettings = "monitor = Virtual-1,1920x1080@60,auto,1";
@@ -40,6 +45,10 @@
     "[workspace 1 silent] steam"
     "[workspace 1 silent] qpwgraph"
   ];
+
+  # Bar/Shell Settings
+  # Choose between noctalia or waybar
+  barChoice = "noctalia";
 
   # Waybar Settings
   clock24h = true;
@@ -97,4 +106,8 @@
 
   # RQuickShare settings
   rQuickSharePort = 12588;
+
+  # Set network hostId if required (needed for zfs)
+  # Otherwise leave as-is
+  hostId = "5ab03f50";
 }

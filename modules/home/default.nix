@@ -1,7 +1,9 @@
 { host, ... }:
 let
-  inherit (import ../../hosts/${host}/variables.nix)
+  vars = import ../../hosts/${host}/variables.nix;
+  inherit (vars)
     alacrittyEnable
+    barChoice
     ghosttyEnable
     tmuxEnable
     waybarChoice
@@ -9,58 +11,74 @@ let
     vscodeEnable
     helixEnable
     affinityEnable
+    doomEmacsEnable
+    antigravityEnable
+    zedEnable
     ;
+  # Select bar module based on barChoice
+  barModule = if barChoice == "noctalia" then ./noctalia.nix else waybarChoice;
 in
 {
   imports = [
     ./amfora.nix
     ./bash.nix
     ./bashrc-personal.nix
-    ./bat.nix
-    ./btop.nix
-    ./bottom.nix
-    ./cava.nix
+    ./overview.nix
+    ./python.nix
+    ./cli/bat.nix
+    ./cli/btop.nix
+    ./cli/bottom.nix
+    ./cli/cava.nix
     ./emoji.nix
     ./eza.nix
     ./fastfetch
-    ./fzf.nix
-    ./gh.nix
-    ./git.nix
+    ./cli/fzf.nix
+    ./cli/gh.nix
+    ./cli/git.nix
     ./gtk.nix
-    ./htop.nix
+    ./cli/htop.nix
     ./hyprland
-    ./kitty.nix
-    ./lazygit.nix
+    ./terminals/kitty.nix
+    ./cli/lazygit.nix
     ./obs-studio.nix
-    ./nvf.nix
-    ./obs-studio.nix
+    #./editors/nvf.nix
+    ./editors/nixvim.nix
+    ./editors/nano.nix
     ./rofi
     ./qt.nix
-    ./zen-browser.nix
     ./scripts
-    # ./scripts/gemini-cli.nix
-    #./starship.nix
-    #./starship-ddubs-1.nix
+    ./scripts/gemini-cli.nix
     ./stylix.nix
     ./swappy.nix
     ./swaync.nix
     ./tealdeer.nix
     ./virtmanager.nix
-    waybarChoice
+    barModule
     ./wlogout
     ./xdg.nix
     ./yazi
+    ./zen-browser.nix
     ./zoxide.nix
     ./zsh
-    ./zed.nix
     ./rquickshare.nix
     ./orca-slicer.nix
   ]
   ++ (if affinityEnable then [ ./affinity.nix ] else [ ])
-  ++ (if helixEnable then [ ./evil-helix.nix ] else [ ])
-  ++ (if vscodeEnable then [ ./vscode.nix ] else [ ])
-  ++ (if weztermEnable then [ ./wezterm.nix ] else [ ])
-  ++ (if ghosttyEnable then [ ./ghostty.nix ] else [ ])
-  ++ (if tmuxEnable then [ ./tmux.nix ] else [ ])
-  ++ (if alacrittyEnable then [ ./alacritty.nix ] else [ ]);
+  ++ (if helixEnable then [ ./editors/evil-helix.nix ] else [ ])
+  ++ (if vscodeEnable then [ ./editors/vscode.nix ] else [ ])
+  ++ (if antigravityEnable then [ ./editors/antigravity.nix ] else [ ])
+  ++ (if zedEnable then [ ./editors/zed.nix ] else [ ])
+  ++ (
+    if doomEmacsEnable then
+      [
+        ./editors/doom-emacs-install.nix
+        ./editors/doom-emacs.nix
+      ]
+    else
+      [ ]
+  )
+  ++ (if weztermEnable then [ ./terminals/wezterm.nix ] else [ ])
+  ++ (if ghosttyEnable then [ ./terminals/ghostty.nix ] else [ ])
+  ++ (if tmuxEnable then [ ./terminals/tmux.nix ] else [ ])
+  ++ (if alacrittyEnable then [ ./terminals/alacritty.nix ] else [ ]);
 }

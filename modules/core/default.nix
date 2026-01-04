@@ -16,10 +16,11 @@ in
     ./network.nix
     ./nfs.nix
     ./nh.nix
+    ./quickshell.nix
     ./packages.nix
     ./printing.nix
     # Conditionally import the display manager module
-    (if vars.displayManager == "tui" then ./greetd.nix else ./sddm.nix)
+    (if vars.displayManager == "tui" then ./ly.nix else ./sddm.nix)
     ./security.nix
     ./services.nix
     ./steam.nix
@@ -32,6 +33,7 @@ in
     ./xserver.nix
     ./vlc.nix
     ./pipewire.nix
+    ./cachix.nix
     inputs.stylix.nixosModules.stylix
   ];
 }

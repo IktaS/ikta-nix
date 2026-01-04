@@ -6,104 +6,85 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix/release-25.11";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
-      # to have it up-to-date or simply don't specify the nixpkgs input
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    affinity-nix = {
-      url = "github:mrshmllow/affinity-nix";
+
+    # Checking nixvim to see if it's better
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    automatic-ripping-machine.url = "github:xieve/automatic-ripping-machine/main?dir=nixos";
+
+    # Google Antigravity (IDE)
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake/beta";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    nix-flatpak,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    host = "ikta";
-    profile = "nvidia";
-    username = "ikta";
-  in {
-    nixosConfigurations = {
-      amd = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit host;
-          inherit profile;
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nixvim,
+      nix-flatpak,
+      alejandra,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      host = "ikta";
+      profile = "nvidia";
+      username = "ikta";
+
+      # Deduplicate nixosConfigurations while preserving the top-level 'profile'
+      mkNixosConfig =
+        gpuProfile:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs;
+            inherit username;
+            inherit host;
+            inherit profile; # keep using the let-bound profile for modules/scripts
+          };
+          modules = [
+            ./modules/core/overlays.nix
+            ./profiles/${gpuProfile}
+            nix-flatpak.nixosModules.nix-flatpak
+          ];
         };
-        modules = [
-          ./profiles/amd
-          nix-flatpak.nixosModules.nix-flatpak
-          inputs.automatic-ripping-machine.nixosModules.default
-        ];
+    in
+    {
+      nixosConfigurations = {
+        amd = mkNixosConfig "amd";
+        nvidia = mkNixosConfig "nvidia";
+        nvidia-laptop = mkNixosConfig "nvidia-laptop";
+        amd-hybrid = mkNixosConfig "amd-hybrid";
+        intel = mkNixosConfig "intel";
+        vm = mkNixosConfig "vm";
       };
-      nvidia = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit host;
-          inherit profile;
-        };
-        modules = [
-          ./profiles/nvidia
-          nix-flatpak.nixosModules.nix-flatpak
-          inputs.automatic-ripping-machine.nixosModules.default
-        ];
-      };
-      nvidia-laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit host;
-          inherit profile;
-        };
-        modules = [
-          ./profiles/nvidia-laptop
-          nix-flatpak.nixosModules.nix-flatpak
-          inputs.automatic-ripping-machine.nixosModules.default
-        ];
-      };
-      intel = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit host;
-          inherit profile;
-        };
-        modules = [
-          ./profiles/intel
-          nix-flatpak.nixosModules.nix-flatpak
-          inputs.automatic-ripping-machine.nixosModules.default
-        ];
-      };
-      vm = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit host;
-          inherit profile;
-        };
-        modules = [
-          ./profiles/vm
-          nix-flatpak.nixosModules.nix-flatpak
-          inputs.automatic-ripping-machine.nixosModules.default
-        ];
-      };
+
+      formatter.x86_64-linux = inputs.alejandra.packages.x86_64-linux.default;
     };
-  };
 }

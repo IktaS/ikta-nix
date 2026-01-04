@@ -48,6 +48,7 @@
     '';
 
     shellAliases = {
+      nix-fmt-all = "nix fmt ./";
       sv = "sudo nvim";
       v = "nvim";
       c = "clear";

@@ -1,4 +1,10 @@
-{username,lib,  ...}: {
+{
+  lib,
+  config,
+  username,
+  ...
+}:
+{
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -10,7 +16,7 @@
       };
       background = lib.mkDefault [
         {
-          path = "/home/${username}/Pictures/Wallpapers/4.jpg";
+          path = config.stylix.image;
           blur_passes = 3;
           blur_size = 8;
         }

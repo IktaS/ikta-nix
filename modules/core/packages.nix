@@ -24,7 +24,7 @@ in
       enable = true;
       defaultEditor = true;
     };
-    firefox.enable = false; # Firefox is not installed by default
+    firefox.enable = true; # Firefox is not installed by default
     hyprland = {
       enable = true; # set this so desktop file is created
       withUWSM = false;

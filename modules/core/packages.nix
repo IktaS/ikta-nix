@@ -87,6 +87,7 @@
     qbittorrent # torrent client
     obsidian # notes app
     ntfs3g # ntfs driver tools things
+    dig
     rquickshare # QuickShare client
     orca-slicer
     # programming shit
@@ -96,6 +97,7 @@
     rustc
     rustup
     rustfmt
+    rust-analyzer
     opam
     gleam
     gcc

@@ -16,5 +16,8 @@
     libreoffice
     inkscape
     openscad
+    lunar-client
+    alsa-scarlett-gui
+    esptool
   ];
 }

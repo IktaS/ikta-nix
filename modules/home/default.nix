@@ -13,6 +13,7 @@ let
     affinityEnable
     doomEmacsEnable
     antigravityEnable
+    zedEnable
     ;
   # Select bar module based on barChoice
   barModule = if barChoice == "noctalia" then ./noctalia.nix else waybarChoice;
@@ -59,11 +60,14 @@ in
     ./zen-browser.nix
     ./zoxide.nix
     ./zsh
+    ./rquickshare.nix
+    ./orca-slicer.nix
   ]
   ++ (if affinityEnable then [ ./affinity.nix ] else [ ])
   ++ (if helixEnable then [ ./editors/evil-helix.nix ] else [ ])
   ++ (if vscodeEnable then [ ./editors/vscode.nix ] else [ ])
   ++ (if antigravityEnable then [ ./editors/antigravity.nix ] else [ ])
+  ++ (if zedEnable then [ ./editors/zed.nix ] else [ ])
   ++ (
     if doomEmacsEnable then
       [

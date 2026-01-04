@@ -6,12 +6,11 @@
   ...
 }:
 let
-  inherit (import ../../../hosts/${host}/variables.nix)
-    monitorSettings
-    workspaceSettings
-    additionalExecOnceSettings
-    keyboardLayout
-    ;
+  vars = import ../../../hosts/${host}/variables.nix;
+  monitorSettings = vars.monitorSettings or ",preferred,auto,auto";
+  additionalHyprlandConfig = vars.additionalHyprlandConfig or "";
+  keyboardLayout = vars.keyboardLayout or "";
+  additionalExecOnceSettings = vars.additionalExecOnceSettings;
 in
 {
   home.packages = with pkgs; [
@@ -172,10 +171,13 @@ in
         new_on_top = 1;
         mfact = 0.5;
       };
-
-      monitor = monitorSettings;
-
-      workspace = workspaceSettings;
+      xwayland = {
+        force_zero_scaling = true;
+      };
     };
+    extraConfig = "
+      ${monitorSettings}
+      ${additionalHyprlandConfig}
+    ";
   };
 }

@@ -22,17 +22,17 @@
   # ex: monitorSettings = "monitor = Virtual-1,1920x1080@60,auto,1";
   # ex: monitorSettings = "monitor = HDMI-A-1,1920x1080@60,auto,1";
   # You can configure multiple monitors. Create a new line for each one.
-  monitorSettings = [
-    "DP-2,1920x1080@143.98,0x360,1.0"
-    "HDMI-A-1,1920x1080@74.97,1920x0,1.0"
-    "HDMI-A-1,transform,1"
-    "Virtual-1,1920x1080@60,auto,1"
-  ];
+  monitorSettings = "
+    monitor=DP-2,1920x1080@143.98,0x360,1.0
+    monitor=HDMI-A-1,1920x1080@74.97,1920x0,1.0
+    monitor=HDMI-A-1,transform,1
+    monitor=Virtual-1,1920x1080@60,auto,1
+  ";
 
-  workspaceSettings = [
-    "1,monitor:DP-2,default:true"
-    "2,monitor:HDMI-A-1,default:true"
-  ];
+  additionalHyprlandConfig = "
+    workspace=1,monitor:DP-2,default:true
+    workspace=2,monitor:HDMI-A-1,default:true
+  ";
 
   additionalExecOnceSettings = [
     "[workspace 2 silent] zen"

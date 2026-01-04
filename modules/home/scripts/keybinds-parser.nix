@@ -1,4 +1,4 @@
-{pkgs}:
+{ pkgs }:
 pkgs.writeShellScriptBin "keybinds-parser" ''
     #!/usr/bin/env bash
     set -euo pipefail
@@ -9,7 +9,7 @@ pkgs.writeShellScriptBin "keybinds-parser" ''
     case "$MODE" in
       hyprland)
         # First, try to parse zaneyos bindd entries from Nix config for richer descriptions
-        BIND_NIX="$HOME/zaneyos/modules/home/hyprland/binds.nix"
+        BIND_NIX="$HOME/ikta-nix/modules/home/hyprland/binds.nix"
         if [[ -f "$BIND_NIX" ]] && ${pkgs.gnugrep}/bin/grep -q "bindd[ ]*=" "$BIND_NIX"; then
         ${pkgs.gawk}/bin/awk '
   BEGIN {
@@ -859,7 +859,7 @@ pkgs.writeShellScriptBin "keybinds-parser" ''
         # Parse Sway config (bindsym/bindcode) from ~/.config/sway/config with fallback to repo config
         SWAY_CONFIG="$HOME/.config/sway/config"
         if [[ ! -f "$SWAY_CONFIG" ]]; then
-          SWAY_CONFIG="$HOME/zaneyos/modules/home/gui/sway/files/config_cuerdos"
+          SWAY_CONFIG="$HOME/ikta-nix/modules/home/gui/sway/files/config_cuerdos"
           if [[ ! -f "$SWAY_CONFIG" ]]; then
             echo "Error: Sway config not found at ~/.config/sway/config or repo fallback" >&2
             exit 1

@@ -48,11 +48,11 @@ pkgs.writeShellScriptBin "qs-cheatsheets" ''
     done
 
     # Validate category (dynamically check if directory exists or is "root")
-    if [[ "$CATEGORY" != "root" && ! -d "$HOME/zaneyos/cheatsheets/$CATEGORY" ]]; then
+    if [[ "$CATEGORY" != "root" && ! -d "$HOME/ikta-nix/cheatsheets/$CATEGORY" ]]; then
       echo "Error: Category directory '$CATEGORY' not found in cheatsheets/" >&2
       echo "Available categories:" >&2
       echo "  root" >&2
-      ls -1 "$HOME/zaneyos/cheatsheets/" | grep -E '^[a-z]' | head -10 >&2
+      ls -1 "$HOME/ikta-nix/cheatsheets/" | grep -E '^[a-z]' | head -10 >&2
       exit 1
     fi
 
@@ -119,22 +119,30 @@ pkgs.writeShellScriptBin "qs-cheatsheets" ''
 
     # Generate data
     if [ -n "''${QS_PERF:-}" ]; then t1=$(now_ms); fi
-    ${pkgs.callPackage ./cheatsheets-parser.nix {}}/bin/cheatsheets-parser files "$CATEGORY" "$LANGUAGE" > "$files_json"
-    ${pkgs.callPackage ./cheatsheets-parser.nix {}}/bin/cheatsheets-parser categories > "$categories_json"
+    ${
+      pkgs.callPackage ./cheatsheets-parser.nix { }
+    }/bin/cheatsheets-parser files "$CATEGORY" "$LANGUAGE" > "$files_json"
+    ${
+      pkgs.callPackage ./cheatsheets-parser.nix { }
+    }/bin/cheatsheets-parser categories > "$categories_json"
 
     # Generate files for all categories and languages for switching
     # First generate root directory files
     for lang in en es; do
-      ${pkgs.callPackage ./cheatsheets-parser.nix {}}/bin/cheatsheets-parser files "root" "$lang" > "$tmpdir/files_root_''${lang}.json" 2>/dev/null || echo '[]' > "$tmpdir/files_root_''${lang}.json"
+      ${
+        pkgs.callPackage ./cheatsheets-parser.nix { }
+      }/bin/cheatsheets-parser files "root" "$lang" > "$tmpdir/files_root_''${lang}.json" 2>/dev/null || echo '[]' > "$tmpdir/files_root_''${lang}.json"
     done
 
     # Then dynamically discover all category directories
-    if [ -d "$HOME/zaneyos/cheatsheets" ]; then
-      for category_dir in "$HOME/zaneyos/cheatsheets"/*/; do
+    if [ -d "$HOME/ikta-nix/cheatsheets" ]; then
+      for category_dir in "$HOME/ikta-nix/cheatsheets"/*/; do
         if [ -d "$category_dir" ]; then
           category=$(basename "$category_dir")
           for lang in en es; do
-            ${pkgs.callPackage ./cheatsheets-parser.nix {}}/bin/cheatsheets-parser files "$category" "$lang" > "$tmpdir/files_''${category}_''${lang}.json" 2>/dev/null || echo '[]' > "$tmpdir/files_''${category}_''${lang}.json"
+            ${
+              pkgs.callPackage ./cheatsheets-parser.nix { }
+            }/bin/cheatsheets-parser files "$category" "$lang" > "$tmpdir/files_''${category}_''${lang}.json" 2>/dev/null || echo '[]' > "$tmpdir/files_''${category}_''${lang}.json"
           done
         fi
       done
@@ -266,9 +274,9 @@ pkgs.writeShellScriptBin "qs-cheatsheets" ''
       // Handle root directory files
       var filePath;
       if (selectedCategory === "root") {
-        filePath = "${config.home.homeDirectory}/zaneyos/cheatsheets/" + filename;
+        filePath = "${config.home.homeDirectory}/ikta-nix/cheatsheets/" + filename;
       } else {
-        filePath = "${config.home.homeDirectory}/zaneyos/cheatsheets/" + selectedCategory + "/" + filename;
+        filePath = "${config.home.homeDirectory}/ikta-nix/cheatsheets/" + selectedCategory + "/" + filename;
       }
 
       const xhr = new XMLHttpRequest();

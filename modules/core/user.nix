@@ -13,7 +13,7 @@ in {
     useUserPackages = true;
     useGlobalPkgs = false;
     backupFileExtension = "backup";
-    extraSpecialArgs = {inherit inputs username host profile;};
+    extraSpecialArgs = {inherit inputs username host profile pkgs;};
     users.${username} = {
       imports = [./../home];
       home = {
@@ -29,12 +29,13 @@ in {
     description = "${gitUsername}";
     extraGroups = [
       "adbusers"
-      "docker"
-      "libvirtd"
+      "docker" #access to docker as non-root
+      "libvirtd" #Virt manager/QEMU access
       "lp"
       "networkmanager"
       "scanner"
-      "wheel"
+      "wheel" #sudo access
+      "vboxusers" #Virtual Box
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;

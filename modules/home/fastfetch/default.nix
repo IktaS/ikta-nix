@@ -26,8 +26,14 @@
         "break"
         {
           type = "os";
-          key = "OS - ikta-nix v1.0.0";
+          key = "OS - ikta-nix v1.1.0";
           keyColor = "31";
+        }
+        {
+          type = "command";
+          key = " ├  ZaneyOS ";
+          keyColor = "31";
+          text = "echo v$" + "{ZANEYOS_VERSION}";
         }
         {
           type = "kernel";
@@ -84,7 +90,7 @@
         }
         {
           type = "cpu";
-          format = "{1} ({3}) @ {7} GHz";
+          format = "{1} ({3}) @ {7}";
           key = " ├  ";
           keyColor = "33";
         }

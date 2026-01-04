@@ -19,8 +19,19 @@
   base0D = "59C2FF";
   base0E = "D2A6FF";
   base0F = "E6B673";
+  scriptsDir = ./scripts;
+  scripts = builtins.attrNames (builtins.readDir scriptsDir);
 in
   with lib; {
+    home.file = builtins.listToAttrs (map
+      (name: {
+        name = ".config/waybar/scripts/" + name;
+        value = {
+          source = "${scriptsDir}/${name}";
+          executable = true;
+        };
+      })
+      scripts);
     # Configure & Theme Waybar
     programs.waybar = {
       enable = true;
@@ -30,9 +41,9 @@ in
           layer = "top";
           position = "top";
 
-          modules-center = ["network" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock"]; # Eterna: [ "hyprland/window" ]
+          modules-center = ["network" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" "custom/weather"];
           modules-left = ["custom/startmenu" "hyprland/window"]; # Eternal:  [ "hyprland/workspaces" "cpu" "memory" "network" ]
-          modules-right = ["tray" "idle_inhibitor" "custom/notification" "battery" "custom/exit"]; # Eternal: [ "idle_inhibitor" "pulseaudio" "clock"  "custom/notification" "tray" ]
+          modules-right = ["tray" "idle_inhibitor" "custom/notification" "battery" "custom/power"]; # Eternal: [ "idle_inhibitor" "pulseaudio" "clock"  "custom/notification" "tray" ]
 
           "hyprland/workspaces" = {
             format = "{name}";
@@ -71,8 +82,7 @@ in
           "disk" = {
             format = " {free}";
             tooltip = true;
-            # Not working with zaneyos window open then closes
-            #on-click = "${terminal} -e sh -c df -h ; read";
+            on-click = "${terminal} -e sh -c df -h ; read";
           };
           "network" = {
             format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
@@ -103,22 +113,26 @@ in
             };
             on-click = "pavucontrol";
           };
-          "custom/exit" = {
-            tooltip = false;
-            format = "⏻";
-            on-click = "sleep 0.1 && wlogout";
+          "custom/power" = {
+            tooltip = true;
+            "tooltip-format" = "Left Click: Power Menu (qs-wlogout)\nRight Click: Rofi Power Menu";
+            format = " ";
+            on-click = "qs-wlogout";
+            "on-click-right" = "~/.config/waybar/scripts/power-menu.sh";
           };
           "custom/startmenu" = {
-            tooltip = false;
-            format = " ";
-            # exec = "rofi -show drun";
-            on-click = "rofi -show drun";
+            tooltip = true;
+            "tooltip-format" = "App menu";
+            format = "";
+            # on-click = "rofi -show drun";
+            on-click = "launch-nwg-menu";
+            "on-click-right" = "nwg-drawer -mr 225 -ml 225 -mt 200 -mb 200 -is 48 --spacing 15";
           };
           "idle_inhibitor" = {
             format = "{icon}";
             format-icons = {
-              activated = " ";
-              deactivated = " ";
+              activated = " ";
+              deactivated = " ";
             };
             tooltip = "true";
           };
@@ -138,8 +152,14 @@ in
             return-type = "json";
             exec-if = "which swaync-client";
             exec = "swaync-client -swb";
-            on-click = "swaync-client -t";
+            on-click = "pavucontrol";
             escape = true;
+          };
+          "custom/weather" = {
+            return-type = "json";
+            exec = "sh -lc 'WEATHER_ICON_STYLE=emoji WEATHER_TOOLTIP_MARKUP=1 ~/.local/bin/weather'";
+            interval = 600;
+            tooltip = true;
           };
           "battery" = {
             states = {
@@ -281,7 +301,7 @@ in
               padding: 2px 20px;
           }
           #disk {
-            color: #${base0F};
+            color: #${base03};
               background: #${base00};
               border-radius: 15px 50px 15px 50px;
               margin: 5px;
@@ -330,7 +350,7 @@ in
             padding: 2px 20px;
           }
           #custom-startmenu {
-            color: #${base0E};
+            color: #${base03};
             background: #${base00};
             border-radius: 0px 15px 50px 0px;
             margin: 5px 5px 5px 0px;
@@ -343,8 +363,8 @@ in
             margin: 5px;
             padding: 2px 20px;
           }
-          #custom-exit {
-            color: #${base0E};
+          #custom-power {
+            color: #${base08}; /* Red color for power menu */
             background: #${base00};
             border-radius: 15px 0px 0px 50px;
             margin: 5px 0px 5px 5px;

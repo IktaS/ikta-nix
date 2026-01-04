@@ -9,8 +9,37 @@ let
   vars = import ../../../hosts/${host}/variables.nix;
   monitorSettings = vars.monitorSettings or ",preferred,auto,auto";
   additionalHyprlandConfig = vars.additionalHyprlandConfig or "";
-  keyboardLayout = vars.keyboardLayout or "";
-  additionalExecOnceSettings = vars.additionalExecOnceSettings;
+  keyboardLayout = vars.keyboardLayout or "us";
+  keyboardVariant = vars.keyboardVariant or "";
+
+  # Treat only known US-based variants as implying layout = "us".
+  usVariants = [
+    "dvorak"
+    "colemak"
+    "workman"
+    "intl"
+    "us-intl"
+    "altgr-intl"
+  ];
+  normalizeUSVariant = v: if v == "us-intl" then "intl" else v;
+
+  # If layout itself is a US variant (e.g., "dvorak", "us-intl"), normalize it
+  layoutFromLayout = if builtins.elem keyboardLayout usVariants then "us" else keyboardLayout;
+  variantFromLayout =
+    if builtins.elem keyboardLayout usVariants then normalizeUSVariant keyboardLayout else "";
+
+  # If the provided variant is a US variant, force layout to us; otherwise keep layout
+  layoutFromVariant = if builtins.elem keyboardVariant usVariants then "us" else layoutFromLayout;
+  variantFinal =
+    if builtins.elem keyboardVariant usVariants then
+      normalizeUSVariant keyboardVariant
+    else if variantFromLayout != "" then
+      variantFromLayout
+    else
+      keyboardVariant;
+
+  hyprKbLayout = layoutFromVariant;
+  hyprKbVariant = variantFinal;
 in
 {
   home.packages = with pkgs; [
@@ -21,7 +50,9 @@ in
     swappy
     ydotool
     hyprpolkitagent
-    hyprland-qtutils # needed for banners and ANR messages
+    hyprshot
+    hyprpicker
+    #hyprland-qtutils # needed for banners and ANR messages
   ];
   systemd.user.targets.hyprland-session.Unit.Wants = [
     "xdg-desktop-autostart.target"
@@ -47,26 +78,8 @@ in
       enable = true;
     };
     settings = {
-      exec-once = [
-        "wl-paste --type text --watch cliphist store # Stores only text data"
-        "wl-paste --type image --watch cliphist store # Stores only image data"
-        "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user start hyprpolkitagent"
-        "killall -q swww;sleep .5 && swww init"
-        "killall -q waybar;sleep .5 && waybar"
-        "killall -q swaync;sleep .5 && swaync"
-        "nm-applet --indicator"
-        "pypr &"
-        # "sleep 1.5 && swww img ${stylixImage}"
-        # "sleep 1 && wallsetter"
-        "waypaper --restore"
-        "fcitx5"
-      ]
-      ++ additionalExecOnceSettings;
-
       input = {
-        kb_layout = "${keyboardLayout}";
+        kb_layout = hyprKbLayout;
         kb_options = [
           "grp:alt_caps_toggle"
           "caps:super"
@@ -81,7 +94,8 @@ in
           disable_while_typing = true;
           scroll_factor = 0.8;
         };
-      };
+      }
+      // lib.optionalAttrs (hyprKbVariant != "") { kb_variant = hyprKbVariant; };
 
       gestures = {
         gesture = [ "3, horizontal, workspace" ];
@@ -120,7 +134,7 @@ in
 
         #  Application not responding (ANR) settings
         enable_anr_dialog = true;
-        anr_missed_pings = 20;
+        anr_missed_pings = 15;
       };
 
       dwindle = {
@@ -161,8 +175,8 @@ in
 
       render = {
         # Disabling as no longer supported
-        # explicit_sync = 1; # Change to 1 to disable
-        # explicit_sync_kms = 1;
+        #explicit_sync = 1; # Change to 1 to disable
+        #explicit_sync_kms = 1;
         direct_scanout = 0;
       };
 
@@ -171,6 +185,8 @@ in
         new_on_top = 1;
         mfact = 0.5;
       };
+
+      # Ensure Xwayland windows render at integer scale; compositor scales them
       xwayland = {
         force_zero_scaling = true;
       };

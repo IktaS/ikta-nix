@@ -118,7 +118,9 @@ if lspci | grep -qi 'vga\|3d'; then
   if $has_vm; then
     DETECTED_PROFILE="vm"
   elif $has_nvidia && $has_intel; then
-    DETECTED_PROFILE="hybrid"
+    DETECTED_PROFILE="nvidia-laptop"
+  elif $has_nvidia && $has_amd; then
+    DETECTED_PROFILE="amd-hybrid"
   elif $has_nvidia; then
     DETECTED_PROFILE="nvidia"
   elif $has_amd; then
@@ -143,7 +145,7 @@ fi
 # If profile is still empty (either not detected or not confirmed), prompt manually
 if [ -z "$profile" ]; then
   echo -e "${RED}Automatic GPU detection failed or no specific profile found.${NC}"
-  read -rp "Enter Your Hardware Profile (GPU)\nOptions:\n[ amd ]\nnvidia\nnvidia-laptop\nintel\nvm\nPlease type out your choice: " profile
+read -rp "Enter Your Hardware Profile (GPU)\nOptions:\n[ amd ]\nnvidia\nnvidia-laptop\namd-hybrid\nintel\nvm\nPlease type out your choice: " profile
   if [ -z "$profile" ]; then
     profile="amd"
   fi
@@ -183,25 +185,25 @@ git config --global user.name "IktaS"
 git config --global user.email "imamrafiia@gmail.com"
 git add .
 
-sed -i "/^[[:space:]]*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./flake.nix
-sed -i "/^[[:space:]]*profile[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$profile\"/" ./flake.nix
+sed -i "/^[[:space:]]*host[[:space:]]*=[[:space:]]*\"/ s/\"[^\"]*\"/\"$hostName\"/" ./flake.nix
+sed -i "/^[[:space:]]*profile[[:space:]]*=[[:space:]]*\"/ s/\"[^\"]*\"/\"$profile\"/" ./flake.nix
 
 print_header "Keyboard Layout Configuration"
 read -rp "Enter your keyboard layout: [ us ] " keyboardLayout
 if [ -z "$keyboardLayout" ]; then
   keyboardLayout="us"
 fi
-sed -i "/^[[:space:]]*keyboardLayout[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$keyboardLayout\"/" ./hosts/$hostName/variables.nix
+sed -i "/^[[:space:]]*keyboardLayout[[:space:]]*=[[:space:]]*\"/ s/\"[^\"]*\"/\"$keyboardLayout\"/" ./hosts/$hostName/variables.nix
 
 print_header "Console Keymap Configuration"
 read -rp "Enter your console keymap: [ us ] " consoleKeyMap
 if [ -z "$consoleKeyMap" ]; then
   consoleKeyMap="us"
 fi
-sed -i "/^[[:space:]]*consoleKeyMap[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$consoleKeyMap\"/" ./hosts/$hostName/variables.nix
+sed -i "/^[[:space:]]*consoleKeyMap[[:space:]]*=[[:space:]]*\"/ s/\"[^\"]*\"/\"$consoleKeyMap\"/" ./hosts/$hostName/variables.nix
 
 print_header "Username Configuration"
-sed -i "/^[[:space:]]*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$installusername\"/" ./flake.nix
+sed -i "/^[[:space:]]*username[[:space:]]*=[[:space:]]*\"/ s/\"[^\"]*\"/\"$installusername\"/" ./flake.nix
 
 print_header "Generating Hardware Configuration -- Ignore ERROR: cannot access /bin"
 sudo nixos-generate-config --show-hardware-config > ./hosts/$hostName/hardware.nix

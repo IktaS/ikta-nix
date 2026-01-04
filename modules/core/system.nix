@@ -1,11 +1,12 @@
 { host, pkgs, ... }:
 let
-  inherit (import ../../hosts/${host}/variables.nix) consoleKeyMap;
+  vars = import ../../hosts/${host}/variables.nix;
+  consoleKeyMap = vars.consoleKeyMap or "us";
 in
 {
   nix = {
     settings = {
-      download-buffer-size = 250000000;
+      download-buffer-size = 200000000;
       auto-optimise-store = true;
       experimental-features = [
         "nix-command"
@@ -40,6 +41,7 @@ in
   i18n.inputMethod.fcitx5.waylandFrontend = true;
 
   environment.variables = {
+    NIXOS_OZONE_WL = "1";
     IKTANIX_VERSION = "2.3";
     IKTANIX = "true";
   };

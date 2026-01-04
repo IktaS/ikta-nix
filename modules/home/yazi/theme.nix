@@ -27,10 +27,8 @@
       fg = "blue";
       bold = true;
     };
-    content = {
-    };
-    list = {
-    };
+    content = {};
+    list = {};
     btn_yes = {
       bg = "green";
       fg = "black";
@@ -64,8 +62,7 @@
   input = {};
   cmp = {
     active = {reversed = true;};
-    inactive = {
-    };
+    inactive = {};
     icon_file = "";
     icon_folder = "";
     icon_command = "";

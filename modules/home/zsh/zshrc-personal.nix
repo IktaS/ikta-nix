@@ -15,6 +15,15 @@
 
       #alias c="clear"
 
+
+      #!/usr/bin/env zsh
+      # Set defaults
+      #
+      #export EDITOR="nvim"
+      #export VISUAL="nvim"
+
+      #alias c="clear"
+
       eval $(opam env)
       export PATH="$PATH:$(go env GOPATH)/bin"
       alias zed="zeditor"

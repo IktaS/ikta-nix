@@ -1,24 +1,79 @@
+[English](README.md) | [Español](README.es.md)
+
 <div align="center">
 
 ## ZaneyOS 🟰 Best ❄️ NixOS Configs
 
-** Updated: June 3rd,2025
+\*\* Updated: December 26th,2025
 
 ZaneyOS is a simple way of reproducing my configuration on any NixOS system.
 This includes the wallpaper, scripts, applications, config files, and more.
 
+<<<<<<< HEAD
 <img align="center" width="80%" src="https://github.com/Zaney/zaneyos/-/raw/main/img/demo.png" />
+||||||| 5bb339b
+<img align="center" width="80%" src="https://gitlab.com/Zaney/zaneyos/-/raw/main/img/demo.png" />
+=======
+## Important Note on Noctalia
+>>>>>>> f0b292f66b5a93588670cd9d74be9070669617f1
 
-**Inspiration for the Waybar config
-[here](https://github.com/justinlime/dotfiles).**
+> The first time you login, screen will be blank SUPER + SHIFT + C to exit.
+> Login in, noctalia will start from then on
 
+<<<<<<< HEAD
 <img align="center" width="80%" src="https://github.com/Zaney/zaneyos/-/raw/main/img/demo-img2.png" />
 
 **Third waybar option**
 
 <img align="center" width="80%" src="https://github.com/Zaney/zaneyos/-/raw/main/img/demo-img3.png" />
+||||||| 5bb339b
+<img align="center" width="80%" src="https://gitlab.com/Zaney/zaneyos/-/raw/main/img/demo-img2.png" />
+
+**Third waybar option**
+
+<img align="center" width="80%" src="https://gitlab.com/Zaney/zaneyos/-/raw/main/img/demo-img3.png" />
+=======
+<img align="center" width="80%" src="img/ZaneyOS-Floating.png" />
+>>>>>>> f0b292f66b5a93588670cd9d74be9070669617f1
 
 </div>
+
+<details>
+<summary><strong>📸 More Screenshots</strong></summary>
+
+### Waybar Themes
+
+<img align="center" width="80%" src="img/demo-img2.png" />
+
+<img align="center" width="80%" src="img/demo-img3.png" />
+
+### Noctalia Shell Integration
+
+<img align="center" width="80%" src="img/ZaneyOS-noctalia-panel.png" />
+
+<img align="center" width="80%" src="img/ZaneyOS-noctalia-app.png" />
+
+<img align="center" width="80%" src="img/ZaneyOS-noctalia-settings.png" />
+
+<img align="center" width="80%" src="img/ZaneyOS-noctalia-weather.png" />
+
+### Additional Features
+
+<img align="center" width="80%" src="img/ZaneyOS-keybind-search.png" />
+
+<img align="center" width="80%" src="img/ZaneyOS-nivim-emacs.png" />
+
+</details>
+
+<div align="center">
+
+### Cheatsheets and Guides
+
+- Nix Beginner Guide: [English](cheatsheets/nix-beginner-guide.md) |
+  [Español](cheatsheets/nix-beginner-guide.es.md)
+- Hyprland Customization Guide:
+  [English](cheatsheets/hyprland-customization-guide.md) |
+  [Español](cheatsheets/hyprland-customization-guide.es.md)
 
 ### Please note:
 
@@ -30,7 +85,7 @@ This includes the wallpaper, scripts, applications, config files, and more.
 
 #### 🍖 Requirements
 
-- You must be running on NixOS, version 23.11+.
+- You must be running on NixOS, version 24.05+.
 - The `zaneyos` folder (this repo) is expected to be in your home directory.
 - You must have installed NIXOS using **GPT** parition with booting with
   **UEFI**.
@@ -49,7 +104,7 @@ This includes the wallpaper, scripts, applications, config files, and more.
 #### 🏇 Optimized Workflow & Simple Yet Elegant Neovim
 
 - Using Hyprland for increased elegance, functionality, and efficiency.
-- No massive NeoVIM project here. This is my simple, easy to understand, yet
+- No massive NeoVIM project here, using `nixvim` for an
   incredible NeoVIM setup. With language support already added in.
 
 #### 🖥️ Multi Host & User Configuration
@@ -95,13 +150,21 @@ Please do yourself a favor and
 
 # Hyprland Keybindings
 
-Below are the keybindings for Hyprland, formatted for easy reference.
+Below are the keybindings for Hyprland, formatted for easy reference. The right
+column shows keybindings that are specific to **Noctalia Shell** (only available
+when `barChoice = "noctalia"`).
 
-## Application Launching
+<table>
+<tr>
+<td width="50%">
+
+## Standard Keybindings
+
+### Application Launching
 
 - `$modifier + Return` → Launch `terminal`
+- `$modifier + Tab` → Toggle `Quickshell Overview` (workspace overview with live previews)
 - `$modifier + K` → List keybinds
-- `$modifier + Shift + Return` → Launch `rofi-launcher`
 - `$modifier + Shift + W` → Open `web-search`
 - `$modifier + Alt + W` → Open `wallsetter`
 - `$modifier + Shift + N` → Run `swaync-client -rs`
@@ -109,15 +172,14 @@ Below are the keybindings for Hyprland, formatted for easy reference.
 - `$modifier + Y` → Open `kitty` with `yazi`
 - `$modifier + E` → Open `emopicker9000`
 - `$modifier + S` → Take a screenshot
-- `$modifier + D` → Open `Discord`
+- `$modifier + Shift + D` → Open `Discord`
 - `$modifier + O` → Launch `OBS Studio`
-- `$modifier + C` → Run `hyprpicker -a`
+- `$modifier + Alt + C` → Color Picker
 - `$modifier + G` → Open `GIMP`
-- `$modifier + V` → Show clipboard history via `cliphist`
 - `$modifier + T` → Toggle terminal with `pypr`
-- `$modifier + M` → Open `pavucontrol`
+- `$modifier + Alt + M` → Open `pavucontrol`
 
-## Window Management
+### Window Management
 
 - `$modifier + Q` → Kill active window
 - `$modifier + P` → Toggle pseudo tiling
@@ -127,19 +189,18 @@ Below are the keybindings for Hyprland, formatted for easy reference.
 - `$modifier + Alt + F` → Float all windows
 - `$modifier + Shift + C` → Exit Hyprland
 
-## Window Movement
+### Window Movement
 
-- `$modifier + Shift + ← / → / ↑ / ↓` → Move window left/right/up/down
-- `$modifier + Shift + H / L / K / J` → Move window left/right/up/down
-- `$modifier + Alt + ← / → / ↑ / ↓` → Swap window left/right/up/down
-- `$modifier + Alt + 43 / 46 / 45 / 44` → Swap window left/right/up/down
+- `$modifier + Shift + ← / → / ↑ / ↓` → Move left/right/up/down
+- `$modifier + Shift + H / L / K / J` → Move left/right/up/down
+- `$modifier + Alt + ← / → / ↑ / ↓` → Swap left/right/up/down
 
-## Focus Movement
+### Focus Movement
 
 - `$modifier + ← / → / ↑ / ↓` → Move focus left/right/up/down
 - `$modifier + H / L / K / J` → Move focus left/right/up/down
 
-## Workspaces
+### Workspaces
 
 - `$modifier + 1-10` → Switch to workspace 1-10
 - `$modifier + Shift + Space` → Move window to special workspace
@@ -147,30 +208,73 @@ Below are the keybindings for Hyprland, formatted for easy reference.
 - `$modifier + Shift + 1-10` → Move window to workspace 1-10
 - `$modifier + Control + → / ←` → Switch workspace forward/backward
 
-## Window Cycling
+### Window Cycling
 
-- `Alt + Tab` → Cycle to next window
-- `Alt + Tab` → Bring active window to top
+- `Alt + Tab` → Cycle to next window / Bring active to top
+
+</td>
+<td width="50%">
+
+## 🎨 Noctalia Shell Keybindings
+
+_Available when `barChoice = "noctalia"` in `variables.nix`_
+
+- `$modifier + D` → Launcher Toggle
+- `$modifier + Shift + Return` → Launcher Toggle
+- `$modifier + M` → Notifications Menu
+- `$modifier + V` → Clipboard Manager
+- `$modifier + Alt + P` → Settings Panel
+- `$modifier + Shift + ,` → Settings Panel
+- `$modifier + Alt + L` → Lock Screen
+- `$modifier + Shift + Y` → Wallpaper Manager
+- `$modifier + X` → Power Menu
+- `$modifier + C` → Control Center
+- `$modifier + Ctrl + R` → Screen Recorder
+
+### Rofi Launcher (Waybar Mode)
+
+_Available when `barChoice = "waybar"` in `variables.nix`_
+
+- `$modifier + D` → Launch Rofi Launcher
+- `$modifier + Shift + Return` → Launch Rofi Launcher
+
+### Other Features
+
+- `$modifier + Shift + Return` (Waybar) → Application Launcher
+- `$modifier + V` (Waybar) → Clipboard History via `cliphist`
+
+</td>
+</tr>
+</table>
 
 ## Installation:
 
+> **⚠️ IMPORTANT:** These installation methods are for **NEW INSTALLATIONS
+> ONLY**. If you already have ZaneyOS installed and want to upgrade to v2.4, see
+> the [Upgrade Instructions](#upgrading-from-zaneyos-23-to-24) below. Note:
+> There is an issue with upgrade script. It's been removed until it's fixed.
+
 <details>
-<summary><strong> ⬇️ Install with script </strong></summary>
+<summary><strong> ⬇️ Install with script (NEW INSTALLATIONS ONLY)</strong></summary>
 
 ### 📜 Script:
 
-This is the easiest and recommended way of starting out. The script is not meant
-to allow you to change every option that you can in the flake or help you
-install extra packages. It is simply here so you can get my configuration
-installed with as little chances of breakages and then fiddle to your hearts
-content!
+This is the easiest and recommended way of starting out for **new
+installations**. The script is not meant to allow you to change every option
+that you can in the flake or help you install extra packages. It is simply here
+so you can get my configuration installed with as little chances of breakages
+and then fiddle to your hearts content!
+
+> **⚠️ WARNING:** This script will completely replace any existing ~/zaneyos
+> directory. Do NOT use this if you already have ZaneyOS installed and
+> configured.
 
 Simply copy this and run it:
 
 ![ZaneyOS First Install Command](img/first-install-cmd.jpg)
 
 ```
-nix-shell -p git curl
+nix-shell -p git curl pciutils
 ```
 
 Then:
@@ -178,7 +282,13 @@ Then:
 ![ZaneyOS Install Script Command](img/install-script.jpg)
 
 ```
+<<<<<<< HEAD
 sh <(curl -L https://github.com/Zaney/zaneyos/-/raw/stable-2.3/install-zaneyos.sh)
+||||||| 5bb339b
+sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/stable-2.3/install-zaneyos.sh)
+=======
+sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/stable-2.4/install-zaneyos.sh)
+>>>>>>> f0b292f66b5a93588670cd9d74be9070669617f1
 ```
 
 #### The install process will look something like this:
@@ -209,7 +319,13 @@ nix-shell -p git vim
 2. Clone this repo & enter it:
 
 ```
+<<<<<<< HEAD
 cd && git clone https://github.com/zaney/zaneyos.git -b stable-23 ~/zaneyos 
+||||||| 5bb339b
+cd && git clone https://gitlab.com/zaney/zaneyos.git -b stable-23 ~/zaneyos 
+=======
+cd && git clone https://gitlab.com/zaney/zaneyos.git -b stable-2.4 --depth=1 ~/zaneyos
+>>>>>>> f0b292f66b5a93588670cd9d74be9070669617f1
 cd zaneyos
 
 You can still run the `install.sh` script if you want to.
@@ -221,6 +337,7 @@ You can still run the `install.sh` script if you want to.
 
 ```
 cp -r hosts/default hosts/<your-desired-hostname>
+git add .
 ```
 
 4. Edit `hosts/<your-desired-hostname>/variables.nix`.
@@ -234,10 +351,10 @@ nixos-generate-config --show-hardware-config > hosts/<your-desired-hostname>/har
 ```
 
 7. Run this to enable flakes and install the flake replacing hostname with
-  profile. I.e.  `intel`, `nvidia` `nvidia-laptop`, or `vm`
+   profile. I.e. `intel`, `nvidia`, `nvidia-laptop`, `amd-hybrid`, or `vm`
 
 ```
-NIX_CONFIG="experimental-features = nix-command flakes" 
+NIX_CONFIG="experimental-features = nix-command flakes"
 sudo nixos-rebuild switch --flake .#profile
 ```
 

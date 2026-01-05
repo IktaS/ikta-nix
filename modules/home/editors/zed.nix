@@ -17,6 +17,7 @@
       "make"
       "gleam"
       "typst"
+      "nix"
     ];
     userSettings = {
       font_family = "Fira Code Symbol";

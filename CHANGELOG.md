@@ -5,7 +5,7 @@
 
 ---
 
-# 🚀 **Current Release - ZaneyOS v2.5.6**
+# 🚀 **Current Release - ZaneyOS v2.5.7**
 
 #### 📅 **Updated: January 5th, 2026**
 
@@ -14,6 +14,9 @@
 - Added docs reference per systemd spec
 - Improved code overall
   - Thanks `lichen.gel.calm` for finding these issues
+- Disabled `noctalia-shell` systemd service
+  - Caused older revision of `noctalia-shell` to load
+  - Now started from hyprland
 
 #### 📅 **Updated: December 29th, 2025**
 

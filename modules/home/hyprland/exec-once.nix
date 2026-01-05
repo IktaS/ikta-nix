@@ -25,6 +25,7 @@
       "nm-applet --indicator"
       # Delayed-only restore so Stylix finishes first, then user's wallpaper wins with a single change
       "sh -lc 'sleep 2 && (qs-wallpapers-restore || waypaper --wallpaper ${stylixImage} --backend swww) >/dev/null 2>&1 || true'"
+      "noctalia-shell &"
     ]
     else [];
 in {

@@ -7,6 +7,14 @@
 
 # 🚀 **Current Release - ZaneyOS v2.5.6**
 
+#### 📅 **Updated: January 5th, 2026**
+
+- Removed extra newline in `exec-once.nix`
+- Fixed typo in `noctalia.nix`
+- Added docs reference per systemd spec
+- Improved code overall
+  - Thanks `lichen.gel.calm` for finding these issues
+
 #### 📅 **Updated: December 29th, 2025**
 
 - Removed extra `noctalia-shell` startup

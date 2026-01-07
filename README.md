@@ -4,37 +4,17 @@
 
 ## ZaneyOS 🟰 Best ❄️ NixOS Configs
 
-\*\* Updated: December 26th,2025
+\*\* Updated: December 8th,2025
 
 ZaneyOS is a simple way of reproducing my configuration on any NixOS system.
 This includes the wallpaper, scripts, applications, config files, and more.
 
-<<<<<<< HEAD
-<img align="center" width="80%" src="https://github.com/Zaney/zaneyos/-/raw/main/img/demo.png" />
-||||||| 5bb339b
-<img align="center" width="80%" src="https://gitlab.com/Zaney/zaneyos/-/raw/main/img/demo.png" />
-=======
 ## Important Note on Noctalia
->>>>>>> f0b292f66b5a93588670cd9d74be9070669617f1
 
 > The first time you login, screen will be blank SUPER + SHIFT + C to exit.
 > Login in, noctalia will start from then on
 
-<<<<<<< HEAD
-<img align="center" width="80%" src="https://github.com/Zaney/zaneyos/-/raw/main/img/demo-img2.png" />
-
-**Third waybar option**
-
-<img align="center" width="80%" src="https://github.com/Zaney/zaneyos/-/raw/main/img/demo-img3.png" />
-||||||| 5bb339b
-<img align="center" width="80%" src="https://gitlab.com/Zaney/zaneyos/-/raw/main/img/demo-img2.png" />
-
-**Third waybar option**
-
-<img align="center" width="80%" src="https://gitlab.com/Zaney/zaneyos/-/raw/main/img/demo-img3.png" />
-=======
 <img align="center" width="80%" src="img/ZaneyOS-Floating.png" />
->>>>>>> f0b292f66b5a93588670cd9d74be9070669617f1
 
 </div>
 
@@ -282,13 +262,7 @@ Then:
 ![ZaneyOS Install Script Command](img/install-script.jpg)
 
 ```
-<<<<<<< HEAD
-sh <(curl -L https://github.com/Zaney/zaneyos/-/raw/stable-2.3/install-zaneyos.sh)
-||||||| 5bb339b
-sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/stable-2.3/install-zaneyos.sh)
-=======
 sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/stable-2.4/install-zaneyos.sh)
->>>>>>> f0b292f66b5a93588670cd9d74be9070669617f1
 ```
 
 #### The install process will look something like this:
@@ -319,13 +293,7 @@ nix-shell -p git vim
 2. Clone this repo & enter it:
 
 ```
-<<<<<<< HEAD
-cd && git clone https://github.com/zaney/zaneyos.git -b stable-23 ~/zaneyos 
-||||||| 5bb339b
-cd && git clone https://gitlab.com/zaney/zaneyos.git -b stable-23 ~/zaneyos 
-=======
 cd && git clone https://gitlab.com/zaney/zaneyos.git -b stable-2.4 --depth=1 ~/zaneyos
->>>>>>> f0b292f66b5a93588670cd9d74be9070669617f1
 cd zaneyos
 
 You can still run the `install.sh` script if you want to.

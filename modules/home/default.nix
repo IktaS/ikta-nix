@@ -58,6 +58,7 @@ in
     ./xdg.nix
     ./yazi
     ./zen-browser.nix
+    ./opencode.nix
     ./zoxide.nix
     ./zsh
     ./rquickshare.nix

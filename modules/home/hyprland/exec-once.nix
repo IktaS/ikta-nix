@@ -14,6 +14,7 @@ let
         "pkill waybar"
         "killall -q swaync"
         "pkill swaync"
+        "noctalia-shell -d"
       ]
     else
       [ ];

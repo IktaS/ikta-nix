@@ -28,8 +28,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    opencode-flake = {
-      url = "github:aodhanhayter/opencode-flake";
+    opencode = {
+      url = "github:sst/opencode";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

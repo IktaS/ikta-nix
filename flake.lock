@@ -622,23 +622,23 @@
         "type": "github"
       }
     },
-    "opencode-flake": {
+    "opencode": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1766754166,
-        "narHash": "sha256-anLh9N8KLqssOMd+xooagd/kLhoU4BChMfEToWmntCg=",
-        "owner": "aodhanhayter",
-        "repo": "opencode-flake",
-        "rev": "57574d4c2d550b24487cb810e2cfcb7c259b0357",
+        "lastModified": 1767791706,
+        "narHash": "sha256-evve4gpRGKpgHu6HwzKDWGqu6CkDjo704E30wksrz04=",
+        "owner": "sst",
+        "repo": "opencode",
+        "rev": "4e1b6b3417d67be619bf52a2e9680b75a3ebe7ab",
         "type": "github"
       },
       "original": {
-        "owner": "aodhanhayter",
-        "repo": "opencode-flake",
+        "owner": "sst",
+        "repo": "opencode",
         "type": "github"
       }
     },
@@ -653,7 +653,7 @@
         "nixvim": "nixvim",
         "noctalia": "noctalia",
         "nvf": "nvf",
-        "opencode-flake": "opencode-flake",
+        "opencode": "opencode",
         "stylix": "stylix",
         "zen-browser": "zen-browser"
       }

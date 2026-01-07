@@ -5,9 +5,9 @@
 }:
 let
   # Prefer explicit package name if available; fall back to default
-  opencode = inputs.opencode-flake.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  opencode = inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
-  # Install Zen Browser for the user
+  # Install opencode for the user
   home.packages = [ opencode ];
 }

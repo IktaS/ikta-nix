@@ -15,9 +15,9 @@
     krita
     libreoffice
     inkscape
-    openscad
-    lunar-client
+    prismlauncher
     alsa-scarlett-gui
     esptool
+    plasticity
   ];
 }

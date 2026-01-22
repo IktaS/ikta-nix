@@ -28,9 +28,8 @@
   # ex: monitorSettings = "monitor = HDMI-A-1,1920x1080@60,auto,1";
   # You can configure multiple monitors. Create a new line for each one.
   monitorSettings = "
-    monitor=DP-2,1920x1080@143.98,0x360,1.0
-    monitor=HDMI-A-1,1920x1080@74.97,1920x0,1.0
-    monitor=HDMI-A-1,transform,1
+    monitor=DP-2,1920x1080@143.98,0x700,1.0
+    monitor=HDMI-A-1,1920x1080@74.97,1920x0,1.0,transform,3
     monitor=Virtual-1,1920x1080@60,auto,1
   ";
 

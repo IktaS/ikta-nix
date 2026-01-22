@@ -103,21 +103,8 @@ in
       waypaper # Change wallpaper
       wget # Tool For Fetching Files With Links
       ytmdl # Tool For Downloading Audio From YouTube
-      python3 # Python 3 programming language
-      # programming shit
-      bubblewrap
-      bun # js shit
-      dig
-      erlang
-      gcc
-      gedit # Simple Graphical Text Editor
-      gleam
-      gnumake
-      go
       hyprpicker # Color Picker
       lsscsi
-      nil
-      nixd
       ntfs3g # ntfs driver tools things
       obsidian # notes app
       opam
@@ -127,15 +114,32 @@ in
       qbittorrent # torrent client
       qpwgraph # GUI Graph Manager for PipeWire
       rhythmbox
-      rquickshare # QuickShare client
-      rust-analyzer
-      rustc
-      rustfmt
-      rustup
-      tinymist
-      typst
-      waypaper
       youtube-music # Youtube Music Desktop App
+      rquickshare # QuickShare client
+      # programming shit
+      python3 # Python 3 programming language
+      bubblewrap
+      bun # js shit
+      dig
+      erlang
+      gcc
+      gedit # Simple Graphical Text Editor
+      gleam
+      gnumake
+      go
+      typst
       zig
+      nil
+      nixd
+      # rust related
+      (fenix.complete.withComponents [
+        "cargo"
+        "clippy"
+        "rust-src"
+        "rustc"
+        "rustfmt"
+      ])
+      fenix.stable.toolchain
+      rust-analyzer
     ];
 }

@@ -26,6 +26,7 @@
 
       eval $(opam env)
       export PATH="$PATH:$(go env GOPATH)/bin"
+      export PATH="$PATH:/home/ikta/.cargo/bin"
       alias zed="zeditor"
   '';
 }

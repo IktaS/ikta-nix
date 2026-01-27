@@ -141,5 +141,6 @@ in
       ])
       fenix.stable.toolchain
       rust-analyzer
+      marimo
     ];
 }

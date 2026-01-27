@@ -1,9 +1,10 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
   programs.zed-editor = {
     enable = true;
+    package = pkgs.zed-editor-fhs;
     extensions = [
       "nix"
       "toml"
@@ -16,8 +17,6 @@
       "rainbow-csv"
       "make"
       "gleam"
-      "typst"
-      "nix"
       "opencode"
     ];
     userSettings = {

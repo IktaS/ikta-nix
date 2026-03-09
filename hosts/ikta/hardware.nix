@@ -43,12 +43,10 @@
     ];
   };
 
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/b6fb0554-a79b-4760-b970-ba72ed29a5d4"; }
-  ];
+  swapDevices = [ ];
 
   fileSystems."/home/ikta/fastdrive" = {
-    device = "/dev/disk/by-label/fastdrive";
+    device = "/dev/disk/by-uuid/0879c15d-8c22-400a-8be4-e29c77a67a2e";
     fsType = "ext4";
     options = [
       "nofail"

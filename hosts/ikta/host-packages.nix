@@ -18,6 +18,7 @@
     prismlauncher
     alsa-scarlett-gui
     esptool
-    plasticity
+    kicad
+    davinci-resolve
   ];
 }

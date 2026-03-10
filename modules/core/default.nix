@@ -1,12 +1,7 @@
 {
   inputs,
-  host,
   ...
 }:
-let
-  # Import the host-specific variables.nix
-  vars = import ../../hosts/${host}/variables.nix;
-in
 {
   imports = [
     ./boot.nix
@@ -32,7 +27,6 @@ in
     ./xserver.nix
     ./vlc.nix
     ./pipewire.nix
-    ./cachix.nix
     inputs.stylix.nixosModules.stylix
   ];
 }

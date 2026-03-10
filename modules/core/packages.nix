@@ -1,23 +1,7 @@
 {
   pkgs,
-  host,
   ...
 }:
-let
-  vars = import ../../hosts/${host}/variables.nix;
-  inherit (vars) barChoice;
-  # Noctalia-specific packages
-  noctaliaPkgs =
-    if barChoice == "noctalia" then
-      with pkgs;
-      [
-        matugen # color palette generator needed for noctalia-shell
-        app2unit # launcher for noctalia-shell
-        gpu-screen-recorder # needed for nnoctalia-shell
-      ]
-    else
-      [ ];
-in
 {
   programs = {
     neovim = {
@@ -45,12 +29,15 @@ in
 
   environment.systemPackages =
     with pkgs;
-    noctaliaPkgs
+    # Noctalia pkgs
+    [
+      matugen # color palette generator needed for noctalia-shell
+      app2unit # launcher for noctalia-shell
+      gpu-screen-recorder # needed for nnoctalia-shell
+    ]
     ++ [
       alejandra # nix formatter
-      amfora # Fancy Terminal Browser For Gemini Protocol
       appimage-run # Needed For AppImage Support
-      brave # Brave Browser
       brightnessctl # For Screen Brightness Control
       cliphist # Clipboard manager using rofi menu
       cmatrix # Matrix Movie Effect In Terminal

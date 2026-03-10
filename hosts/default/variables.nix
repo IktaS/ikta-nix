@@ -3,26 +3,6 @@
   gitUsername = "IktaS";
   gitEmail = "imamrafiia@gmail.com";
 
-  # Set Displau Manager
-  # `tui` for Text login
-  # `sddm` for graphical GUI (default)
-  # SDDM background is set with stylixImage
-  displayManager = "sddm";
-
-  # Emable/disable bundled applications
-  tmuxEnable = false;
-  alacrittyEnable = false;
-  weztermEnable = false;
-  ghosttyEnable = false;
-  vscodeEnable = false;
-  antigravityEnable = false; # Google port of vscodium
-  zedEnable = true; # Google port of vscodium
-  # Note: This is evil-helix with VIM keybindings by default
-  helixEnable = false;
-  affinityEnable = false;
-  #To install: Enable here, zcli rebuild, then run zcli doom install
-  doomEmacsEnable = false;
-
   # Python development tools are included by default
 
   # Hyprland Settings
@@ -52,10 +32,8 @@
   browser = "zen";
 
   # Available Options:
-  # Kitty, ghostty, wezterm, aalacrity
-  # Note: kitty, wezterm, alacritty have to be enabled in `variables.nix`
-  # Setting it here does not enable it. Kitty is installed by default
-  terminal = "kitty"; # Set Default System Terminal
+  # Kitty, ghostty
+  terminal = "ghostty"; # Set Default System Terminal
 
   keyboardLayout = "us";
   keyboardVariant = "";
@@ -86,30 +64,6 @@
   # Add new images to ~/ikta-nix/wallpapers
   stylixImage = ../../wallpapers/4.jpg;
 
-  # Set Waybar
-  #  Available Options:
-  # waybarChoice = ../../modules/home/waybar/waybar-curved.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-ddubs.nix;
-  waybarChoice = ../../modules/home/waybar/waybar-ddubs-2.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-simple.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-dwm.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-dwm-2.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-nekodyke.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jerry.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-TheBlackDon.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-tony.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-ddubsos-v1.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-mecha.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jak-catppuccin.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jak-ml4w-modern.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jak-oglo-simple.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jwt-catppuccin.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jwt-transparent.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jwt-ultradark.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-pctrade-catppuccin.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-mangowc-jak-catppuccin.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-old-ddubsos.nix;
-
   # Set Animation style
   # Available options are:
   animChoice = ../../modules/home/hyprland/animations-def.nix;
@@ -121,13 +75,6 @@
 
   # RQuickShare settings
   rQuickSharePort = 12588;
-
-  #animChoice = ../../modules/home/hyprland/animations-hyde-optimized.nix;
-  #animChoice = ../../modules/home/hyprland/animations-mahaveer-me-1.nix;
-  #animChoice = ../../modules/home/hyprland/animations-mahaveer-me-2.nix;
-  #animChoice = ../../modules/home/hyprland/animations-ml4w-classic.nix;
-  #animChoice = ../../modules/home/hyprland/animations-ml4w-fast.nix;
-  #animChoice = ../../modules/home/hyprland/animations-ml4w-high.nix;
 
   # Set network hostId if required (needed for zfs)
   # Otherwise leave as-is

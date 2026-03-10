@@ -2,35 +2,16 @@
 let
   vars = import ../../../hosts/${host}/variables.nix;
   inherit (vars)
-    barChoice
-    stylixImage
     additionalExecOnceSettings
     ;
   # Noctalia-specific startup commands
-  noctaliaExec =
-    if barChoice == "noctalia" then
-      [
-        "killall -q waybar"
-        "pkill waybar"
-        "killall -q swaync"
-        "pkill swaync"
-        "noctalia-shell -d"
-      ]
-    else
-      [ ];
-  # Waybar-specific startup commands
-  waybarExec =
-    if barChoice != "noctalia" then
-      [
-        "killall -q swww;sleep .5 && swww-daemon"
-        "killall -q waybar;sleep .5 && waybar"
-        "killall -q swaync;sleep .5 && swaync"
-        "nm-applet --indicator"
-        # Delayed-only restore sqso Stylix finishes first, then user's wallpaper wins with a single change
-        "sh -lc 'sleep 2 && (qs-wallpapers-restore || waypaper --wallpaper ${stylixImage} --backend swww) >/dev/null 2>&1 || true'"
-      ]
-    else
-      [ ];
+  noctaliaExec = [
+    "killall -q waybar"
+    "pkill waybar"
+    "killall -q swaync"
+    "pkill swaync"
+    "noctalia-shell -d"
+  ];
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -43,7 +24,6 @@ in
       "qs -c overview" # Start quickshell-overview daemon
     ]
     ++ noctaliaExec
-    ++ waybarExec
     ++ additionalExecOnceSettings;
   };
 }

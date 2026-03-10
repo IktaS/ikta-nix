@@ -2,10 +2,12 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   ghostHome = "${config.xdg.configHome}/ghostty";
   shaderFile = "${ghostHome}/shaders/shader.glsl";
-in {
+in
+{
   # Install Ghostty theme(s) so referenced names resolve even if the package's share/themes doesn't include them
   home.file = {
     "${ghostHome}/themes/catppuccin-mocha".source = ./ghostty-themes/catppuccin-mocha;

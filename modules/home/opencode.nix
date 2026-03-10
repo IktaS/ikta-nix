@@ -1,13 +1,20 @@
 {
   pkgs,
+  pkgsUnstable,
   inputs,
+  config,
   ...
 }:
-let
-  # Prefer explicit package name if available; fall back to default
-  opencode = inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.default;
-in
 {
+
+  # this allows you to access `pkgsUnstable` anywhere in your config
+  _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    inherit (config.nixpkgs) config;
+  };
   # Install opencode for the user
-  home.packages = [ opencode ];
+  home.packages = [
+    pkgsUnstable.opencode
+    pkgsUnstable.opencode-desktop
+  ];
 }

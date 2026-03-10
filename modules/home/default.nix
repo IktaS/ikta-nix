@@ -26,7 +26,6 @@
     ./scripts
     ./stylix.nix
     ./swappy.nix
-    ./swaync.nix
     ./tealdeer.nix
     ./virtmanager.nix
     ./noctalia.nix

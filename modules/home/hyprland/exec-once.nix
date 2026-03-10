@@ -6,10 +6,6 @@ let
     ;
   # Noctalia-specific startup commands
   noctaliaExec = [
-    "killall -q waybar"
-    "pkill waybar"
-    "killall -q swaync"
-    "pkill swaync"
     "noctalia-shell -d"
   ];
 in

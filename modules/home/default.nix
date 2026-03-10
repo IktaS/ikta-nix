@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./bash.nix
     ./zsh
     ./overview.nix
     ./python.nix

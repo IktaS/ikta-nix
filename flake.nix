@@ -12,6 +12,8 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";

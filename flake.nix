@@ -16,12 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Checking nixvim to see if it's better
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     opencode = {
       url = "github:sst/opencode";
       inputs.nixpkgs.follows = "nixpkgs";

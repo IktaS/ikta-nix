@@ -1,13 +1,9 @@
 {
-  host,
   lib,
   ...
-}: let
-  # Import the host-specific variables.nix
-  vars = import ../../hosts/${host}/variables.nix;
-  useLy = vars.displayManager == "tui";
-in {
-  config = lib.mkIf useLy {
+}:
+{
+  config = {
     # Prefer ly when TUI is selected; avoid greetd conflicts
     services.greetd.enable = lib.mkDefault false;
 

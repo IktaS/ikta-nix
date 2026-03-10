@@ -3,26 +3,6 @@
   gitUsername = "IktaS";
   gitEmail = "imamrafiia@gmail.com";
 
-  # Set Displau Manager
-  # `tui` for Text login
-  # `sddm` for graphical GUI
-  # SDDM background is set with stylixImage
-  displayManager = "tui";
-
-  # Emable/disable bundled applications
-  tmuxEnable = false;
-  alacrittyEnable = false;
-  weztermEnable = true;
-  ghosttyEnable = false;
-  vscodeEnable = false;
-  antigravityEnable = false; # Google port of vscodium
-  zedEnable = true; # Google port of vscodium
-  # Note: This is evil-helix with VIM keybindings by default
-  helixEnable = false;
-  affinityEnable = false;
-  #To install: Enable here, zcli rebuild, then run zcli doom install
-  doomEmacsEnable = false;
-
   # Hyprland Settings
   # ex: monitorSettings = "monitor = Virtual-1,1920x1080@60,auto,1";
   # ex: monitorSettings = "monitor = HDMI-A-1,1920x1080@60,auto,1";
@@ -57,8 +37,8 @@
   browser = "zen";
 
   # Available Options:
-  # Kitty, ghostty, wezterm
-  terminal = "wezterm"; # Set Default System Terminal
+  # Kitty, ghostty
+  terminal = "ghostty"; # Set Default System Terminal
 
   keyboardLayout = "us";
   consoleKeyMap = "us";
@@ -93,15 +73,10 @@
 
   # Set Animation style
   # Available options are:
-  # animations-def.nix  (default)
-  # animations-end4.nix (end-4 project very fluid)
-  # animations-dynamic.nix (ml4w project)
-  # animations-moving.nix (ml4w project)
   animChoice = ../../modules/home/hyprland/animations-def.nix;
   #animChoice = ../../modules/home/hyprland/animations-end4.nix;
   #animChoice = ../../modules/home/hyprland/animations-dynamic.nix;
   #animChoice = ../../modules/home/hyprland/animations-moving.nix;
-  #
 
   # RQuickShare settings
   rQuickSharePort = 12588;

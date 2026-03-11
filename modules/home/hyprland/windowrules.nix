@@ -190,11 +190,6 @@ in
           center = true;
         }
         {
-          name = "waypaper-float";
-          match.class = "^([Ww]aypaper)$";
-          float = true;
-        }
-        {
           name = "qs-wallpapers-float";
           match.class = "^(org\\.qt-project\\.qml)$";
           match.title = "^(Wallpapers)$";

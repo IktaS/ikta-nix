@@ -1,4 +1,4 @@
-{pkgs}:
+{ pkgs }:
 pkgs.writeShellScriptBin "qs-wallpapers-restore" ''
   #!/usr/bin/env bash
   set -euo pipefail
@@ -30,8 +30,8 @@ pkgs.writeShellScriptBin "qs-wallpapers-restore" ''
     hyprlock-update-wallpaper-link >/dev/null 2>&1 || true
   fi
 
-  # Order: recorded backend first, then swww -> hyprpaper -> mpvpaper -> waypaper
-  ORDER_DEFAULT="swww,hyprpaper,mpvpaper,waypaper"
+  # Order: recorded backend first, then swww -> hyprpaper -> mpvpaper
+  ORDER_DEFAULT="swww,hyprpaper,mpvpaper"
   ORDER_COMBINED="$BACKEND_J,$ORDER_DEFAULT"
   # De-duplicate while preserving order (awk trick)
   ORDER=$({ echo "$ORDER_COMBINED" | ${pkgs.coreutils}/bin/tr ',' '\n' | ${pkgs.gawk}/bin/awk 'NF{ if (!seen[$0]++) print $0 }' | ${pkgs.coreutils}/bin/tr '\n' ','; echo; } | ${pkgs.coreutils}/bin/tr -s ',' | ${pkgs.gnused}/bin/sed 's/^,\|,$//g')
@@ -56,13 +56,8 @@ pkgs.writeShellScriptBin "qs-wallpapers-restore" ''
     if ${pkgs.procps}/bin/pgrep -x hyprpanel >/dev/null 2>&1; then
       log "hyprpanel detected; proceeding"
     else
-      # If waybar is already running, it's fine to proceed immediately
-      if ${pkgs.procps}/bin/pgrep -x waybar >/dev/null 2>&1; then
-        log "waybar detected; proceeding without waiting for hyprpanel"
-      else
-        log "Waiting up to ''${wait_sec}s for hyprpanel before starting swww-daemon"
-        wait_for_proc hyprpanel "$wait_sec" || log "hyprpanel not detected after ''${wait_sec}s; proceeding"
-      fi
+      log "Waiting up to ''${wait_sec}s for hyprpanel before starting swww-daemon"
+      wait_for_proc hyprpanel "$wait_sec" || log "hyprpanel not detected after ''${wait_sec}s; proceeding"
     fi
 
     # Stop conflicting daemons if we intend to use swww
@@ -114,22 +109,12 @@ pkgs.writeShellScriptBin "qs-wallpapers-restore" ''
     ${pkgs.mpvpaper}/bin/mpvpaper -o "$MPV_OPTS" '*' "$PATH_J" >/dev/null 2>&1 & disown
   }
 
-  start_waypaper() {
-    if command -v waypaper >/dev/null 2>&1; then
-      log "Trying waypaper"
-      waypaper --backend swww --wallpaper "$PATH_J" >/dev/null 2>&1 || return 1
-    else
-      return 1
-    fi
-  }
-
   IFS=',' read -r -a tools <<<"$ORDER"
   for t in "''${tools[@]}"; do
     case "$t" in
       swww)       start_swww && exit 0 || log "swww failed; falling back" ;;
       hyprpaper)  start_hyprpaper && exit 0 || log "hyprpaper failed; falling back" ;;
       mpvpaper)   start_mpvpaper && exit 0 || log "mpvpaper failed; falling back" ;;
-      waypaper)   start_waypaper && exit 0 || log "waypaper failed; falling back" ;;
       *)          : ;;
     esac
   done

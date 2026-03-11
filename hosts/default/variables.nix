@@ -20,10 +20,6 @@
   additionalExecOnceSettings = [
   ];
 
-  # Bar/Shell Settings
-  # Choose between noctalia or waybar
-  barChoice = "noctalia";
-
   # Waybar Settings (used when barChoice = "waybar")
   clock24h = false;
 
@@ -54,7 +50,7 @@
   # Yazi is default File Manager
   thunarEnable = true;
 
-  # Themes, waybar and animation.
+  # Themes and animation.
   #  Only uncomment your selection
   # The others much be commented out.
 

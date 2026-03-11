@@ -25,10 +25,6 @@
     "[workspace 3 silent] steam"
   ];
 
-  # Bar/Shell Settings
-  # Choose between noctalia or waybar
-  barChoice = "noctalia";
-
   # Waybar Settings
   clock24h = true;
 
@@ -57,7 +53,7 @@
   # Yazi is default File Manager
   thunarEnable = true;
 
-  # Themes, waybar and animation.
+  # Themes and animation.
   #  Only uncomment your selection
   # The others much be commented out.
 
@@ -66,10 +62,6 @@
   # Default background
   # Add new images to ~/ikta-nix/wallpapers
   stylixImage = ../../wallpapers/FetUEveUoAA9qnk.jpg;
-
-  # Set Waybar
-  #  Available Options:
-  waybarChoice = ../../modules/home/waybar/waybar-ddubs-2.nix;
 
   # Set Animation style
   # Available options are:

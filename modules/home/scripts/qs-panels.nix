@@ -1,4 +1,4 @@
-{pkgs}:
+{ pkgs }:
 pkgs.writeShellScriptBin "qs-panels" ''
     #!/usr/bin/env bash
     set -euo pipefail
@@ -6,7 +6,6 @@ pkgs.writeShellScriptBin "qs-panels" ''
     # Detect current active panel/bar (robust matching, no regex metachar)
     active=""
     if pgrep -x hyprpanel >/dev/null 2>&1; then active="hyprpanel"; fi
-    if pgrep -x waybar >/dev/null 2>&1; then active="waybar"; fi
     if pgrep -x dms >/dev/null 2>&1 || pgrep -fa dms | grep -q "\bdms\b.*\brun\b"; then active="dms"; fi
   if pgrep -fa quickshell | grep -q "noctalia-shell"; then active="noctalia"; fi
 
@@ -66,7 +65,6 @@ pkgs.writeShellScriptBin "qs-panels" ''
             model: [
               { key: "noctalia", label: "Noctalia" },
               { key: "dms",      label: "DMS" },
-              { key: "waybar",   label: "Waybar" },
               { key: "hyprpanel",label: "Hyprpanel" }
             ]
             delegate: Rectangle {
@@ -128,7 +126,7 @@ pkgs.writeShellScriptBin "qs-panels" ''
     | ${pkgs.gnused}/bin/sed 's/^\s\+//;s/\s\+$//' )
 
   # Fallback debug: write last log when empty selection
-  if [ -z "${sel:-}" ]; then
+  if [ -z "${"sel:-"}" ]; then
     mkdir -p "$HOME/.cache"
     { "$QML_BIN" "$qml" 2>&1 || true; } > "$HOME/.cache/qs-panels.lastlog" || true
   fi
@@ -145,10 +143,9 @@ pkgs.writeShellScriptBin "qs-panels" ''
     fi
   }
 
-  case "${sel:-}" in
+  case "${"sel:-"}" in
     noctalia) run_and_exit noctalia-run ;;
     dms)      run_and_exit dms-run ;;
-    waybar)   run_and_exit waybar-run ;;
     hyprpanel)run_and_exit hyprpanel-run ;;
     *)        exit 0 ;;
   esac

@@ -70,7 +70,6 @@
       nwg-displays # configure monitor configs via GUI
       nwg-drawer # Application launcher for wayland
       nwg-dock-hyprland # Dock for hyprland
-      nwg-menu # App menu for waybar
       onefetch # provides zsaneyos build info on current system
       pandoc # format MD to HTML for cheatsheet parser
       pavucontrol # For Editing Audio Levels & Devices
@@ -87,7 +86,6 @@
       upower # noctalia shell battery
       uwsm # Universal Wayland Session Manager (optional must be enabled)
       v4l-utils # Used For Things Like OBS Virtual Camera
-      waypaper # Change wallpaper
       wget # Tool For Fetching Files With Links
       ytmdl # Tool For Downloading Audio From YouTube
       hyprpicker # Color Picker

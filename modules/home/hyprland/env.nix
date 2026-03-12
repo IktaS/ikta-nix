@@ -31,6 +31,7 @@
         # ToDo: Pull default terminal from config
         "TERMINAL,wezterm"
         "XDG_TERMINAL_EMULATOR,wezterm"
+        "QT_STYLE_OVERRIDE,qtct"
       ];
     };
   };

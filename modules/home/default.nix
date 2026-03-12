@@ -27,7 +27,6 @@
     ./obs-studio.nix
     ./editors/nano.nix
     ./editors/zed.nix
-    ./qt.nix
     ./scripts
     ./stylix.nix
     ./swappy.nix

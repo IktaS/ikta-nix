@@ -29,9 +29,8 @@
         # To provent yazi from starting xterm when run from rofi menu
         # You can set to your preferred terminal if you you like
         # ToDo: Pull default terminal from config
-        "TERMINAL,wezterm"
-        "XDG_TERMINAL_EMULATOR,wezterm"
-        "QT_STYLE_OVERRIDE,qtct"
+        "TERMINAL,ghostty"
+        "XDG_TERMINAL_EMULATOR,ghostty"
       ];
     };
   };

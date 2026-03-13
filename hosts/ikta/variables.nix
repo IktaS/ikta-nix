@@ -20,10 +20,9 @@
   ";
 
   additionalExecOnceSettings = [
+    "[workspace 1 silent] qpwgraph"
     "[workspace 2 silent] zen-beta"
     "[workspace 2 silent] discord"
-    "[workspace 3 silent] steam"
-    "[workspace 1 silent] qpwgraph"
   ];
 
   # Waybar Settings

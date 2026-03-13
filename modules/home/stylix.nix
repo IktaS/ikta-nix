@@ -7,8 +7,7 @@ _: {
     zen-browser.enable = false;
     qt = {
       enable = true;
-      platform = "qtct";
+      platform = "adwaita";
     };
   };
-
 }

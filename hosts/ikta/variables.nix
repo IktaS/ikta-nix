@@ -22,7 +22,6 @@
   additionalExecOnceSettings = [
     "[workspace 1 silent] qpwgraph"
     "[workspace 2 silent] zen-beta"
-    "[workspace 2 silent] discord"
   ];
 
   # Waybar Settings
@@ -30,7 +29,7 @@
 
   # Program Options
   # Set Default Browser (google-chrome-stable for google-chrome)
-  browser = "zen";
+  browser = "zen-beta";
 
   # Available Options:
   # Kitty, ghostty

@@ -25,7 +25,7 @@
 
   # Program Options
   # Set Default Browser (google-chrome-stable for google-chrome)
-  browser = "zen";
+  browser = "zen-beta";
 
   # Available Options:
   # Kitty, ghostty

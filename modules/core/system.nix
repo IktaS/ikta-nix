@@ -1,4 +1,8 @@
-{ host, pkgs, ... }:
+{
+  host,
+  pkgs,
+  ...
+}:
 let
   vars = import ../../hosts/${host}/variables.nix;
   consoleKeyMap = vars.consoleKeyMap or "us";

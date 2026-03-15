@@ -1,7 +1,4 @@
-{
-  profile,
-  ...
-}:
+{ profile, ... }:
 {
   imports = [
     ./zshrc-personal.nix

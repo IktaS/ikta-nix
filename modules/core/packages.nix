@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   programs = {
     neovim = {
@@ -25,7 +22,10 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    segger-jlink.acceptLicense = true;
+  };
 
   environment.systemPackages =
     with pkgs;
@@ -90,6 +90,9 @@
       ytmdl # Tool For Downloading Audio From YouTube
       hyprpicker # Color Picker
       lsscsi
+      bluez # Bluetooth protocol stack
+      bluez-tools # Bluetooth utilities
+      nrfutil # Nordic CLI tools for nRF52840
       ntfs3g # ntfs driver tools things
       obsidian # notes app
       opam
@@ -103,6 +106,7 @@
       rquickshare # QuickShare client
       # programming shit
       python3 # Python 3 programming language
+      uv # Python package manager
       bubblewrap
       bun # js shit
       dig
@@ -112,6 +116,7 @@
       gleam
       gnumake
       go
+      vscode
       typst
       zig
       nil

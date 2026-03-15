@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 let
   orcaWrapped = pkgs.writeShellScriptBin "orca-slicer" ''
     export LC_ALL=C

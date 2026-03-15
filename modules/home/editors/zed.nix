@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
 
   programs.zed-editor = {

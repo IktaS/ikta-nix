@@ -4,11 +4,9 @@
   pkgs,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.drivers.nvidia-amd-hybrid;
-in
-{
+in {
   options.drivers.nvidia-amd-hybrid = {
     enable = mkEnableOption "Enable AMD iGPU + NVIDIA dGPU (Prime offload)";
     # AMD iGPU Bus ID (e.g., PCI:5:0:0). Expose as option for future host wiring.
@@ -30,7 +28,7 @@ in
     # Not sure this is still neeeded but leaving just in case
     # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_12;
 
-    services.xserver.videoDrivers = [ "nvidia" ];
+    services.xserver.videoDrivers = ["nvidia"];
 
     hardware.nvidia = {
       modesetting.enable = true;

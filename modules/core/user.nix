@@ -39,7 +39,9 @@ in
     description = "${gitUsername}";
     extraGroups = [
       "adbusers"
+      "dialout" # serial port access
       "docker" # access to docker as non-root
+      "input" # HID devices (keyboards, gamepads, mice)
       "libvirtd" # Virt manager/QEMU access
       "lp"
       "networkmanager"

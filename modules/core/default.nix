@@ -17,6 +17,7 @@
     ./packages.nix
     ./printing.nix
     ./ly.nix
+    ./ydotool.nix
     ./security.nix
     ./services.nix
     ./steam.nix

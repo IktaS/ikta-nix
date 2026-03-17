@@ -16,6 +16,7 @@
     mtr.enable = true;
     adb.enable = true;
     hyprlock.enable = true;
+    kdeconnect.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;

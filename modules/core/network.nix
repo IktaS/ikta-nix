@@ -24,11 +24,13 @@ in
         59011
         8080
         rQuickSharePort # rquickshare
-      ];
+      ]
+      ++ builtins.genList (x: 1714 + x) 51; # KDE Connect: 1714-1764
       allowedUDPPorts = [
         59010
         59011
-      ];
+      ]
+      ++ builtins.genList (x: 1714 + x) 51; # KDE Connect: 1714-1764
     };
   };
 

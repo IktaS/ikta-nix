@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 {
   environment.systemPackages = with pkgs; [
     audacity
@@ -18,7 +18,7 @@
     prismlauncher
     alsa-scarlett-gui
     esptool
-    kicad
+    pkgsUnstable.kicad
     davinci-resolve
   ];
 }

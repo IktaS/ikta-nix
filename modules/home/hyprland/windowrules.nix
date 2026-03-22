@@ -1,10 +1,9 @@
-{ host, ... }:
-let
-  inherit (import ../../../hosts/${host}/variables.nix)
+{host, ...}: let
+  inherit
+    (import ../../../hosts/${host}/variables.nix)
     monitorSettings
     ;
-in
-{
+in {
   wayland.windowManager.hyprland = {
     settings = {
       windowrule = [
@@ -21,7 +20,7 @@ in
         }
         {
           name = "tag-terminal";
-          match.class = "^(com.mitchellh.ghostty|org.wezfurlong.wezterm|Alacritty|kitty|kitty-dropterm)$";
+          match.class = "^(org.wezfurlong.wezterm|wezterm-dropterm|Alacritty|kitty|kitty-dropterm)$";
           tag = "+terminal";
         }
         {

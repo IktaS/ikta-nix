@@ -3,8 +3,7 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   imports = [
     ./zsh
     ./overview.nix
@@ -23,7 +22,7 @@
     ./gtk.nix
     ./hyprland
     ./terminals/kitty.nix
-    ./terminals/ghostty.nix
+    ./terminals/wezterm.nix
     ./obs-studio.nix
     ./editors/nano.nix
     ./editors/zed.nix

@@ -20,7 +20,8 @@ pkgs.writeShellScriptBin "dock" ''
   # Masked apps won't show in DOCK.
   # I am running pyprland scratchpads
   # They don't show up correctly so I mask it off
-  MASK_APPS="kitty-dropterm"
+  # Masks all terminal dropterm classes: kitty-dropterm, wezterm-dropterm, etc.
+  MASK_APPS="kitty-dropterm wezterm-dropterm alacritty-dropterm foot-dropterm"
 
   ICON_SIZE=32
   MARGIN_BOTTOM=10
@@ -37,5 +38,4 @@ pkgs.writeShellScriptBin "dock" ''
     # nwg-dock-hyprland -i 40 -x -mb 10 -w 3 -nolauncher
     nwg-dock-hyprland -i "$ICON_SIZE" -w "$ROWS" -mb "$MARGIN_BOTTOM" -ml "$MARGIN_LEFT" -mr "$MARGIN_RIGHT" -x -g "$MASK_APPS" -c "$MENU"
   fi
-
 ''

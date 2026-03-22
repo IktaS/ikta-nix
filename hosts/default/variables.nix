@@ -28,8 +28,8 @@
   browser = "zen-beta";
 
   # Available Options:
-  # Kitty, ghostty
-  terminal = "ghostty"; # Set Default System Terminal
+  # kitty, wezterm
+  terminal = "wezterm"; # Set Default System Terminal
 
   keyboardLayout = "us";
   keyboardVariant = "";

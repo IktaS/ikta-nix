@@ -17,6 +17,10 @@
     adb.enable = true;
     hyprlock.enable = true;
     kdeconnect.enable = true;
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -38,7 +42,8 @@
     ]
     ++ [
       alejandra # nix formatter
-      appimage-run # Needed For AppImage Support
+      squashfsTools # For AppImage extraction
+      dwarfs # For DWARFS-compressed AppImages
       brightnessctl # For Screen Brightness Control
       cliphist # Clipboard manager using rofi menu
       cmatrix # Matrix Movie Effect In Terminal

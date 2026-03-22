@@ -18,7 +18,6 @@
     prismlauncher
     alsa-scarlett-gui
     esptool
-    pkgsUnstable.kicad
     davinci-resolve
   ];
 }

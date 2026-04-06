@@ -14,5 +14,6 @@
     with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
       yomitan
       adnauseam
+      # surfshark-vpn-proxy
     ];
 }

@@ -107,9 +107,8 @@
       python3
       qbittorrent # torrent client
       qpwgraph # GUI Graph Manager for PipeWire
-      rhythmbox
       youtube-music # Youtube Music Desktop App
-      rquickshare # QuickShare client
+      # rquickshare # QuickShare client (disabled: upstream Tauri version mismatch)
       # programming shit
       python3 # Python 3 programming language
       uv # Python package manager

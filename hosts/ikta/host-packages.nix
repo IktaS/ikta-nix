@@ -10,7 +10,7 @@
     ardour
     bruno
     gamemode
-    ungoogled-chromium
+    chromium
     osu-lazer
     krita
     libreoffice

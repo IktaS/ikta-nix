@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   imports = [
     ./zsh
     ./overview.nix
@@ -35,10 +36,11 @@
     ./wlogout
     ./xdg.nix
     ./yazi
+    ./chromium.nix
     ./zen-browser.nix
     ./opencode.nix
     ./zoxide.nix
-    ./rquickshare.nix
+    # ./rquickshare.nix # disabled: upstream Tauri version mismatch
     ./orca-slicer.nix
   ];
 

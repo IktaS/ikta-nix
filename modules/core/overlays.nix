@@ -1,5 +1,4 @@
-{ inputs, ... }:
-{
+{inputs, ...}: {
   nixpkgs.overlays = [
     inputs.fenix.overlays.default
     (final: prev: {

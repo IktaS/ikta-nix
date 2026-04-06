@@ -1,4 +1,4 @@
-{ pkgs }:
+{pkgs}:
 pkgs.writeShellScriptBin "keybinds-parser" ''
     #!/usr/bin/env bash
     set -euo pipefail

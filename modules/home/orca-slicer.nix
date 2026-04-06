@@ -1,5 +1,8 @@
-{ pkgs, pkgsUnstable, ... }:
-let
+{
+  pkgs,
+  pkgsUnstable,
+  ...
+}: let
   orcaWrapped = pkgs.writeShellScriptBin "orca-slicer" ''
     export LC_ALL=C
     export MESA_LOADER_DRIVER_OVERRIDE=zink
@@ -9,7 +12,6 @@ let
     export GALLIUM_DRIVER=zink
     exec ${pkgsUnstable.orca-slicer}/bin/orca-slicer "$@"
   '';
-in
-{
-  home.packages = [ orcaWrapped ];
+in {
+  home.packages = [orcaWrapped];
 }

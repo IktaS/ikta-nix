@@ -1,9 +1,26 @@
-{
-  pkgs,
-  ...
-}:
-let
+{pkgs, ...}: let
   extDir = "$HOME/.config/adnauseam-chromium";
+  chromiumBin = "${pkgs.ungoogled-chromium}/bin/chromium";
+
+  adnauseam-script = pkgs.writeScriptBin "chromium" ''
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    EXT_DIR="${extDir}"
+
+    if [ ! -d "$EXT_DIR/adnauseam.chromium" ]; then
+      echo "Installing AdNauseam..."
+      TEMP_ZIP="/tmp/adnauseam.chromium.zip"
+      rm -rf "$EXT_DIR"
+      mkdir -p "$EXT_DIR"
+      curl -L -o "$TEMP_ZIP" "https://github.com/dhowe/AdNauseam/releases/latest/download/adnauseam.chromium.zip"
+      unzip -o "$TEMP_ZIP" -d "$EXT_DIR"
+      rm -f "$TEMP_ZIP"
+      echo "AdNauseam installed."
+    fi
+
+    exec ${chromiumBin} --disable-features=ExtensionManifestV2Unsupported --load-extension=${extDir}/adnauseam.chromium "''${@:-}"
+  '';
 
   install-adnauseam = pkgs.writeScriptBin "install-adnauseam" ''
     #!/usr/bin/env bash
@@ -31,24 +48,37 @@ let
     echo ""
     echo "AdNauseam installed at: $EXT_DIR/adnauseam.chromium"
   '';
-
-  chromium-with-adnauseam = pkgs.writeScriptBin "chromium-adnauseam" ''
-    #!/usr/bin/env bash
-    set -euo pipefail
-    exec chromium --disable-features=ExtensionManifestV2Unsupported --load-extension=${extDir}/adnauseam.chromium "''${@:-}"
-  '';
-in
-{
+in {
   home.packages = [
     install-adnauseam
-    chromium-with-adnauseam
   ];
+
+  home.sessionPath = [
+    "${adnauseam-script}/bin"
+  ];
+
   programs.chromium = {
     enable = true;
     extensions = [
-      "ailoabdmgclmfmhdagmlohpjlbpffblp"
       "likgccmbimhjbgkjambclfkhldnlhbnn"
+      "ailoabdmgclmfmhdagmlohpjlbpffblp"
     ];
   };
 
+  home.file."chromium/Default/Preferences".source = pkgs.writeTextFile {
+    name = "chromium-preferences";
+    text = builtins.toJSON {
+      default_search_provider = {
+        enabled = true;
+        is_default = true;
+        name = "Google";
+        search_url = "https://www.google.com/search?q={searchTerms}";
+        suggest_url = "https://www.google.com/complete/search?client=chrome&q={searchTerms}";
+      };
+      default_search_provider_data = {
+        bookmark_bar_data = {};
+        new_tab = {};
+      };
+    };
+  };
 }

@@ -1,12 +1,11 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs = {
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       gamescopeSession.enable = true;
-      extraCompatPackages = [ pkgs.proton-ge-bin ];
+      extraCompatPackages = [pkgs.proton-ge-bin];
       extest.enable = true;
       package = pkgs.steam.override {
         extraEnv = {

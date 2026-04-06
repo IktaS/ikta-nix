@@ -120,18 +120,18 @@ pkgs.writeShellScriptBin "qs-cheatsheets" ''
     # Generate data
     if [ -n "''${QS_PERF:-}" ]; then t1=$(now_ms); fi
     ${
-      pkgs.callPackage ./cheatsheets-parser.nix { }
-    }/bin/cheatsheets-parser files "$CATEGORY" "$LANGUAGE" > "$files_json"
+    pkgs.callPackage ./cheatsheets-parser.nix {}
+  }/bin/cheatsheets-parser files "$CATEGORY" "$LANGUAGE" > "$files_json"
     ${
-      pkgs.callPackage ./cheatsheets-parser.nix { }
-    }/bin/cheatsheets-parser categories > "$categories_json"
+    pkgs.callPackage ./cheatsheets-parser.nix {}
+  }/bin/cheatsheets-parser categories > "$categories_json"
 
     # Generate files for all categories and languages for switching
     # First generate root directory files
     for lang in en es; do
       ${
-        pkgs.callPackage ./cheatsheets-parser.nix { }
-      }/bin/cheatsheets-parser files "root" "$lang" > "$tmpdir/files_root_''${lang}.json" 2>/dev/null || echo '[]' > "$tmpdir/files_root_''${lang}.json"
+    pkgs.callPackage ./cheatsheets-parser.nix {}
+  }/bin/cheatsheets-parser files "root" "$lang" > "$tmpdir/files_root_''${lang}.json" 2>/dev/null || echo '[]' > "$tmpdir/files_root_''${lang}.json"
     done
 
     # Then dynamically discover all category directories
@@ -141,8 +141,8 @@ pkgs.writeShellScriptBin "qs-cheatsheets" ''
           category=$(basename "$category_dir")
           for lang in en es; do
             ${
-              pkgs.callPackage ./cheatsheets-parser.nix { }
-            }/bin/cheatsheets-parser files "$category" "$lang" > "$tmpdir/files_''${category}_''${lang}.json" 2>/dev/null || echo '[]' > "$tmpdir/files_''${category}_''${lang}.json"
+    pkgs.callPackage ./cheatsheets-parser.nix {}
+  }/bin/cheatsheets-parser files "$category" "$lang" > "$tmpdir/files_''${category}_''${lang}.json" 2>/dev/null || echo '[]' > "$tmpdir/files_''${category}_''${lang}.json"
           done
         fi
       done

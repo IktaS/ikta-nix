@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   xdg = {
     enable = true;
     mime.enable = true;
@@ -12,7 +11,7 @@
         pkgs.xdg-desktop-portal-gtk
         pkgs.xdg-desktop-portal-hyprland
       ];
-      configPackages = [ pkgs.hyprland ];
+      configPackages = [pkgs.hyprland];
     };
   };
 }

@@ -1,4 +1,4 @@
-{ pkgs }:
+{pkgs}:
 pkgs.writeShellScriptBin "qs-panels" ''
     #!/usr/bin/env bash
     set -euo pipefail

@@ -1,4 +1,4 @@
-{ pkgs }:
+{pkgs}:
 pkgs.writeShellScriptBin "cheatsheets-parser" ''
     #!/usr/bin/env bash
     set -euo pipefail

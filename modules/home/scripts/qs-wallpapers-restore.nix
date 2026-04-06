@@ -1,4 +1,4 @@
-{ pkgs }:
+{pkgs}:
 pkgs.writeShellScriptBin "qs-wallpapers-restore" ''
   #!/usr/bin/env bash
   set -euo pipefail

@@ -1,5 +1,8 @@
-{ pkgs, pkgsUnstable, ... }:
 {
+  pkgs,
+  pkgsUnstable,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     audacity
     discord

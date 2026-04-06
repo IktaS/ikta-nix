@@ -4,8 +4,7 @@
   inputs,
   config,
   ...
-}:
-{
+}: {
   # Install opencode for the user
   home.packages = [
     pkgsUnstable.opencode

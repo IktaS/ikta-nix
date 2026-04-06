@@ -3,11 +3,9 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (import ../../hosts/${host}/variables.nix) thunarEnable terminal;
-in
-{
+in {
   programs = {
     thunar = {
       enable = thunarEnable;

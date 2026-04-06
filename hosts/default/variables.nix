@@ -25,7 +25,7 @@
 
   # Program Options
   # Set Default Browser (google-chrome-stable for google-chrome)
-  browser = "zen-beta";
+  browser = "chromium";
 
   # Available Options:
   # kitty, wezterm

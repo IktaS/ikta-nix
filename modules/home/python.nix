@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     python3Packages.pip # Python package installer
     python3Packages.virtualenv # Virtual environment tool
@@ -22,5 +21,5 @@
   };
 
   # Set Python path in environment
-  home.sessionPath = [ "${pkgs.python3}/bin" ];
+  home.sessionPath = ["${pkgs.python3}/bin"];
 }

@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   config = {
     # Prefer ly when TUI is selected; avoid greetd conflicts
     services.greetd.enable = lib.mkDefault false;

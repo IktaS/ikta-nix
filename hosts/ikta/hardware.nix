@@ -7,8 +7,7 @@
   pkgs,
   modulesPath,
   ...
-}:
-{
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -21,9 +20,9 @@
     "sd_mod"
     "sr_mod"
   ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-amd"];
+  boot.extraModulePackages = [];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/42b6cede-eceb-4e66-8ae0-9aa72ecc7215";
@@ -40,7 +39,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/51eace0f-a017-4951-8d6b-261e9b0fb9fb"; }
+    {device = "/dev/disk/by-uuid/51eace0f-a017-4951-8d6b-261e9b0fb9fb";}
   ];
 
   fileSystems."/home/ikta/fastdrive" = {

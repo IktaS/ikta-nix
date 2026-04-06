@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs = {
     neovim = {
       enable = true;
@@ -32,9 +31,8 @@
     segger-jlink.acceptLicense = true;
   };
 
-  environment.systemPackages =
-    with pkgs;
-    # Noctalia pkgs
+  environment.systemPackages = with pkgs;
+  # Noctalia pkgs
     [
       matugen # color palette generator needed for noctalia-shell
       app2unit # launcher for noctalia-shell

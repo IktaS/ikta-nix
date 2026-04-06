@@ -3,8 +3,7 @@
   config,
   inputs,
   ...
-}:
-{
+}: {
   imports = [
     ./boot.nix
     ./flatpak.nix

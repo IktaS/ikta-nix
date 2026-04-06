@@ -3,8 +3,7 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   imports = [
     ./zsh
     ./overview.nix
@@ -37,7 +36,6 @@
     ./xdg.nix
     ./yazi
     ./chromium.nix
-    ./zen-browser.nix
     ./opencode.nix
     ./zoxide.nix
     # ./rquickshare.nix # disabled: upstream Tauri version mismatch

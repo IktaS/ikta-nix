@@ -6,7 +6,7 @@ _: {
     ghostty.enable = false;
     qt = {
       enable = true;
-      platform = "adwaita";
+      platform = "qtct";
     };
   };
 }

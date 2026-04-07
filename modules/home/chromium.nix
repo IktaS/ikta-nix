@@ -62,6 +62,7 @@ in {
     extensions = [
       "likgccmbimhjbgkjambclfkhldnlhbnn"
       "ailoabdmgclmfmhdagmlohpjlbpffblp"
+      "fdcjeigdfljhiinbagbmlhekkbgcdnfc"
     ];
   };
 

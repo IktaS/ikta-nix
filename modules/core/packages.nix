@@ -135,5 +135,17 @@
       fenix.stable.toolchain
       rust-analyzer
       marimo
+      (
+        import
+        (fetchTarball {
+          url = "https://github.com/NixOS/nixpkgs/archive/751890b33476e0a9311b3534bccb60b13286ce9d.tar.gz";
+          sha256 = "1nxcni5rpbpcnddkc2wbaaf3qmqykwhcn0nry5b4hhcqqg142kpr";
+        })
+        {
+          localSystem = {
+            system = "x86_64-linux";
+          };
+        }
+      ).mokuro
     ];
 }

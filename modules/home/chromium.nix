@@ -19,7 +19,7 @@
       echo "AdNauseam installed."
     fi
 
-    exec ${chromiumBin} --disable-features=ExtensionManifestV2Unsupported --load-extension=${extDir}/adnauseam.chromium "''${@:-}"
+    exec ${chromiumBin} --remote-debugging-port=9222 --remote-allow-origins=* --disable-features=ExtensionManifestV2Unsupported --load-extension=${extDir}/adnauseam.chromium "''${@:-}"
   '';
 
   install-adnauseam = pkgs.writeScriptBin "install-adnauseam" ''
@@ -62,7 +62,6 @@ in {
     extensions = [
       "likgccmbimhjbgkjambclfkhldnlhbnn"
       "ailoabdmgclmfmhdagmlohpjlbpffblp"
-      "fdcjeigdfljhiinbagbmlhekkbgcdnfc"
     ];
   };
 

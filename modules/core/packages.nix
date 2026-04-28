@@ -107,6 +107,7 @@
       qpwgraph # GUI Graph Manager for PipeWire
       youtube-music # Youtube Music Desktop App
       # rquickshare # QuickShare client (disabled: upstream Tauri version mismatch)
+      packet
       # programming shit
       python3 # Python 3 programming language
       uv # Python package manager

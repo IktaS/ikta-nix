@@ -2,7 +2,8 @@
   pkgs,
   pkgsUnstable,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgs; [
     audacity
     discord
@@ -21,6 +22,8 @@
     prismlauncher
     alsa-scarlett-gui
     esptool
-    davinci-resolve
+    kdePackages.kdenlive
+    libratbag
+    piper
   ];
 }

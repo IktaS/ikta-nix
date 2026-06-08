@@ -13,7 +13,6 @@
     seahorse.enable = true;
     fuse.userAllowOther = true;
     mtr.enable = true;
-    adb.enable = true;
     hyprlock.enable = true;
     kdeconnect.enable = true;
     appimage = {
@@ -40,6 +39,7 @@
     ]
     ++ [
       alejandra # nix formatter
+      android-tools # adb and fastboot
       squashfsTools # For AppImage extraction
       dwarfs # For DWARFS-compressed AppImages
       brightnessctl # For Screen Brightness Control
@@ -52,7 +52,7 @@
       duf # Utility For Viewing Disk Usage In Terminal
       dysk # Disk space util nice formattting
       eza # Beautiful ls Replacement
-      ffmpeg # Terminal Video / Audio Editing
+      ffmpeg-full # Terminal Video / Audio Editing
       file-roller # Archive Manager
       gimp # Great Photo Editor
       gpu-screen-recorder # needed for nnoctalia-shell
@@ -117,7 +117,7 @@
       erlang
       gcc
       gedit # Simple Graphical Text Editor
-      gleam
+      (gleam.overrideAttrs (_: {doCheck = false;}))
       gnumake
       go
       vscode

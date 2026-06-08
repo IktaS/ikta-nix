@@ -19,6 +19,7 @@
     ./cli/lazygit.nix
     ./emoji.nix
     ./eza.nix
+    ./fastfetch
     ./gtk.nix
     ./hyprland
     ./terminals/kitty.nix
@@ -29,6 +30,7 @@
     ./scripts
     ./stylix.nix
     ./swappy.nix
+    ./swaync.nix
     ./tealdeer.nix
     ./virtmanager.nix
     ./noctalia.nix

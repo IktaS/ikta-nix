@@ -1,4 +1,4 @@
 {pkgs}:
 pkgs.writeShellScriptBin "screenshootin" ''
-  grim -g "$(slurp -d)" - | swappy -f -
+  grim -g "$(slurp)" - | swappy -f -
 ''

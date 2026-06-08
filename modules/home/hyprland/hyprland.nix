@@ -51,13 +51,14 @@
   hyprKbVariant = variantFinal;
 in {
   home.packages = with pkgs; [
-    swww
+    awww
     grim
     slurp
     wl-clipboard
     swappy
     ydotool
     hyprpolkitagent
+    hyprshutdown
     hyprshot
     hyprpicker
     #hyprland-qtutils # needed for banners and ANR messages
@@ -82,6 +83,7 @@ in {
       enableXdgAutostart = true;
       variables = ["--all"];
     };
+    configType = "hyprlang";
     xwayland = {
       enable = true;
     };
@@ -116,8 +118,18 @@ in {
         workspace_swipe_forever = true;
       };
 
+      "$modifier" = "SUPER";
+
+      scrolling = {
+        column_width = 0.80;
+        fullscreen_on_one_column = true;
+        direction = "right";
+        follow_focus = true;
+      };
+
+      monocle = {};
+
       general = {
-        "$modifier" = "SUPER";
         layout = "dwindle";
         gaps_in = 6;
         gaps_out = 8;
@@ -136,7 +148,6 @@ in {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         enable_swallow = false;
-        vfr = true; # Variable Frame Rate
         vrr = 2; # Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
         # Screen flashing to black momentarily or going black when app is fullscreen
         # Try setting vrr to 0
@@ -147,7 +158,6 @@ in {
       };
 
       dwindle = {
-        pseudotile = true;
         preserve_split = true;
         force_split = 2;
       };

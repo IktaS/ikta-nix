@@ -130,12 +130,25 @@ in
 
     # --- Configuration ---
     PROJECT="ikta-nix"   #ddubos or ikta-nix
-    PROFILE="${profile}"
+    PROFILE_DEFAULT="${profile}"
     BACKUP_FILES_STR="${backupFilesString}"
     VERSION="1.0.2"
     FLAKE_NIX_PATH="$HOME/$PROJECT/flake.nix"
 
     read -r -a BACKUP_FILES <<< "$BACKUP_FILES_STR"
+
+    get_flake_profile() {
+      local flake_profile=""
+      if [ -f "$FLAKE_NIX_PATH" ]; then
+        flake_profile=$(${pkgs.gnugrep}/bin/grep -E '^[[:space:]]*profile[[:space:]]*=' "$FLAKE_NIX_PATH" | ${pkgs.gnused}/bin/sed 's/.*=[[:space:]]*"\([^"]*\)".*/\1/')
+      fi
+      echo "$flake_profile"
+    }
+
+    PROFILE="$(get_flake_profile)"
+    if [ -z "$PROFILE" ]; then
+      PROFILE="$PROFILE_DEFAULT"
+    fi
 
     # --- Helper Functions ---
     verify_hostname() {
@@ -231,31 +244,42 @@ in
       local has_amd=false
       local has_vm=false
 
+      if ${pkgs.systemd}/bin/systemd-detect-virt -q; then
+        echo "vm"
+        return
+      fi
+
       if ${pkgs.pciutils}/bin/lspci &> /dev/null; then # Check if lspci is available
-        if ${pkgs.pciutils}/bin/lspci | ${pkgs.gnugrep}/bin/grep -qi 'vga\|3d'; then
+        if ${pkgs.pciutils}/bin/lspci -nn | ${pkgs.gnugrep}/bin/grep -qi 'vga\|3d\|display'; then
           while read -r line; do
-            if echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'nvidia'; then
+            if echo "$line" | ${pkgs.gnugrep}/bin/grep -Eq '\[10de:'; then
               has_nvidia=true
-            elif echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'amd'; then
+            elif echo "$line" | ${pkgs.gnugrep}/bin/grep -Eq '\[1002:'; then
               has_amd=true
-            elif echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'intel'; then
+            elif echo "$line" | ${pkgs.gnugrep}/bin/grep -Eq '\[8086:'; then
               has_intel=true
-            elif echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'virtio\|vmware'; then
+            elif echo "$line" | ${pkgs.gnugrep}/bin/grep -Eq '\[(1af4|15ad|80ee|1b36|1414|1234|1013):'; then
+              has_vm=true
+            elif echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'nvidia'; then
+              has_nvidia=true
+            elif echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'amd\|ati\|advanced micro devices'; then
+              has_amd=true
+            elif echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'virtio\|vmware\|virtualbox\|qxl\|hyper-v\|microsoft corporation\|parallels\|qemu\|bochs\|cirrus\|svga\|virtual'; then
               has_vm=true
             fi
-          done < <(${pkgs.pciutils}/bin/lspci | ${pkgs.gnugrep}/bin/grep -i 'vga\|3d')
+          done < <(${pkgs.pciutils}/bin/lspci -nn | ${pkgs.gnugrep}/bin/grep -i 'vga\|3d\|display')
 
-          if "$has_vm"; then
+          if $has_vm; then
             detected_profile="vm"
-          elif "$has_nvidia" && "$has_intel"; then
+          elif $has_nvidia && $has_intel; then
             detected_profile="nvidia-laptop"
-          elif "$has_nvidia" && "$has_amd"; then
+          elif $has_nvidia && $has_amd; then
             detected_profile="amd-hybrid"
-          elif "$has_nvidia"; then
+          elif $has_nvidia; then
             detected_profile="nvidia"
-          elif "$has_amd"; then
+          elif $has_amd; then
             detected_profile="amd"
-          elif "$has_intel"; then
+          elif $has_intel; then
             detected_profile="intel"
           fi
         fi

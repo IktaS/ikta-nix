@@ -27,6 +27,7 @@
       export PATH="$PATH:$(go env GOPATH)/bin"
       export PATH="$PATH:/home/ikta/.cargo/bin"
       export PATH="$PATH:$HOME/.local/bin"
+      export PATH="$PATH:$HOME/.npm-global/bin"
       alias zed="zeditor"
   '';
 }

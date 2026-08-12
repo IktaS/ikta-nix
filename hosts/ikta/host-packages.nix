@@ -2,8 +2,7 @@
   pkgs,
   pkgsUnstable,
   ...
-}:
-{
+}: {
   environment.systemPackages = with pkgs; [
     audacity
     discord
@@ -14,6 +13,7 @@
     ardour
     bruno
     gamemode
+    godot
     chromium
     osu-lazer
     krita
@@ -23,7 +23,5 @@
     alsa-scarlett-gui
     esptool
     kdePackages.kdenlive
-    libratbag
-    piper
   ];
 }

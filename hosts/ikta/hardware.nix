@@ -24,6 +24,11 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
+  # Disable internal Intel Bluetooth (8087:0aa7) so USB dongle takes over
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="8087", ATTR{idProduct}=="0aa7", ATTR{authorized}="0"
+  '';
+
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/42b6cede-eceb-4e66-8ae0-9aa72ecc7215";
     fsType = "ext4";

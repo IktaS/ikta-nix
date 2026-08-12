@@ -15,6 +15,7 @@
       powerOnBoot = true;
       settings = {
         General = {
+          ControllerMode = "bredr";
           Experimental = true;
           KernelExperimental = true;
         };
@@ -22,4 +23,7 @@
     };
   };
   local.hardware-clock.enable = false;
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="bluetooth", ATTR{power/control}="on"
+  '';
 }

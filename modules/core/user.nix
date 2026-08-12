@@ -46,6 +46,7 @@ in {
       "scanner"
       "wheel" # sudo access
       "vboxusers" # Virtual Box
+      "uinput" # Sunshine
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;

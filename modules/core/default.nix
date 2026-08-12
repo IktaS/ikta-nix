@@ -22,6 +22,9 @@
     ./steam.nix
     ./stylix.nix
     ./syncthing.nix
+    ./sunshine.nix
+    ./tailscale.nix
+    ./wol.nix
     ./system.nix
     ./thunar.nix
     ./user.nix

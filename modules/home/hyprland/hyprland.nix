@@ -83,6 +83,10 @@ in {
       enableXdgAutostart = true;
       variables = ["--all"];
     };
+    # NOTE: Hyprland v0.56.x still reads hyprland.conf (hyprlang format).
+    # When upgrading to v0.57.0, this config format will be removed.
+    # The entire settings tree will need to be rewritten in the Lua API:
+    #   hl.config({...}) hl.bind(...) hl.monitor({...}) hl.on(...)
     configType = "hyprlang";
     xwayland = {
       enable = true;
@@ -92,7 +96,6 @@ in {
         {
           kb_layout = hyprKbLayout;
           kb_options = [
-            "grp:alt_caps_toggle"
             "caps:super"
           ];
           numlock_by_default = true;

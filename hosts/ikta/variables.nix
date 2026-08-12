@@ -75,4 +75,14 @@
   # Set network hostId if required (needed for zfs)
   # Otherwise leave as-is
   hostId = "5ab03f50";
+
+  # Wake on LAN
+  enableWoL = true;
+  wolInterface = "enp9s0"; # Ethernet interface
+
+  # Tailscale VPN mesh
+  enableTailscale = true;
+
+  # Sunshine game streaming server
+  enableSunshine = true;
 }

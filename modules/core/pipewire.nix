@@ -1,7 +1,16 @@
 {profile, ...}: {
   services.pipewire = {
     enable = true;
-    wireplumber.enable = true;
+    wireplumber = {
+      enable = true;
+      extraConfig = {
+        "99-bluez5" = {
+          "monitor.bluez5.properties" = {
+            "bluez5.auto-connect" = false;
+          };
+        };
+      };
+    };
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;

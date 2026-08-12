@@ -1,7 +1,7 @@
 {profile, ...}: {
   # Services to start
   services = {
-    upower.enable = true; # noctalia shell battery
+    upower.enable = true;
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer
     gvfs.enable = true; # For Mounting USB & More
@@ -16,6 +16,7 @@
       ports = [22];
     };
     blueman.enable = true; # Bluetooth Support
+    ratbagd.enable = true; # Gaming mouse configuration daemon (piper)
     tumbler.enable = true; # Image/video preview
     gnome.gnome-keyring.enable = true;
 

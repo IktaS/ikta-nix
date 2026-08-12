@@ -3,6 +3,11 @@
     # Prefer ly when TUI is selected; avoid greetd conflicts
     services.greetd.enable = lib.mkDefault false;
 
+    services.displayManager.autoLogin = {
+      enable = true;
+      user = "ikta";
+    };
+
     services.displayManager.ly = {
       enable = true;
       settings = {

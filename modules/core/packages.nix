@@ -31,11 +31,10 @@
   };
 
   environment.systemPackages = with pkgs;
-  # Noctalia pkgs
     [
-      matugen # color palette generator needed for noctalia-shell
-      app2unit # launcher for noctalia-shell
-      gpu-screen-recorder # needed for nnoctalia-shell
+      matugen
+      app2unit
+      power-profiles-daemon # power profile switching
     ]
     ++ [
       alejandra # nix formatter
@@ -54,9 +53,7 @@
       eza # Beautiful ls Replacement
       ffmpeg-full # Terminal Video / Audio Editing
       file-roller # Archive Manager
-      gimp # Great Photo Editor
-      gpu-screen-recorder # needed for nnoctalia-shell
-      power-profiles-daemon # needed for noctalia-shell power cycle
+      gimp-with-plugins # Great Photo Editor
       mesa-demos # needed for inxi diag util
       tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
       htop # Simple Terminal Based System Monitor
@@ -67,6 +64,7 @@
       lm_sensors # Used For Getting Hardware Temps
       lolcat # Add Colors To Your Terminal Command Output
       lshw # Detailed Hardware Information
+      lufus # Rufus clone for Linux
       mdcat # CLI markdown parser
       mpv # Incredible Video Player
       ncdu # Disk Usage Analyzer With Ncurses Interface
@@ -87,7 +85,7 @@
       unrar # Tool For Handling .rar Files
       unzip # Tool For Handling .zip Files
       usbutils # Good Tools For USB Devices
-      upower # noctalia shell battery
+      upower
       uwsm # Universal Wayland Session Manager (optional must be enabled)
       v4l-utils # Used For Things Like OBS Virtual Camera
       wget # Tool For Fetching Files With Links
@@ -117,7 +115,9 @@
       erlang
       gcc
       gedit # Simple Graphical Text Editor
-      (gleam.overrideAttrs (_: {doCheck = false;}))
+      (gleam.overrideAttrs (_: {
+        doCheck = false;
+      }))
       gnumake
       go
       vscode
@@ -135,6 +135,8 @@
       ])
       fenix.stable.toolchain
       rust-analyzer
+      libratbag
+      piper
       marimo
       (
         import

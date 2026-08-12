@@ -12,10 +12,12 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    # Pinned to v0.56.2 — Hyprland v0.57.0 drops hyprlang config support.
+    # When upgrading, modules/home/hyprland/* must be rewritten to Lua API.
+    hyprland.url = "github:hyprwm/Hyprland/v0.56.2";
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

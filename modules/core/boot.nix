@@ -16,7 +16,4 @@
     loader.efi.canTouchEfiVariables = true;
     plymouth.enable = true;
   };
-
-  # Fix: kernel 7.0.12 produces vmlinuz instead of bzImage but kernel.target still returns bzImage
-  system.boot.loader.kernelFile = "vmlinuz";
 }

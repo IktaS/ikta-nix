@@ -1,4 +1,6 @@
 {
+  pkgs,
+  config,
   inputs,
   host,
   ...
@@ -8,12 +10,14 @@
 in {
   imports = [
     ./boot.nix
+    ./configuration.nix
     ./flatpak.nix
     ./fonts.nix
     ./hardware.nix
     ./network.nix
     ./nfs.nix
     ./nh.nix
+    ./pipewire.nix
     ./quickshell.nix
     ./packages.nix
     ./printing.nix
@@ -27,13 +31,23 @@ in {
     ./services.nix
     ./steam.nix
     ./stylix.nix
+    ./sunshine.nix
     ./syncthing.nix
     ./system.nix
+    ./tailscale.nix
     ./thunar.nix
     ./user.nix
     ./virtualisation.nix
+    ./vlc.nix
+    ./wol.nix
     ./xserver.nix
     ./cachix.nix
     inputs.stylix.nixosModules.stylix
   ];
+
+  # this allows you to access `pkgsUnstable` anywhere in your config
+  _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    inherit (config.nixpkgs) config;
+  };
 }

@@ -15,5 +15,19 @@
       #alias c="clear"
 
 
+      #!/usr/bin/env zsh
+      # Set defaults
+      #
+      #export EDITOR="nvim"
+      #export VISUAL="nvim"
+
+      #alias c="clear"
+
+      eval $(opam env)
+      export PATH="$PATH:$(go env GOPATH)/bin"
+      export PATH="$PATH:/home/ikta/.cargo/bin"
+      export PATH="$PATH:$HOME/.local/bin"
+      export PATH="$PATH:$HOME/.npm-global/bin"
+      alias zed="zeditor"
   '';
 }

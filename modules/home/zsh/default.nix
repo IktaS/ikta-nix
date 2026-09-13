@@ -1,7 +1,5 @@
 {
   profile,
-  pkgs,
-  lib,
   config,
   ...
 }: {
@@ -15,7 +13,14 @@
     autosuggestion.enable = true;
     syntaxHighlighting = {
       enable = true;
-      highlighters = ["main" "brackets" "pattern" "regexp" "root" "line"];
+      highlighters = [
+        "main"
+        "brackets"
+        "pattern"
+        "regexp"
+        "root"
+        "line"
+      ];
     };
     historySubstringSearch.enable = true;
 
@@ -27,19 +32,10 @@
 
     oh-my-zsh = {
       enable = true;
+      theme = "amuse";
     };
 
     plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = lib.cleanSource ./p10k-config;
-        file = "p10k.zsh";
-      }
     ];
 
     initContent = ''
@@ -59,7 +55,7 @@
       c = "clear";
       fr = "nh os switch --hostname ${profile}";
       fu = "nh os switch --hostname ${profile} --update";
-      zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/releases/latest/download/install-zaneyos.sh)";
+      zu = "sh <(curl -L https://github.com/IktaS/ikta-nix/-/releases/latest/download/install-ikta-nix.sh)";
       ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       cat = "bat";
       man = "batman";

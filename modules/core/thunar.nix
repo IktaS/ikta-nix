@@ -1,9 +1,10 @@
 {
   host,
   pkgs,
+  lib,
   ...
 }: let
-  inherit (import ../../hosts/${host}/variables.nix) thunarEnable;
+  inherit (import ../../hosts/${host}/variables.nix) thunarEnable terminal;
 in {
   programs = {
     thunar = {
@@ -14,7 +15,12 @@ in {
       ];
     };
   };
-  environment.systemPackages = with pkgs; [
-    ffmpegthumbnailer # Need For Video / Image Preview
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      ffmpegthumbnailer # Need For Video / Image Preview
+    ];
+    sessionVariables = lib.mkIf thunarEnable {
+      TERMINAL = terminal;
+    };
+  };
 }

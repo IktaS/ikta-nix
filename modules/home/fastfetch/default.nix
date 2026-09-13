@@ -31,9 +31,9 @@
         }
         {
           type = "command";
-          key = " ├  ZaneyOS ";
+          key = " ├  ikta-nix ";
           keyColor = "31";
-          text = "echo v$" + "{ZANEYOS_VERSION}";
+          text = "echo v$" + "{IKTANIX_VERSION}";
         }
         {
           type = "kernel";

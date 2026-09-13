@@ -5,15 +5,12 @@
     barChoice
     stylixImage
     ;
-  # Noctalia-specific startup commands
+  additionalExecOnceSettings = vars.additionalExecOnceSettings or [];
+  # Noctalia-specific startup commands (noctalia v5, managed by home module)
   noctaliaExec =
     if barChoice == "noctalia"
     then [
-      "killall -q waybar"
-      "pkill waybar"
-      "killall -q swaync"
-      "pkill swaync"
-      "noctalia-shell &"
+      "noctalia"
     ]
     else [];
   # Waybar-specific startup commands
@@ -40,6 +37,6 @@ in {
         "qs -c overview" # Start quickshell-overview daemon
         "hyprland-change-layout init"
       ]
-      ++ noctaliaExec ++ waybarExec;
+      ++ noctaliaExec ++ waybarExec ++ additionalExecOnceSettings;
   };
 }

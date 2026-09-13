@@ -1,4 +1,10 @@
-{host, ...}: let
+{
+  pkgs,
+  config,
+  inputs,
+  host,
+  ...
+}: let
   vars = import ../../hosts/${host}/variables.nix;
   inherit
     (vars)
@@ -61,6 +67,11 @@ in {
       #./zen-browser.nix
       ./zoxide.nix
       ./zsh
+      ./chromium.nix
+      ./opencode.nix
+      ./editors/zed.nix
+      ./orca-slicer.nix
+      # ./rquickshare.nix # disabled: upstream Tauri version mismatch
     ]
     ++ (
       if helixEnable
@@ -105,4 +116,10 @@ in {
       then [./terminals/alacritty.nix]
       else []
     );
+
+  # this allows you to access `pkgsUnstable` anywhere in your config
+  _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    inherit (config.nixpkgs) config;
+  };
 }

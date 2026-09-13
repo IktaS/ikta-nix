@@ -27,7 +27,7 @@
       powerline-fonts
       roboto
       roboto-mono
-      symbola
+      nerd-fonts.meslo-lg
       terminus_font
     ];
   };

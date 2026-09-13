@@ -1,5 +1,5 @@
 {
-  description = "ZaneyOS";
+  description = "ikta-nix";
 
   inputs = {
     home-manager = {
@@ -7,12 +7,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix/master";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -36,6 +37,10 @@
       url = "github:SXSLVT/synfetch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     alejandra = {
       url = "github:kamadorueda/alejandra";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,9 +56,9 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    host = "zaneyos-24-vm";
-    profile = "vm";
-    username = "dwilliams";
+    host = "ikta";
+    profile = "nvidia";
+    username = "ikta";
 
     # Deduplicate nixosConfigurations while preserving the top-level 'profile'
     mkNixosConfig = gpuProfile:

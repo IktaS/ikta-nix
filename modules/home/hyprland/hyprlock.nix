@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   username,
   ...
@@ -12,7 +13,7 @@
         hide_cursor = true;
         no_fade_in = false;
       };
-      background = [
+      background = lib.mkDefault [
         {
           path = config.stylix.image;
           blur_passes = 3;
@@ -38,9 +39,9 @@
           monitor = "";
           dots_center = true;
           fade_on_empty = false;
-          font_color = "rgb(CFE6F4)";
-          inner_color = "rgb(657DC2)";
-          outer_color = "rgb(0D0E15)";
+          font_color = lib.mkDefault "rgb(CFE6F4)";
+          inner_color = lib.mkDefault "rgb(657DC2)";
+          outer_color = lib.mkDefault "rgb(0D0E15)";
           outline_thickness = 5;
           placeholder_text = "Password...";
           shadow_passes = 2;

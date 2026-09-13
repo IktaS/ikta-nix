@@ -14,7 +14,7 @@
   weztermEnable = true;
   ghosttyEnable = false;
   vscodeEnable = false;
-  antigravityEnable = false; # Google port of vscodium
+  antigravityEnable = false;
   helixEnable = false;
   doomEmacsEnable = false;
   pythonEnable = false;
@@ -23,12 +23,20 @@
   # You can configure multiple monitors.
   # Inside the quotes, create a new line for each monitor.
   extraMonitorSettings = "
-    monitor=,preferred,auto,auto
+    monitor=DP-2,1920x1080@143.98,0x180,1.0
+    monitor=HDMI-A-1,1920x1080@74.97,1920x0,1.0,transform,3
     monitor=Virtual-1,1920x1080@60,auto,1
+
+    workspace=1,monitor:DP-2,default:true
+    workspace=3,monitor:DP-2,default:true
+    workspace=2,monitor:HDMI-A-1,default:true
   ";
 
   # Extra commands run once at Hyprland startup
-  additionalExecOnceSettings = [];
+  additionalExecOnceSettings = [
+    "[workspace 1 silent] qpwgraph"
+    "[workspace 2 silent] chromium"
+  ];
 
   # Bar/Shell Settings
   # Choose between noctalia or waybar
@@ -36,7 +44,7 @@
 
   # Waybar Settings (used when barChoice = "waybar")
   waybarChoice = ../../modules/home/waybar/waybar-curved.nix;
-  clock24h = false;
+  clock24h = true;
 
   # Program Options
   # Set Default Browser
@@ -69,7 +77,7 @@
   # Set Stylix Image
   # This will set your color palette
   # Add new images to ~/ikta-nix/wallpapers
-  stylixImage = ../../wallpapers/4.jpg;
+  stylixImage = ../../wallpapers/FetUEveUoAA9qnk.jpg;
 
   # Set Animation style
   animChoice = ../../modules/home/hyprland/animations-def.nix;
@@ -82,12 +90,12 @@
   hostId = "5ab03f50";
 
   # Wake on LAN
-  enableWoL = false;
+  enableWoL = true;
   wolInterface = "enp9s0"; # Ethernet interface
 
   # Tailscale VPN mesh
-  enableTailscale = false;
+  enableTailscale = true;
 
   # Sunshine game streaming server
-  enableSunshine = false;
+  enableSunshine = true;
 }

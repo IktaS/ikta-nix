@@ -1,0 +1,6 @@
+# Ignore PLAN.md file
+PLAN.md
+
+# Nix build result symlink
+result
+result-*

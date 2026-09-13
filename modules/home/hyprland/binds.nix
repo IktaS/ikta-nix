@@ -2,49 +2,27 @@
   vars = import ../../../hosts/${host}/variables.nix;
   inherit
     (vars)
-    barChoice
     browser
     terminal
     ;
-  # Noctalia-specific bindings (only included when barChoice == "noctalia")
-  noctaliaBind =
-    if barChoice == "noctalia"
-    then [
-      "$modifier,D, Noctalia Launcher, exec, noctalia-shell ipc call launcher toggle"
-      "$modifier SHIFT,Return, Noctalia Launcher, exec, noctalia-shell ipc call launcher toggle"
-      "$modifier,M, Noctalia Notifications, exec,  noctalia-shell ipc call notifications toggleHistory"
-      "$modifier,V, Noctalia Clipboard, exec,  noctalia-shell ipc call launcher clipboard"
-      "$modifier ALT,P, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
-      "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
-      "$modifier CTRL,L, Noctalia Lock Screen, exec,  noctalia-shell ipc call sessionMenu lockscreen lock"
-      "$modifier SHIFT,W, Noctalia Wallpaper, exec, noctalia-shell ipc call wallpaper toggle"
-      "$modifier,X, Noctalia Power Menu, exec,  noctalia-shell ipc call sessionMenu toggle"
-      "$modifier,C, Noctalia Control Center, exec,  noctalia-shell ipc call controlCenter toggle"
-      "$modifier CTRL,R, Noctalia Screen Recorder, exec,  noctalia-shell ipc call screenRecorder toggle"
-      "$modifier SHIFT,R, Restart Noctalia shell, exec,  restart.noctalia"
-    ]
-    else [];
-  # Rofi launcher bindings (only included when barChoice != "noctalia")
-  rofiBind =
-    if barChoice != "noctalia"
-    then [
-      "$modifier,D, Rofi Launcher, exec, rofi-launcher"
-      "$modifier SHIFT,Return, Rofi Launcher, exec, rofi-launcher"
-    ]
-    else [];
-  # Rofi clipboard binding (only included when barChoice != "noctalia")
-  rofiClipboardBind =
-    if barChoice != "noctalia"
-    then [
-      "$modifier,V, Clipboard History, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-    ]
-    else [];
+  # Noctalia v5 bindings
+  noctaliaBind = [
+    "$modifier,D, Noctalia Launcher, exec, noctalia msg panel-toggle launcher"
+    "$modifier SHIFT,Return, Noctalia Launcher, exec, noctalia msg panel-toggle launcher"
+    "$modifier,M, Noctalia Notifications, exec, noctalia msg notification-dnd-toggle"
+    "$modifier,V, Noctalia Clipboard, exec, noctalia msg panel-toggle clipboard"
+    "$modifier ALT,P, Noctalia Settings, exec, noctalia msg settings-toggle"
+    "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia msg settings-toggle"
+    "$modifier ALT,L, Noctalia Lock Screen, exec, noctalia msg session lock"
+    "$modifier SHIFT,W, Noctalia Wallpaper, exec, noctalia msg panel-toggle wallpaper"
+    "$modifier,X, Noctalia Power Menu, exec, noctalia msg panel-toggle session"
+    "$modifier,C, Noctalia Control Center, exec, noctalia msg panel-toggle control-center"
+    "$modifier CTRL,R, Noctalia Screenshot Region, exec, noctalia msg screenshot-region"
+  ];
 in {
   wayland.windowManager.hyprland.settings = {
     bindd =
       noctaliaBind
-      ++ rofiBind
-      ++ rofiClipboardBind
       ++ [
         # ============= WORKSPACE OVERVIEW =============
         "$modifier CTRL,D, Toggle Dock, exec, dock"
@@ -60,7 +38,7 @@ in {
         "$modifier SHIFT,W, QS Wallpaper Setter, exec, qs-wallpapers-apply"
         "$modifier SHIFT,N, Notification Reset, exec, swaync-client -rs"
         "$modifier,W, Web Browser, exec, ${browser}"
-        "$modifier,Y, File Manager, exec, kitty -e yazi"
+        "$modifier,Y, File Manager, exec, ${terminal} -e yazi"
         "$modifier,E, Emoji Picker, exec, emopicker9000"
         "$modifier,S, Screenshot, exec, screenshootin"
         # ============= SCREENSHOTS =============
@@ -81,7 +59,7 @@ in {
         "$modifier SHIFT,F, Toggle Floating, togglefloating,"
         "$modifier ALT,F, Float All Windows, exec, hyprland-float-all"
         # ============= LAYOUTS =============
-        "$modifier ALT,L, Toggle Layouts, exec, hyprland-change-layout toggle"
+        "$modifier ALT,grave, Toggle Layouts, exec, hyprland-change-layout toggle"
         "$modifier ALT,1, Layout Dwindle, exec, hyprland-change-layout dwindle"
         "$modifier ALT,2, Layout Master, exec, hyprland-change-layout master"
         "$modifier ALT,3, Layout Scrolling, exec, hyprland-change-layout scrolling"

@@ -10,8 +10,20 @@
     graphics.enable = true;
     enableRedistributableFirmware = true;
     keyboard.qmk.enable = true;
-    bluetooth.enable = true;
-    bluetooth.powerOnBoot = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        General = {
+          ControllerMode = "bredr";
+          Experimental = true;
+          KernelExperimental = true;
+        };
+      };
+    };
   };
   local.hardware-clock.enable = false;
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="bluetooth", ATTR{power/control}="on"
+  '';
 }

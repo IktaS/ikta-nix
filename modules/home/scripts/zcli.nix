@@ -129,7 +129,7 @@ in
 
 
     # --- Configuration ---
-    PROJECT="zaneyos"   #ddubos or zaneyos
+    PROJECT="ikta-nix"   #ddubos or ikta-nix
     PROFILE_DEFAULT="${profile}"
     BACKUP_FILES_STR="${backupFilesString}"
     VERSION="1.0.2"
@@ -137,7 +137,6 @@ in
 
     read -r -a BACKUP_FILES <<< "$BACKUP_FILES_STR"
 
-    # --- Helper Functions ---
     get_flake_profile() {
       local flake_profile=""
       if [ -f "$FLAKE_NIX_PATH" ]; then
@@ -145,6 +144,13 @@ in
       fi
       echo "$flake_profile"
     }
+
+    PROFILE="$(get_flake_profile)"
+    if [ -z "$PROFILE" ]; then
+      PROFILE="$PROFILE_DEFAULT"
+    fi
+
+    # --- Helper Functions ---
     verify_hostname() {
       local current_hostname
       local flake_hostname
@@ -237,7 +243,7 @@ in
       local has_intel=false
       local has_amd=false
       local has_vm=false
-      # Prefer hypervisor detection first to avoid misclassifying VMs as AMD
+
       if ${pkgs.systemd}/bin/systemd-detect-virt -q; then
         echo "vm"
         return
@@ -258,8 +264,6 @@ in
               has_nvidia=true
             elif echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'amd\|ati\|advanced micro devices'; then
               has_amd=true
-            elif echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'intel'; then
-              has_intel=true
             elif echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'virtio\|vmware\|virtualbox\|qxl\|hyper-v\|microsoft corporation\|parallels\|qemu\|bochs\|cirrus\|svga\|virtual'; then
               has_vm=true
             fi
@@ -356,10 +360,6 @@ in
     }
 
     # --- Main Logic ---
-    PROFILE="$(get_flake_profile)"
-    if [ -z "$PROFILE" ]; then
-      PROFILE="$PROFILE_DEFAULT"
-    fi
     if [ "$#" -eq 0 ]; then
       echo "Error: No command provided." >&2
       print_help
